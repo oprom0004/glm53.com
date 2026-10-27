@@ -1,0 +1,269 @@
+{
+  "metadata_home": {
+    "title": "WanAI 3.0 — AI Video Generator",
+    "description": "Create AI videos from text, images, and visual references. Explore Wan video generation workflows and start creating with WanAI 3.0."
+  },
+  "metadata_wan3": {
+    "title": "Wan 3.0 AI Video Generator – Generate Videos Now",
+    "description": "Wan 3.0 AI video generation is live. Create text-to-video, image-to-video, and reference-to-video clips up to 1080p. Generate with Wan 3.0 now."
+  },
+  "hero": {
+    "eyebrow": "Wan 3.0 Available · Multimodal Video",
+    "title": "WanAI 3.0 Video Generator",
+    "subtitle": "Built with the Latest Wan 3.0 Technology",
+    "description": "Generate AI videos from text, images, or reference videos. Wan 3.0 supports output up to 1080p and clips up to 30 seconds when no reference video is uploaded.",
+    "create": "Create with Wan 3.0 →",
+    "studio": "View Generator Studio",
+    "shot": "Wan 3.0 Demo Preview",
+    "status": "Live · 1080P",
+    "video_label": "Wan AI video generator output demo preview"
+  },
+  "features": {
+    "eyebrow": "Studio Upgrades · 02",
+    "title": "What’s New in Wan 3.0",
+    "description": "Choose text, image, or reference generation, then set duration, aspect ratio, and resolution. See the credit cost before generating, then play and download the result in My videos.",
+    "duration": {
+      "eyebrow": "Longer Video Generation",
+      "title": "Create Videos Up to 30 Seconds",
+      "description": "Without a reference video, Wan 3.0 can generate up to 30 seconds. With reference videos, input and output duration together must stay within 30 seconds; reference inputs can total up to 15 seconds.",
+      "benefits": [
+        "Choose 480P, 720P, or 1080P output",
+        "Text, image, and reference video inputs",
+        "Reference video duration is included in the credit quote"
+      ],
+      "take": "Take 01",
+      "video_label": "Wan video example"
+    },
+    "continuity": {
+      "eyebrow": "Multi-Subject Consistency",
+      "title": "Guide Characters and Scenes with References",
+      "description": "Upload reference images or short videos to guide the appearance of people, objects, and settings. Clear references and specific prompts help communicate your intent; identity and details can still vary between results.",
+      "benefits": [
+        "Up to 10 images in reference mode",
+        "Up to 5 reference videos, totaling no more than 15 seconds",
+        "Review people, motion, and key details before publishing"
+      ],
+      "frame": "Frame 0{number}",
+      "video_label": "Wan 3.0 character consistency frame 0{number}"
+    },
+    "direction": {
+      "eyebrow": "Creative Control",
+      "title": "Cinematic Camera Movement",
+      "description": "Describe camera movement such as a push-in, pullback, tracking shot, or orbit in your prompt. The resulting movement depends on the prompt, source material, and generation.",
+      "benefits": [
+        "Describe camera direction and subject movement",
+        "Plan short shots around aspect ratio and duration",
+        "Review the result and refine your prompt for another generation"
+      ],
+      "rig": "Camera Rig",
+      "movement": "Orbit · Tracking",
+      "video_label": "Wan 3.0 advanced camera control demo"
+    }
+  },
+  "lineup": {
+    "eyebrow": "Wan Version Lineup",
+    "title": "From Wan 2.5 to Wan 3.0",
+    "description": "Choose a version by input type, output duration, and resolution. The options below describe the features available on this site.",
+    "options_label": "Wan model options",
+    "recommended_label": "Recommended model: {name}",
+    "recommended": "Recommended",
+    "best_for": "Best for",
+    "capabilities": "Included capabilities",
+    "models": {
+      "v25": {
+        "badge": "Available",
+        "eyebrow": "Reliable baseline",
+        "bestFor": "Quick tests",
+        "description": "Generate from text or an image, with 5 / 10-second clips and 720P / 1080P output.",
+        "features": [
+          "720P and 1080P video output",
+          "Text and image to video",
+          "5 / 10-second output"
+        ],
+        "buttonText": "Try Wan 2.5"
+      },
+      "v26": {
+        "badge": "Available",
+        "eyebrow": "Image-led creation",
+        "bestFor": "Text + image",
+        "description": "Generate from text or an image, with 5 / 10 / 15-second clips and 720P / 1080P output.",
+        "features": [
+          "720P and 1080P video output",
+          "Text and image to video",
+          "5 / 10 / 15-second output"
+        ],
+        "buttonText": "Try Wan 2.6"
+      },
+      "v27": {
+        "badge": "Available",
+        "eyebrow": "Production ready",
+        "bestFor": "Stable 1080p",
+        "description": "Generate from text or an image, with 2–15-second clips and 720P / 1080P output.",
+        "features": [
+          "720P and 1080P video output",
+          "Text and image to video",
+          "2–15-second output"
+        ],
+        "buttonText": "Try Wan 2.7"
+      },
+      "v30": {
+        "badge": "Now Live",
+        "eyebrow": "Flagship generation",
+        "bestFor": "Directed 30s video",
+        "description": "Generate from text, images, or visual references with Standard and Prime options. When using reference video, the combined input and output limit is 30 seconds.",
+        "features": [
+          "Up to 30 seconds without reference video",
+          "Text, image, and reference generation",
+          "Reference image and video uploads",
+          "480P, 720P, and 1080P output",
+          "Credit quote before generation"
+        ],
+        "buttonText": "Generate with Wan 3.0"
+      }
+    }
+  },
+  "comparison": {
+    "eyebrow": "Full Comparison",
+    "title": "Compare Wan Models: 2.5 to 3.0",
+    "description": "Compare the features currently connected on this site. Available settings and credit costs are shown in the generator; speed and visual results vary by task.",
+    "spec": "Feature / Spec",
+    "create": "Generate with Wan 3.0 →",
+    "rows": [
+      {
+        "spec": "Output resolution",
+        "v25": "720P / 1080P",
+        "v26": "720P / 1080P",
+        "v27": "720P / 1080P",
+        "v30": "480P / 720P / 1080P"
+      },
+      {
+        "spec": "Output duration",
+        "v25": "5 / 10s",
+        "v26": "5 / 10 / 15s",
+        "v27": "2–15s",
+        "v30": "2–30s; reference video reduces maximum"
+      },
+      {
+        "spec": "Text to video",
+        "v25": "Yes",
+        "v26": "Yes",
+        "v27": "Yes",
+        "v30": "Yes"
+      },
+      {
+        "spec": "Image to video",
+        "v25": "Yes",
+        "v26": "Yes",
+        "v27": "Yes",
+        "v30": "Yes"
+      },
+      {
+        "spec": "Reference image mode",
+        "v25": "Not available",
+        "v26": "Not available",
+        "v27": "Not available",
+        "v30": "Yes"
+      },
+      {
+        "spec": "Reference video uploads",
+        "v25": "Not available",
+        "v26": "Not available",
+        "v27": "Not available",
+        "v30": "Yes"
+      },
+      {
+        "spec": "First and last frame inputs",
+        "v25": "Not available",
+        "v26": "Not available",
+        "v27": "Not available",
+        "v30": "Yes"
+      },
+      {
+        "spec": "Audio or document uploads",
+        "v25": "Not available",
+        "v26": "Not available",
+        "v27": "Not available",
+        "v30": "Not available"
+      }
+    ]
+  },
+  "use_cases": {
+    "eyebrow": "Production Briefs · 04",
+    "title": "Wan 3.0 Use Cases for Creators, Brands, and Teams",
+    "description": "Wan 3.0 helps creators, marketing teams, and production houses turn concepts into polished video deliverables faster.",
+    "shot": "Shot 0{number}",
+    "items": [
+      {
+        "title": "Create Social Videos Faster",
+        "category": "Short-Form Content Creation",
+        "description": "Use Wan 3.0 to turn text prompts or images into short-form videos for TikTok, YouTube Shorts, Reels, and other social platforms. Strong consistency helps creators produce more content effortlessly.",
+        "bullets": [
+          "Text-to-video and image-to-video workflows",
+          "Fast content creation for social platforms",
+          "Better consistency for repeatable video styles"
+        ]
+      },
+      {
+        "title": "Create Product Videos Without Production",
+        "category": "Brand Marketing & Advertising",
+        "description": "Wan 3.0 makes it easier for marketing teams to generate product videos, commercial teasers, and branded visual campaigns online with high-resolution output and realistic movement.",
+        "bullets": [
+          "Product showcase videos and ad creatives",
+          "Brand storytelling and campaign content",
+          "Social ads for e-commerce and DTC brands"
+        ]
+      },
+      {
+        "title": "Turn Scripts into Visual Concepts",
+        "category": "Film & Pre-Visualization",
+        "description": "Wan 3.0 helps directors, filmmakers, and creative teams turn scripts, shot ideas, and scene concepts into visual references. Use it for storyboards, pitch decks, and early camera planning.",
+        "bullets": [
+          "Storyboard and scene visualization",
+          "Shot planning and creative exploration",
+          "Camera movement and scene direction tests"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Production Ready · Wan 3.0",
+    "title": "Generate with Wan 3.0 Today",
+    "description": "Choose text, an image, or a reference video, review the credit quote, and start generating. Play and download completed results in My videos.",
+    "proof": "Up to 1080p · Upfront credit quotes · Video history",
+    "create": "✦ Generate with Wan 3.0 →"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "What is the WanAI 3.0 Video Generator?",
+        "a": "WanAI is an independent AI video creation website offering Wan models. Generate short clips from text, images, and reference videos, then view and download results in My videos."
+      },
+      {
+        "q": "What can I create with Wan 3.0?",
+        "a": "Wan 3.0 can be used for product videos, ads, social content, cinematic scenes, explainers, concept videos, and reference-driven creative projects."
+      },
+      {
+        "q": "How long can Wan 3.0 videos be?",
+        "a": "Without a reference video, Wan 3.0 can generate up to 30 seconds. With reference videos, input and output duration together must stay within 30 seconds; reference inputs can total up to 15 seconds."
+      },
+      {
+        "q": "Does Wan 3.0 support 1080p video?",
+        "a": "Yes. Wan 3.0 supports video output up to 1080p, making it suitable for product content, advertising, websites, presentations, and other higher-resolution workflows."
+      },
+      {
+        "q": "What types of input does Wan 3.0 support?",
+        "a": "The current inputs are text prompts, JPG / PNG / WebP images, and MP4 / MOV reference videos. Images are limited to 10 MiB each. Reference videos are limited to 100 MiB each, 1–15 seconds per clip, and 15 seconds total. Audio and document uploads are not currently available on this site."
+      },
+      {
+        "q": "Can I turn an image into a video with Wan 3.0?",
+        "a": "Yes. Upload an image and describe the motion, camera direction, environment, and ending you want. Wan 3.0 can use the image as visual guidance for the generated video."
+      },
+      {
+        "q": "Can Wan 3.0 generate videos with native audio?",
+        "a": "Audio generation is enabled for current Wan 3.0 requests. You can describe ambience or sound effects in your prompt, but the model determines the result. Separate audio editing and audio uploads are not available on this site."
+      }
+    ]
+  }
+}

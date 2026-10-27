@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "check": "/sign-in Google first; missing config reported without fake login",
+      "pass": true
+    },
+    {
+      "check": "/sign-up Google first; missing config reported without fake login",
+      "pass": true
+    },
+    {
+      "check": "Standard, Prime, and supported resolution selectable",
+      "pass": true
+    },
+    {
+      "check": "Generator opens modal with Google first",
+      "pass": true
+    },
+    {
+      "check": "Simulated OAuth notification without a session rejected",
+      "pass": true
+    },
+    {
+      "check": "Simulated OAuth session completion closes modal without reload or draft loss",
+      "pass": true
+    },
+    {
+      "check": "Generation remains blocked when actual AI service is unconfigured",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "realGoogleLoginTested": false
+}

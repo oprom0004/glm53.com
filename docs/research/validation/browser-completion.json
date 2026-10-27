@@ -1,0 +1,94 @@
+{
+  "results": [
+    {
+      "check": "registration-and-callback",
+      "pass": true
+    },
+    {
+      "url": "/settings/tasks",
+      "status": 200,
+      "final": "/settings/tasks"
+    },
+    {
+      "url": "/settings/credits",
+      "status": 200,
+      "final": "/settings/credits"
+    },
+    {
+      "url": "/settings/billing",
+      "status": 200,
+      "final": "/settings/billing"
+    },
+    {
+      "url": "/settings/profile",
+      "status": 200,
+      "final": "/settings/profile"
+    },
+    {
+      "url": "/admin/settings/setup",
+      "status": 200,
+      "final": "/no-permission"
+    },
+    {
+      "check": "standalone-signin",
+      "pass": true
+    },
+    {
+      "check": "modal-signin-preserves-draft",
+      "pass": true
+    },
+    {
+      "check": "change-password",
+      "pass": true
+    },
+    {
+      "check": "old-password-rejected-new-password-accepted",
+      "pass": true
+    },
+    {
+      "check": "reset-email-unconfigured-does-not-claim-sent",
+      "pass": true
+    },
+    {
+      "url": "/",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "url": "/wan-3",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "url": "/pricing",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "url": "/sign-in",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "url": "/",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "url": "/wan-3",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "url": "/pricing",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "url": "/sign-in",
+      "width": 1440,
+      "scroll": 1440
+    }
+  ],
+  "errors": []
+}

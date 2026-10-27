@@ -1,0 +1,151 @@
+import moment from 'moment';
+import { getTranslations } from 'next-intl/server';
+
+import { Empty } from '@/shared/blocks/common';
+import { FormCard } from '@/shared/blocks/form';
+import { findSubscriptionBySubscriptionNo } from '@/shared/models/subscription';
+import { getUserInfo } from '@/shared/models/user';
+import {
+  cancelSubscriptionForUser,
+  getPaymentService,
+} from '@/shared/services/payment';
+import { Crumb } from '@/shared/types/blocks/common';
+import { Form } from '@/shared/types/blocks/form';
+
+export default async function CancelBillingPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ subscription_no: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: 'settings.billing.cancel',
+  });
+  const { subscription_no } = await searchParams;
+
+  if (!subscription_no) {
+    return <Empty message="invalid subscription no" />;
+  }
+
+  const user = await getUserInfo();
+  if (!user) {
+    return <Empty message="no auth, please sign in" />;
+  }
+
+  const subscription = await findSubscriptionBySubscriptionNo(subscription_no);
+  if (!subscription) {
+    return <Empty message="subscription not found" />;
+  }
+
+  if (!subscription.paymentProvider || !subscription.subscriptionId) {
+    return <Empty message="subscription with no payment subscription id" />;
+  }
+
+  if (subscription.userId !== user.id) {
+    return <Empty message="no permission" />;
+  }
+
+  const paymentService = await getPaymentService();
+  const paymentProvider = paymentService.getProvider(
+    subscription.paymentProvider
+  );
+  if (!paymentProvider) {
+    return <Empty message="payment provider not found" />;
+  }
+
+  const crumb: Crumb[] = [
+    {
+      title: t('crumbs.settings'),
+      url: '/settings',
+    },
+    {
+      title: t('crumbs.billing'),
+      url: '/settings/billing',
+    },
+    {
+      title: t('crumbs.cancel'),
+      is_active: true,
+    },
+  ];
+
+  const handleCancelSubscription = async () => {
+    'use server';
+
+    const currentUser = await getUserInfo();
+    if (!currentUser) {
+      throw new Error('no auth');
+    }
+    await cancelSubscriptionForUser({
+      subscriptionNo: subscription_no,
+      userId: currentUser.id,
+      paymentManager: await getPaymentService(),
+    });
+    const actionT = await getTranslations('settings.billing.cancel');
+    return {
+      status: 'success' as const,
+      message: actionT('success'),
+      redirect_url: '/settings/billing',
+    };
+  };
+
+  const form: Form = {
+    fields: [
+      {
+        name: 'subscriptionNo',
+        title: t('fields.subscription_no'),
+        type: 'text',
+        attributes: { disabled: true },
+      },
+      {
+        name: 'subAmount',
+        title: t('fields.subscription_amount'),
+        value: `${subscription.amount ? subscription.amount / 100 : 0} ${subscription.currency}`,
+        attributes: { disabled: true },
+      },
+      {
+        name: 'intervalTip',
+        title: t('fields.interval_cycle'),
+        value: ['month', 'year'].includes(subscription.interval)
+          ? t(`cycles.${subscription.interval}`, {
+              count: subscription.intervalCount || 1,
+            })
+          : `${subscription.intervalCount} ${subscription.interval}`,
+        attributes: { disabled: true },
+      },
+      {
+        name: 'subscriptionCreatedAt',
+        title: t('fields.subscription_created_at'),
+        value: moment(subscription.createdAt).format('YYYY-MM-DD'),
+        attributes: { disabled: true },
+      },
+      {
+        name: 'currentPeriod',
+        title: t('fields.current_period'),
+        value: `${moment(subscription.currentPeriodStart).format('YYYY-MM-DD')} ~ ${moment(subscription.currentPeriodEnd).format('YYYY-MM-DD')}`,
+        attributes: { disabled: true },
+      },
+    ],
+    data: subscription,
+    submit: {
+      handler: handleCancelSubscription,
+      button: {
+        title: t('buttons.confirm_cancel'),
+        variant: 'destructive',
+      },
+    },
+  };
+
+  return (
+    <div className="space-y-8">
+      <FormCard
+        title={t('title')}
+        description={t('description')}
+        form={form}
+        crumbs={crumb}
+      />
+    </div>
+  );
+}

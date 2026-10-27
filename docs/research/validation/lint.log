@@ -1,0 +1,416 @@
+
+> wanai30@1.0.0 lint I:\jp\code\wanai30.com
+> eslint .
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+
+I:\jp\code\wanai30.com\scripts\with-env.ts
+  80:10  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\categories\add\page.tsx
+  69:29  warning  'passby' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\chats\page.tsx
+  7:25  warning  'Tab' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\posts\add\page.tsx
+  109:29  warning  'passby' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\roles\[id]\edit-permissions\page.tsx
+  102:20  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\settings\[tab]\page.tsx
+  63:47  warning  'passby' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\users\[id]\edit-roles\page.tsx
+    6:3   warning  'requirePermission' is defined but never used  @typescript-eslint/no-unused-vars
+   86:29  warning  'passby' is defined but never used             @typescript-eslint/no-unused-vars
+  103:20  warning  'error' is defined but never used              @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(admin)\admin\users\[id]\grant-credits\page.tsx
+  85:29  warning  'passby' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(chat)\chat\[id]\page.tsx
+  82:6  warning  React Hook useEffect has a missing dependency: 'fetchChat'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\app\[locale]\(docs)\layout.config.tsx
+  7:29  warning  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(landing)\activity\ai-tasks\[id]\refresh\page.tsx
+  17:9  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(landing)\activity\chats\page.tsx
+   7:3   warning  'ChatStatus' is defined but never used  @typescript-eslint/no-unused-vars
+  12:18  warning  'Tab' is defined but never used         @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(landing)\settings\apikeys\[id]\edit\page.tsx
+  76:15  warning  'key' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(landing)\settings\billing\retrieve\page.tsx
+  19:11  warning  'locale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(landing)\settings\invoices\retrieve\page.tsx
+   6:3   warning  'Order' is defined but never used            @typescript-eslint/no-unused-vars
+  19:11  warning  'locale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\[locale]\(landing)\settings\security\page.tsx
+   6:20  warning  'ButtonType' is defined but never used     @typescript-eslint/no-unused-vars
+  17:9   warning  'form' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\chat\messages\route.ts
+  2:10  warning  'ChatStatus' is defined but never used     @typescript-eslint/no-unused-vars
+  2:22  warning  'getChats' is defined but never used       @typescript-eslint/no-unused-vars
+  2:32  warning  'getChatsCount' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\chat\new\route.ts
+  33:11  warning  'parts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\chat\route.ts
+   6:3   warning  'stepCountIs' is defined but never used         @typescript-eslint/no-unused-vars
+   8:3   warning  'TextUIPart' is defined but never used          @typescript-eslint/no-unused-vars
+   9:3   warning  'tool' is defined but never used                @typescript-eslint/no-unused-vars
+  11:3   warning  'validateUIMessages' is defined but never used  @typescript-eslint/no-unused-vars
+  13:10  warning  'z' is defined but never used                   @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\config\get-configs\route.ts
+  4:28  warning  'req' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\docs\search\route.ts
+  8:20  warning  'originalSource' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\user\get-user-credits\route.ts
+  5:28  warning  'req' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\app\api\user\get-user-info\route.ts
+  7:28  warning  'req' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\components\wan\wan-session-sync.tsx
+  43:6  warning  React Hook useEffect has a missing dependency: 'sessionUser'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\core\auth\config.ts
+  173:15  warning  '_request' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\core\db\index.ts
+   54:28  warning  '_args' is defined but never used  @typescript-eslint/no-unused-vars
+  138:22  warning  '_args' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\core\i18n\request.ts
+  21:12  warning  'e' is defined but never used    @typescript-eslint/no-unused-vars
+  28:14  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+  74:12  warning  'e' is defined but never used    @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\core\rbac\permission.ts
+  272:3  warning  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+  292:3  warning  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\ai\fal.ts
+  316:5  warning  'mediaType' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\ai\gemini.ts
+  94:13  warning  'image_input' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\ai\kie.ts
+  1:10  warning  'nanoid' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\ai\replicate.ts
+   14:3   warning  'AISong' is defined but never used          @typescript-eslint/no-unused-vars
+   59:48  warning  'async' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  254:5   warning  'mediaType' is defined but never used       @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\payment\creem.ts
+  200:5  warning  'returnUrl' is defined but never used            @typescript-eslint/no-unused-vars
+  339:9  warning  'billingUrl' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\payment\paypal.ts
+  581:16  warning  'captureError' is defined but never used  @typescript-eslint/no-unused-vars
+  597:17  warning  '_customerId' is defined but never used   @typescript-eslint/no-unused-vars
+  598:16  warning  '_returnUrl' is defined but never used    @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\extensions\payment\stripe-settlement.test.ts
+  466:16  warning  '_locale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\mdx-components.tsx
+  95:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  95:9  warning  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images                                                                                                                                                                                jsx-a11y/alt-text
+
+I:\jp\code\wanai30.com\src\shared\blocks\chat\box.tsx
+  21:11  warning  'chat' is assigned a value but never used                                                                   @typescript-eslint/no-unused-vars
+  47:6   warning  React Hook useEffect has a missing dependency: 'setChat'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\chat\generator.tsx
+  99:6  warning  React Hook useEffect has a missing dependency: 'setChat'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\chat\history.tsx
+    5:10  warning  'IconHistory' is defined but never used                 @typescript-eslint/no-unused-vars
+   35:10  warning  'formatDate' is defined but never used                  @typescript-eslint/no-unused-vars
+   56:9   warning  'locale' is assigned a value but never used             @typescript-eslint/no-unused-vars
+   74:10  warning  'hasMore' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  184:9   warning  'handleLimitSelect' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  191:9   warning  'from' is assigned a value but never used               @typescript-eslint/no-unused-vars
+  198:9   warning  'to' is assigned a value but never used                 @typescript-eslint/no-unused-vars
+  279:9   warning  'showFooter' is assigned a value but never used         @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\chat\input.tsx
+   5:28  warning  'GlobeIcon' is defined but never used                        @typescript-eslint/no-unused-vars
+  10:3   warning  'PromptInputActionAddAttachments' is defined but never used  @typescript-eslint/no-unused-vars
+  11:3   warning  'PromptInputActionMenu' is defined but never used            @typescript-eslint/no-unused-vars
+  12:3   warning  'PromptInputActionMenuContent' is defined but never used     @typescript-eslint/no-unused-vars
+  13:3   warning  'PromptInputActionMenuTrigger' is defined but never used     @typescript-eslint/no-unused-vars
+  14:3   warning  'PromptInputAttachment' is defined but never used            @typescript-eslint/no-unused-vars
+  15:3   warning  'PromptInputAttachments' is defined but never used           @typescript-eslint/no-unused-vars
+  17:3   warning  'PromptInputButton' is defined but never used                @typescript-eslint/no-unused-vars
+  19:3   warning  'PromptInputHeader' is defined but never used                @typescript-eslint/no-unused-vars
+  37:10  warning  'useChatContext' is defined but never used                   @typescript-eslint/no-unused-vars
+  78:21  warning  'setWebSearch' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  90:20  warning  'err' is defined but never used                              @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\chat\library.tsx
+   7:3   warning  'IconFolder' is defined but never used                                                                                                @typescript-eslint/no-unused-vars
+   9:3   warning  'IconPencil' is defined but never used                                                                                                @typescript-eslint/no-unused-vars
+  10:3   warning  'IconShare3' is defined but never used                                                                                                @typescript-eslint/no-unused-vars
+  11:3   warning  'IconTrash' is defined but never used                                                                                                 @typescript-eslint/no-unused-vars
+  12:8   warning  'Icon' is defined but never used                                                                                                      @typescript-eslint/no-unused-vars
+  18:3   warning  'DropdownMenu' is defined but never used                                                                                              @typescript-eslint/no-unused-vars
+  19:3   warning  'DropdownMenuContent' is defined but never used                                                                                       @typescript-eslint/no-unused-vars
+  20:3   warning  'DropdownMenuItem' is defined but never used                                                                                          @typescript-eslint/no-unused-vars
+  21:3   warning  'DropdownMenuSeparator' is defined but never used                                                                                     @typescript-eslint/no-unused-vars
+  22:3   warning  'DropdownMenuTrigger' is defined but never used                                                                                       @typescript-eslint/no-unused-vars
+  28:3   warning  'SidebarMenuAction' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+  37:11  warning  'isMobile' is assigned a value but never used                                                                                         @typescript-eslint/no-unused-vars
+  47:16  warning  'setPage' is assigned a value but never used                                                                                          @typescript-eslint/no-unused-vars
+  48:17  warning  'setLimit' is assigned a value but never used                                                                                         @typescript-eslint/no-unused-vars
+  84:6   warning  React Hook useEffect has missing dependencies: 'fetchChats', 'limit', and 'page'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\chat\suggestions.tsx
+   5:10  warning  'useChatContext' is defined but never used  @typescript-eslint/no-unused-vars
+  19:34  warning  'suggestion' is defined but never used      @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\audio-player.tsx
+   4:23  warning  'Volume2' is defined but never used                      @typescript-eslint/no-unused-vars
+   4:32  warning  'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  62:9   warning  'handleVolumeChange' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  72:9   warning  'toggleMute' is assigned a value but never used          @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\image-uploader.tsx
+  504:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\lazy-image.tsx
+  14:3  warning  'title' is defined but never used     @typescript-eslint/no-unused-vars
+  15:3  warning  'fill' is defined but never used      @typescript-eslint/no-unused-vars
+  16:3  warning  'priority' is defined but never used  @typescript-eslint/no-unused-vars
+  17:3  warning  'sizes' is defined but never used     @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\markdown-editor.tsx
+  34:6  warning  React Hook useEffect has missing dependencies: 'minHeight', 'onChange', 'placeholder', 'showToolbar', and 'value'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\mdx-content.tsx
+  3:21  warning  'MDXRemoteProps' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\pagination.tsx
+   28:3  warning  'perPage' is defined but never used  @typescript-eslint/no-unused-vars
+  143:3  warning  'url' is defined but never used      @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\common\tabs.tsx
+  26:10  warning  'tab' is assigned a value but never used                                                                                @typescript-eslint/no-unused-vars
+  26:15  warning  'setTab' is assigned a value but never used                                                                             @typescript-eslint/no-unused-vars
+  37:6   warning  React Hook useEffect has missing dependencies: 'router' and 'tabs'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\console\layout.tsx
+  19:3   warning  'description' is defined but never used              @typescript-eslint/no-unused-vars
+  33:23  warning  'setSearchQuery' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\dashboard\header.tsx
+  12:3  warning  'BreadcrumbLink' is defined but never used  @typescript-eslint/no-unused-vars
+  23:3  warning  'title' is defined but never used           @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\dashboard\nav.tsx
+  28:9  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\dashboard\sidebar-header.tsx
+   2:10  warning  'LazyImage' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  28:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\shared\blocks\dashboard\sidebar-user.tsx
+   75:6  warning  React Hook useEffect has a missing dependency: 'fetchConfigs'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+  121:6  warning  React Hook useEffect has a missing dependency: 'session?.user'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\checkbox.tsx
+  10:3  warning  'data' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\form-card.tsx
+   9:3  warning  'BreadcrumbLink' is defined but never used  @typescript-eslint/no-unused-vars
+  20:3  warning  'CardFooter' is defined but never used      @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\index.tsx
+    3:10  warning  'isArray' is defined but never used      @typescript-eslint/no-unused-vars
+   23:10  warning  'Label' is defined but never used        @typescript-eslint/no-unused-vars
+  186:3   warning  'title' is defined but never used        @typescript-eslint/no-unused-vars
+  187:3   warning  'description' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\input.tsx
+  14:3  warning  'data' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+  32:5  warning  React Hook useCallback has a missing dependency: 'formField'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\markdown.tsx
+  10:3  warning  'data' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\select.tsx
+  16:3  warning  'data' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\switch.tsx
+   8:3  warning  'field' is defined but never used  @typescript-eslint/no-unused-vars
+  10:3  warning  'data' is defined but never used   @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\form\upload-image.tsx
+  22:3  warning  'data' is defined but never used                @typescript-eslint/no-unused-vars
+  24:3  warning  'uploadUrl' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  25:3  warning  'onUpload' is defined but never used            @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\generator\image.tsx
+  436:5  warning  React Hook useCallback has a missing dependency: 'fetchUserCredits'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\generator\music.tsx
+   44:11  warning  'SongData' is defined but never used                                                                               @typescript-eslint/no-unused-vars
+   83:20  warning  'setProvider' is assigned a value but never used                                                                   @typescript-eslint/no-unused-vars
+  245:6   warning  React Hook useEffect has a missing dependency: 'pollTaskStatus'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\generator\video.tsx
+  439:5  warning  React Hook useCallback has a missing dependency: 'fetchUserCredits'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\payment\payment-providers.tsx
+   7:10  warning  'RiGithubFill' is defined but never used                    @typescript-eslint/no-unused-vars
+   7:24  warning  'RiGoogleFill' is defined but never used                    @typescript-eslint/no-unused-vars
+  10:10  warning  'signIn' is defined but never used                          @typescript-eslint/no-unused-vars
+  23:3   warning  'setLoading' is defined but never used                      @typescript-eslint/no-unused-vars
+  36:9   warning  't' is assigned a value but never used                      @typescript-eslint/no-unused-vars
+  38:9   warning  'router' is assigned a value but never used                 @typescript-eslint/no-unused-vars
+  40:11  warning  'setIsShowPaymentModal' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\sign\sign-in-form.tsx
+  80:23  warning  'ctx' is defined but never used  @typescript-eslint/no-unused-vars
+  83:24  warning  'ctx' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\sign\sign-user.tsx
+  79:6  warning  React Hook useEffect has a missing dependency: 'fetchConfigs'. Either include it or remove the dependency array    react-hooks/exhaustive-deps
+  84:6  warning  React Hook useEffect has a missing dependency: 'setIsCheckSign'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  99:6  warning  React Hook useEffect has a missing dependency: 'showOneTap'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\sign\verify-email.tsx
+   97:6  warning  React Hook useMemo has an unnecessary dependency: 'email'. Either exclude it or remove the dependency array                 react-hooks/exhaustive-deps
+  147:6  warning  React Hook useEffect has a missing dependency: 'hardNavigateToNextUrl'. Either include it or remove the dependency array    react-hooks/exhaustive-deps
+  175:6  warning  React Hook useEffect has a missing dependency: 'checkSessionAndRedirect'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  199:6  warning  React Hook useEffect has a missing dependency: 'checkSessionAndRedirect'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\blocks\table\copy.tsx
+  10:3  warning  'placeholder' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\table\dropdown.tsx
+  18:3  warning  'placeholder' is defined but never used  @typescript-eslint/no-unused-vars
+  19:3  warning  'metadata' is defined but never used     @typescript-eslint/no-unused-vars
+  20:3  warning  'className' is defined but never used    @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\table\index.tsx
+   7:3   warning  'TableFooter' is defined but never used                                                                      @typescript-eslint/no-unused-vars
+  27:3   warning  'pagination' is defined but never used                                                                       @typescript-eslint/no-unused-vars
+  68:23  warning  Image elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+
+I:\jp\code\wanai30.com\src\shared\blocks\table\json-preview.tsx
+   4:3   warning  'metadata' is defined but never used  @typescript-eslint/no-unused-vars
+  27:12  warning  'error' is defined but never used     @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\blocks\table\user.tsx
+   1:8  warning  'moment' is defined but never used    @typescript-eslint/no-unused-vars
+  15:3  warning  'metadata' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\components\ai-elements\message.tsx
+  191:9   warning  The 'childrenArray' conditional could make the dependencies of useEffect Hook (at line 198) change on every render. To fix this, wrap the initialization of 'childrenArray' in its own useMemo() Hook                                                                                    react-hooks/exhaustive-deps
+  219:3   warning  'className' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  220:3   warning  'from' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  266:3   warning  'className' is defined but never used                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  352:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\shared\components\ai-elements\model-selector.tsx
+  168:3  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\shared\components\ai-elements\prompt-input.tsx
+  297:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  332:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  545:9   warning  The 'add' conditional could make the dependencies of useEffect Hook (at line 614) change on every render. To fix this, wrap the initialization of 'add' in its own useMemo() Hook                                                                                                        react-hooks/exhaustive-deps
+  545:9   warning  The 'add' conditional could make the dependencies of useEffect Hook (at line 638) change on every render. To fix this, wrap the initialization of 'add' in its own useMemo() Hook                                                                                                        react-hooks/exhaustive-deps
+  545:9   warning  The 'add' conditional could make the dependencies of useMemo Hook (at line 677) change on every render. To fix this, wrap the initialization of 'add' in its own useMemo() Hook                                                                                                          react-hooks/exhaustive-deps
+  549:9   warning  The 'remove' conditional could make the dependencies of useMemo Hook (at line 677) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'remove' in its own useMemo() Hook                                                             react-hooks/exhaustive-deps
+  560:9   warning  The 'clear' conditional could make the dependencies of useMemo Hook (at line 677) change on every render. To fix this, wrap the initialization of 'clear' in its own useMemo() Hook                                                                                                      react-hooks/exhaustive-deps
+  572:9   warning  The 'openFileDialog' conditional could make the dependencies of useMemo Hook (at line 677) change on every render. Move it inside the useMemo callback. Alternatively, wrap the initialization of 'openFileDialog' in its own useMemo() Hook                                             react-hooks/exhaustive-deps
+  699:26  warning  'id' is defined but never used                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  731:16  warning  'error' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\components\magicui\avatar-circles.tsx
+  29:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\shared\components\magicui\particles.tsx
+  129:6  warning  React Hook useEffect has missing dependencies: 'animate' and 'initCanvas'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  133:6  warning  React Hook useEffect has a missing dependency: 'onMouseMove'. Either include it or remove the dependency array                 react-hooks/exhaustive-deps
+  137:6  warning  React Hook useEffect has a missing dependency: 'initCanvas'. Either include it or remove the dependency array                  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\components\ui\animated-grid-pattern.tsx
+  37:3   warning  'repeatDelay' is assigned a value but never used                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  79:6   warning  React Hook useEffect has a missing dependency: 'generateSquares'. Either include it or remove the dependency array                                                                                                                                                       react-hooks/exhaustive-deps
+  98:47  warning  The ref value 'containerRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'containerRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+I:\jp\code\wanai30.com\src\shared\components\ui\text-effect.tsx
+  178:17  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\contexts\app.tsx
+  140:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\lib\rate-limit.ts
+  21:3  warning  Unused eslint-disable directive (no problems were reported from 'no-var')
+
+I:\jp\code\wanai30.com\src\shared\models\chat_message.ts
+  1:27  warning  'desc' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\models\order.ts
+  25:3  warning  'updateSubscriptionBySubscriptionNo' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\models\post.tsx
+  312:7   warning  'categories' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  321:17  warning  'localPostsCount' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  322:17  warning  'localCategories' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  323:22  warning  'localCategoriesCount' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  340:17  warning  'remotePostsCount' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  456:3   warning  'categoryPrefix' is assigned a value but never used        @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\services\payment.ts
+   28:3   warning  'findOrderByOrderNo' is defined but never used  @typescript-eslint/no-unused-vars
+  736:27  warning  '_start' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  737:25  warning  '_end' is assigned a value but never used       @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\services\subscription-plans.ts
+  38:24  warning  '_serverOnly' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\shared\types\blocks\landing.d.ts
+  15:23  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+  35:23  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+I:\jp\code\wanai30.com\src\themes\default\blocks\blog-detail.tsx
+  106:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\themes\default\blocks\blog.tsx
+  78:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+I:\jp\code\wanai30.com\src\themes\default\blocks\page-detail.tsx
+  1:24  warning  'TimerIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\themes\default\blocks\subscribe.tsx
+  42:30  warning  'data' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\themes\default\pages\dynamic-page.tsx
+   5:3   warning  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+  47:24  warning  'error' is defined but never used   @typescript-eslint/no-unused-vars
+
+I:\jp\code\wanai30.com\src\themes\default\pages\static-page.tsx
+  5:3  warning  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 217 problems (0 errors, 217 warnings)
+  0 errors and 3 warnings potentially fixable with the `--fix` option.
+

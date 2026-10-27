@@ -1,0 +1,28 @@
+{
+  "fields": {
+    "transaction_no": "交易单号",
+    "description": "描述",
+    "type": "类型",
+    "scene": "场景",
+    "credits": "积分",
+    "expires_at": "过期时间",
+    "created_at": "创建时间",
+    "action": "操作"
+  },
+  "list": {
+    "title": "积分记录",
+    "tabs": {
+      "all": "全部",
+      "grant": "授予",
+      "consume": "消费"
+    }
+  },
+  "view": {
+    "credits_tip": "永久积分包不会过期。订阅积分在账期或服务月结束时过期，不结转。系统优先使用临期积分；年付额度在每个服务月发放。",
+    "title": "积分余额",
+    "buttons": {
+      "purchase": "购买积分"
+    }
+  },
+  "annual_monthly_scene": "年付订阅 · 月度额度"
+}

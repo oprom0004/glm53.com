@@ -1,0 +1,68 @@
+
+> wanai30@1.0.0 rbac:init I:\jp\code\wanai30.com
+> tsx scripts/with-env.ts npx tsx scripts/init-rbac.ts
+
+📄 Loading environment from: .env
+▶️  Executing: npx tsx scripts/init-rbac.ts
+
+🚀 Starting RBAC initialization...
+
+📝 Creating permissions...
+   ✓ Created permission: admin.access
+   ✓ Created permission: admin.users.read
+   ✓ Created permission: admin.users.write
+   ✓ Created permission: admin.users.delete
+   ✓ Created permission: admin.posts.read
+   ✓ Created permission: admin.posts.write
+   ✓ Created permission: admin.posts.delete
+   ✓ Created permission: admin.categories.read
+   ✓ Created permission: admin.categories.write
+   ✓ Created permission: admin.categories.delete
+   ✓ Created permission: admin.payments.read
+   ✓ Created permission: admin.subscriptions.read
+   ✓ Created permission: admin.credits.read
+   ✓ Created permission: admin.credits.write
+   ✓ Created permission: admin.apikeys.read
+   ✓ Created permission: admin.apikeys.write
+   ✓ Created permission: admin.apikeys.delete
+   ✓ Created permission: admin.settings.read
+   ✓ Created permission: admin.settings.write
+   ✓ Created permission: admin.roles.read
+   ✓ Created permission: admin.roles.write
+   ✓ Created permission: admin.roles.delete
+   ✓ Created permission: admin.permissions.read
+   ✓ Created permission: admin.permissions.write
+   ✓ Created permission: admin.permissions.delete
+   ✓ Created permission: admin.ai-tasks.read
+   ✓ Created permission: admin.ai-tasks.write
+   ✓ Created permission: admin.ai-tasks.delete
+   ✓ Created permission: *
+
+✅ Created 29 permissions
+
+👥 Creating roles...
+   ✓ Created role: super_admin
+   ✓ Assigned 1 permissions to super_admin
+   ✓ Created role: admin
+   ✓ Assigned 10 permissions to admin
+   ✓ Created role: editor
+   ✓ Assigned 5 permissions to editor
+   ✓ Created role: viewer
+   ✓ Assigned 7 permissions to viewer
+
+✅ Created 4 roles
+
+ℹ️  To assign super_admin role to a user, run:
+   npx tsx scripts/init-rbac.ts --admin-email=your@email.com
+
+✅ RBAC initialization completed successfully!
+
+📊 Summary:
+   - Permissions: 29
+   - Roles: 4
+
+💡 Next steps:
+   1. Run database migrations if needed
+   2. Assign roles to users via admin panel or this script
+   3. Test permissions in the admin area
+

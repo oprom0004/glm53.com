@@ -1,0 +1,71 @@
+{
+  "fields": {
+    "subscription_no": "Subscription No",
+    "interval": "Interval",
+    "provider": "Provider",
+    "current_period": "Current Period",
+    "plan": "Plan",
+    "status": "Status",
+    "amount": "Amount",
+    "created_at": "Created At",
+    "end_time": "End Time",
+    "action": "Action"
+  },
+  "view": {
+    "credits_tip": "Subscription credits expire at the end of their paid billing period. Permanent credit packs are separate and remain available without a subscription.",
+    "annual_credits_tip": "Your annual plan releases {credits} credits each service month, not all at once. Unused monthly credits expire without rollover. Canceling renewal preserves the remaining paid year's monthly allowances.",
+    "payment_attention": "This subscription needs attention. Manage your subscription to review payment or end future renewal.",
+    "title": "Current Plan",
+    "tip": "Your subscription will auto renew on {date}",
+    "end_tip": "Your subscription will be auto canceled on {date}",
+    "no_subscription": "No plan",
+    "buttons": {
+      "adjust": "Buy permanent credits",
+      "subscribe": "Subscribe",
+      "manage": "Manage Subscription",
+      "cancel": "Cancel Subscription"
+    }
+  },
+  "list": {
+    "title": "Subscriptions History",
+    "tabs": {
+      "all": "All",
+      "active": "Active",
+      "pending_cancel": "Pending Cancel",
+      "canceled": "Canceled",
+      "trialing": "Trialing",
+      "paused": "Paused",
+      "expired": "Expired"
+    }
+  },
+  "cancel": {
+    "title": "Cancel Subscription",
+    "description": "Stop future renewal? Your paid period stays available. Annual plans keep the remaining paid year's monthly allowances, each expiring at its service month end. This is not a refund.",
+    "success": "Subscription renewal stopped",
+    "cycles": {
+      "month": "Every {count} month(s)",
+      "year": "Every {count} year(s)"
+    },
+    "fields": {
+      "subscription_no": "Subscription No",
+      "subscription_amount": "Subscription Amount",
+      "interval_cycle": "Interval Cycle",
+      "subscription_created_at": "Subscription Created At",
+      "current_period": "Current Period",
+      "start_at": "Start At",
+      "end_at": "End At"
+    },
+    "crumbs": {
+      "settings": "Settings",
+      "billing": "Billing",
+      "cancel": "Cancel Subscription"
+    },
+    "buttons": {
+      "confirm_cancel": "Stop future renewal"
+    }
+  },
+  "cycles": {
+    "month": "Every {count} month(s)",
+    "year": "Every {count} year(s)"
+  }
+}

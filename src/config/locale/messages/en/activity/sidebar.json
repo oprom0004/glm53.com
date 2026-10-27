@@ -1,0 +1,26 @@
+{
+  "title": "My Videos",
+  "nav": {
+    "items": [
+      {
+        "title": "My Videos",
+        "url": "/my-videos",
+        "icon": "Film"
+      }
+    ]
+  },
+  "top_nav": {
+    "items": [
+      {
+        "title": "My Videos",
+        "url": "/my-videos",
+        "icon": "Film"
+      },
+      {
+        "title": "Settings",
+        "url": "/settings",
+        "icon": "Settings"
+      }
+    ]
+  }
+}

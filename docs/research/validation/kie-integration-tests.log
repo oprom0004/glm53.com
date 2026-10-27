@@ -1,0 +1,130 @@
+TAP version 13
+# Subtest: Kie submits exact Wan fields and bearer auth, including first/last and reference modes
+ok 1 - Kie submits exact Wan fields and bearer auth, including first/last and reference modes
+  ---
+  duration_ms: 64.1193
+  type: 'test'
+  ...
+# Subtest: Kie maps Prime and normalizes origin or versioned endpoints
+ok 2 - Kie maps Prime and normalizes origin or versioned endpoints
+  ---
+  duration_ms: 1.9999
+  type: 'test'
+  ...
+# Subtest: invalid models and mixed media are rejected before contacting Kie
+ok 3 - invalid models and mixed media are rejected before contacting Kie
+  ---
+  duration_ms: 0.9031
+  type: 'test'
+  ...
+# Subtest: Kie definite rejections differ from ambiguous transport and response failures
+ok 4 - Kie definite rejections differ from ambiguous transport and response failures
+  ---
+  duration_ms: 2.7915
+  type: 'test'
+  ...
+# Subtest: Kie query validates task and model before trusting terminal status or output
+ok 5 - Kie query validates task and model before trusting terminal status or output
+  ---
+  duration_ms: 2.9248
+  type: 'test'
+  ...
+# Subtest: Wan 3 submission uses the approved endpoint, normalized key and exact payload once
+ok 6 - Wan 3 submission uses the approved endpoint, normalized key and exact payload once
+  ---
+  duration_ms: 65.5475
+  type: 'test'
+  ...
+# Subtest: Wan 2 image submission uses the videos endpoint and only one first frame
+ok 7 - Wan 2 image submission uses the videos endpoint and only one first frame
+  ---
+  duration_ms: 1.2037
+  type: 'test'
+  ...
+# Subtest: invalid input and unsafe configuration fail before HTTP and never expose secrets
+ok 8 - invalid input and unsafe configuration fail before HTTP and never expose secrets
+  ---
+  duration_ms: 1.0197
+  type: 'test'
+  ...
+# Subtest: query normalizes processing, success and definite failure without downloading output
+ok 9 - query normalizes processing, success and definite failure without downloading output
+  ---
+  duration_ms: 3.3277
+  type: 'test'
+  ...
+# Subtest: HTTP and network failures return stable safe errors without retrying
+ok 10 - HTTP and network failures return stable safe errors without retrying
+  ---
+  duration_ms: 1.3175
+  type: 'test'
+  ...
+# Subtest: setup checklist identifies each missing dependency without contacting a provider
+ok 11 - setup checklist identifies each missing dependency without contacting a provider
+  ---
+  duration_ms: 1.9161
+  type: 'test'
+  ...
+# Subtest: setup checklist never serializes secrets and rejects malformed configured values
+ok 12 - setup checklist never serializes secrets and rejects malformed configured values
+  ---
+  duration_ms: 0.5963
+  type: 'test'
+  ...
+# Subtest: a paid task keeps its model mapping and refuses to poll a different gateway
+ok 13 - a paid task keeps its model mapping and refuses to poll a different gateway
+  ---
+  duration_ms: 5505.8024
+  type: 'test'
+  ...
+# Subtest: duplicate submissions create one durable task, charge once and call Polaris once
+ok 14 - duplicate submissions create one durable task, charge once and call Polaris once
+  ---
+  duration_ms: 28.7702
+  type: 'test'
+  ...
+# Subtest: insufficient credits never contact Polaris or leave a task row
+ok 15 - insufficient credits never contact Polaris or leave a task row
+  ---
+  duration_ms: 20.0585
+  type: 'test'
+  ...
+# Subtest: definite rejection refunds exactly once while unknown submission keeps the debit reserved
+ok 16 - definite rejection refunds exactly once while unknown submission keeps the debit reserved
+  ---
+  duration_ms: 49.6624
+  type: 'test'
+  ...
+# Subtest: polling saves a successful video once and denies cross-user reads
+ok 17 - polling saves a successful video once and denies cross-user reads
+  ---
+  duration_ms: 38.2542
+  type: 'test'
+  ...
+# Subtest: Kie task snapshots survive provider selection changes and complete exactly once
+ok 18 - Kie task snapshots survive provider selection changes and complete exactly once
+  ---
+  duration_ms: 49.6947
+  type: 'test'
+  ...
+# Subtest: Kie definite rejection refunds once and task cannot later be overwritten
+ok 19 - Kie definite rejection refunds once and task cannot later be overwritten
+  ---
+  duration_ms: 37.0894
+  type: 'test'
+  ...
+# Subtest: Kie endpoint changes suspend polling without refund or another submission
+ok 20 - Kie endpoint changes suspend polling without refund or another submission
+  ---
+  duration_ms: 31.1458
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9224.5466

@@ -1,0 +1,28 @@
+{
+  "fields": {
+    "transaction_no": "Transaction No",
+    "description": "Description",
+    "type": "Type",
+    "scene": "Scene",
+    "credits": "Credits",
+    "expires_at": "Expires At",
+    "created_at": "Created At",
+    "action": "Action"
+  },
+  "list": {
+    "title": "Credits Records",
+    "tabs": {
+      "all": "All",
+      "grant": "Grant",
+      "consume": "Consume"
+    }
+  },
+  "view": {
+    "credits_tip": "Permanent credit packs never expire. Subscription credits expire at billing or service month end, with no rollover. Expiring credits are used first; annual allowances are released each service month.",
+    "title": "Credits Balance",
+    "buttons": {
+      "purchase": "Purchase Credits"
+    }
+  },
+  "annual_monthly_scene": "Annual subscription · monthly allowance"
+}

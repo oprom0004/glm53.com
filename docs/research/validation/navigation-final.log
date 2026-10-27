@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: desktop and mobile navigation reach every Wan version, pricing and sign-in
+ok 1 - desktop and mobile navigation reach every Wan version, pricing and sign-in
+  ---
+  duration_ms: 40.0815
+  type: 'test'
+  ...
+# Subtest: navigation includes authenticated account target and keyboard-close behavior
+ok 2 - navigation includes authenticated account target and keyboard-close behavior
+  ---
+  duration_ms: 2.902
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1999.5927

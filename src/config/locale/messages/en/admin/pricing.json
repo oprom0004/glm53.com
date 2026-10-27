@@ -1,0 +1,72 @@
+{
+  "title": "Pricing and credits",
+  "description": "Only super administrators can edit these nine products. Changes apply to new purchases only; existing orders and subscriptions keep their original price and credit allowance.",
+  "stripe_note": "Currency, billing intervals and credit expiry policies stay unchanged. A custom monthly price uses a new dynamic Stripe price rather than the default plan's saved Price ID. API keys stay in payment settings.",
+  "tiers": { "starter": "Starter", "creator": "Creator", "pro": "Pro" },
+  "modes": {
+    "monthly": {
+      "title": "Monthly subscriptions",
+      "description": "Charge once per month. Credits follow the paid billing period.",
+      "price": "Monthly price (USD)",
+      "credits": "Credits per month"
+    },
+    "annual": {
+      "title": "Annual subscriptions",
+      "description": "Charge the full year up front. Release the configured credit allowance each month, not all at once.",
+      "price": "Annual price (USD)",
+      "credits": "Credits per month"
+    },
+    "credits": {
+      "title": "Permanent credit packs",
+      "description": "One-time purchase. These credits never expire.",
+      "price": "Pack price (USD)",
+      "credits": "Credits per pack"
+    }
+  },
+  "save": "Save pricing and credits",
+  "saved": "Pricing saved. New purchases use these prices and credit allowances.",
+  "reloaded": "Saved values loaded. You can edit them now.",
+  "ready": "All nine products are saved together. USD prices support up to two decimal places.",
+  "unsaved": "You have unsaved pricing changes.",
+  "reload": "Discard edits and load saved values",
+  "reload_warning": "Loading saved values replaces your unsaved edits. Copy any values you want to keep before continuing.",
+  "sign_in": "Sign in again",
+  "leave_title": "Leave pricing settings?",
+  "leave_description": "Your unsaved pricing and credit changes will be lost.",
+  "leave_pending": "A request is still running and may complete on the server. Reload saved values before making another change.",
+  "keep_editing": "Keep editing",
+  "leave": "Leave settings",
+  "video": {
+    "title": "Video generation credit cost",
+    "jump": "Configure video credits per second ↓",
+    "description": "Set credits per second by video version, generation mode and resolution. Super administrators only. Save separately from product prices and purchased credits above.",
+    "policy": "Total cost = credits per second × video duration, rounded up once for the whole video. For example, 3.5 × 3 seconds = 11 credits. New tasks use saved rates; existing charges and refunds stay unchanged.",
+    "ready": "All 24 rates are saved together. Existing or default rates apply until saved; save a blank to disable that specification. Wan 2.5 1080P is disabled by default.",
+    "save": "Save video credit costs",
+    "saved": "Video rates saved. New tasks use these rates for quotes and charges.",
+    "unit": "credits/second",
+    "text": "Text to video",
+    "image": "Image to video",
+    "rate_tip": "Use whole or half credits, or an exact fraction such as 50/7. Result must be 1–99,999.5; leave blank to disable.",
+    "environment_override": "Read-only environment override. Change or remove the environment variable to use the admin value.",
+    "invalid_rate": "Enter a rate from 1 to 99,999.5, such as 5, 3.5 or 50/7; leave blank to disable.",
+    "groups": {
+      "wan25": "Wan 2.5",
+      "wan26": "Wan 2.6",
+      "wan27": "Wan 2.7",
+      "wan30_standard": "Wan 3.0 Standard",
+      "wan30_prime": "Wan 3.0 Prime"
+    }
+  },
+  "errors": {
+    "pricing_environment_override": "A rate is controlled by an environment variable. Reload the saved configuration; admin values cannot override the environment.",
+    "invalid_price": "Enter $0.01–$999,999.99 using up to two decimal places and a decimal point.",
+    "invalid_credits": "Enter a whole number from 1 to 1,000,000,000, without separators.",
+    "pricing_invalid": "Check the highlighted fields. Pricing has not been changed.",
+    "pricing_conflict": "Pricing was changed by another administrator. Load the saved values before making another change.",
+    "pricing_unknown": "These changes may have been saved, but confirmation was not received. Load saved values before saving again.",
+    "pricing_unavailable": "Could not load saved pricing. Your edits are still here; try loading again when the connection is available.",
+    "pricing_forbidden": "Only super administrators can change pricing. Your access has changed; these edits were not saved.",
+    "pricing_unauthorized": "Your session has expired. Sign in again before changing pricing. Keep a copy of any unsaved edits."
+  }
+}

@@ -1,0 +1,113 @@
+'use client';
+
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+
+import { Button as AppButton } from '@/shared/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/shared/components/ui/dialog';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from '@/shared/components/ui/drawer';
+import { useAppContext } from '@/shared/contexts/app';
+import { useMediaQuery } from '@/shared/hooks/use-media-query';
+
+import { SignInForm } from './sign-in-form';
+import { SignUpForm } from './sign-up-form';
+
+export function SignModal({ callbackUrl = '/' }: { callbackUrl?: string }) {
+  const t = useTranslations('common.sign');
+  const { isShowSignModal, setIsShowSignModal } = useAppContext();
+  const [mode, setMode] = useState<'sign-in' | 'sign-up'>('sign-in');
+
+  const [emailSelected, setEmailSelected] = useState(false);
+  const switchEmailMode = (next: 'sign-in' | 'sign-up') => {
+    setEmailSelected(true);
+    setMode(next);
+  };
+
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  const handleOpenChange = (open: boolean) => {
+    setIsShowSignModal(open);
+    if (!open) {
+      setMode('sign-in');
+      setEmailSelected(false);
+    }
+  };
+
+  const title = mode === 'sign-in' ? t('sign_in_title') : t('sign_up_title');
+  const description =
+    mode === 'sign-in' ? t('sign_in_description') : t('sign_up_description');
+
+  const formContent =
+    mode === 'sign-in' ? (
+      <SignInForm
+        callbackUrl={callbackUrl}
+        defaultEmailExpanded={emailSelected}
+        onSwitchToSignUp={() => switchEmailMode('sign-up')}
+      />
+    ) : (
+      <SignUpForm
+        callbackUrl={callbackUrl}
+        defaultEmailExpanded={emailSelected}
+        onSwitchToSignIn={() => switchEmailMode('sign-in')}
+      />
+    );
+
+  if (isDesktop) {
+    return (
+      <Dialog open={isShowSignModal} onOpenChange={handleOpenChange}>
+        <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>{title}</DialogTitle>
+            <DialogDescription>{description}</DialogDescription>
+          </DialogHeader>
+          {formContent}
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  return (
+    <Drawer open={isShowSignModal} onOpenChange={handleOpenChange}>
+      <DrawerContent className="max-h-[90dvh] overflow-y-auto">
+        <DrawerHeader className="text-left">
+          <DrawerTitle>{title}</DrawerTitle>
+          <DrawerDescription>{description}</DrawerDescription>
+        </DrawerHeader>
+        {mode === 'sign-in' ? (
+          <SignInForm
+            callbackUrl={callbackUrl}
+            defaultEmailExpanded={emailSelected}
+            className="mt-8 px-4"
+            onSwitchToSignUp={() => switchEmailMode('sign-up')}
+          />
+        ) : (
+          <SignUpForm
+            callbackUrl={callbackUrl}
+            defaultEmailExpanded={emailSelected}
+            className="mt-8 px-4"
+            onSwitchToSignIn={() => switchEmailMode('sign-in')}
+          />
+        )}
+        <DrawerFooter className="pt-4">
+          <DrawerClose asChild>
+            <AppButton variant="outline">{t('cancel_title')}</AppButton>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+}

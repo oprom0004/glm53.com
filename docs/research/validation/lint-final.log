@@ -1,0 +1,8 @@
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+
+I:\jp\code\wanai30.com\src\core\db\index.ts
+   54:28  warning  '_args' is defined but never used  @typescript-eslint/no-unused-vars
+  138:22  warning  '_args' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+

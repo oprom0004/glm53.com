@@ -1,0 +1,10 @@
+{
+  "results": [
+    "sign-in: Google first, clean initial state, email disclosure, submit validation, draft preserved",
+    "sign-up: Google first, clean initial state, email disclosure, submit validation, draft preserved",
+    "Email sign-in / signup link keeps email open and return URL",
+    "Modal default, click-only Google error, email mode switch, close/reopen and prompt retention",
+    "360px page and drawer usable"
+  ],
+  "errors": []
+}

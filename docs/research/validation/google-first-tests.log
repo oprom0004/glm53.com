@@ -1,0 +1,190 @@
+TAP version 13
+# Subtest: Wan 2.5 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 1 - Wan 2.5 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 1379.8468
+  type: 'test'
+  ...
+# Subtest: Wan 2.6 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 2 - Wan 2.6 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 59.4544
+  type: 'test'
+  ...
+# Subtest: Wan 2.7 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 3 - Wan 2.7 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 41.679
+  type: 'test'
+  ...
+# Subtest: Wan 3.0 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 4 - Wan 3.0 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 64.8769
+  type: 'test'
+  ...
+# Subtest: anonymous generation opens sign-in before validating or making any quote/upload/submit request
+ok 5 - anonymous generation opens sign-in before validating or making any quote/upload/submit request
+  ---
+  duration_ms: 32.7017
+  type: 'test'
+  ...
+# Subtest: server insufficient credits opens the en pricing route
+ok 6 - server insufficient credits opens the en pricing route
+  ---
+  duration_ms: 60.4382
+  type: 'test'
+  ...
+# Subtest: server insufficient credits opens the zh pricing route
+ok 7 - server insufficient credits opens the zh pricing route
+  ---
+  duration_ms: 61.5288
+  type: 'test'
+  ...
+# Subtest: old quote response after account switch cannot submit or redirect the new owner
+ok 8 - old quote response after account switch cannot submit or redirect the new owner
+  ---
+  duration_ms: 42.4889
+  type: 'test'
+  ...
+# Subtest: old insufficient response after account switch cannot submit or redirect the new owner
+ok 9 - old insufficient response after account switch cannot submit or redirect the new owner
+  ---
+  duration_ms: 36.5015
+  type: 'test'
+  ...
+# Subtest: account change while an image upload is pending prevents remaining uploads and submission
+ok 10 - account change while an image upload is pending prevents remaining uploads and submission
+  ---
+  duration_ms: 82.5726
+  type: 'test'
+  ...
+# Subtest: unknown submission is owner scoped and can only query the original task instead of generating twice
+ok 11 - unknown submission is owner scoped and can only query the original task instead of generating twice
+  ---
+  duration_ms: 77.1561
+  type: 'test'
+  ...
+# Subtest: blocked local storage cannot turn a successful task into failure
+ok 12 - blocked local storage cannot turn a successful task into failure
+  ---
+  duration_ms: 54.9396
+  type: 'test'
+  ...
+# Subtest: a rejected balance refresh cannot discard a successful task or mark it failed
+ok 13 - a rejected balance refresh cannot discard a successful task or mark it failed
+  ---
+  duration_ms: 5.0263
+  type: 'test'
+  ...
+# Subtest: HTTP 5xx retains the original identity across account switch and never restores another owner task
+ok 14 - HTTP 5xx retains the original identity across account switch and never restores another owner task
+  ---
+  duration_ms: 57.9768
+  type: 'test'
+  ...
+# Subtest: unmount during a quote never continues to upload or submit
+ok 15 - unmount during a quote never continues to upload or submit
+  ---
+  duration_ms: 25.338
+  type: 'test'
+  ...
+# Subtest: Wan 2.5 renders its real constraints without Prime, reference mode or 1080P
+ok 16 - Wan 2.5 renders its real constraints without Prime, reference mode or 1080P
+  ---
+  duration_ms: 24.4256
+  type: 'test'
+  ...
+# Subtest: Wan 3.0 exposes all modes and tiers with a direct generation action
+ok 17 - Wan 3.0 exposes all modes and tiers with a direct generation action
+  ---
+  duration_ms: 5.4447
+  type: 'test'
+  ...
+# Subtest: generator supplies Chinese labels and never includes trial-credit marketing
+ok 18 - generator supplies Chinese labels and never includes trial-credit marketing
+  ---
+  duration_ms: 7.4322
+  type: 'test'
+  ...
+# Subtest: generation hook gates sign-in, blocks duplicate quotes and surfaces safe task failure
+ok 19 - generation hook gates sign-in, blocks duplicate quotes and surfaces safe task failure
+  ---
+  duration_ms: 67.9746
+  type: 'test'
+  ...
+# Subtest: saved Google credentials register the provider and expose readiness without its secret
+ok 20 - saved Google credentials register the provider and expose readiness without its secret
+  ---
+  duration_ms: 1.8917
+  type: 'test'
+  ...
+# Subtest: disabled or incomplete Google configuration cannot register a sign-in provider
+ok 21 - disabled or incomplete Google configuration cannot register a sign-in provider
+  ---
+  duration_ms: 0.2263
+  type: 'test'
+  ...
+# Subtest: Google secret stays blank in the admin view and survives an empty settings save
+ok 22 - Google secret stays blank in the admin view and survives an empty settings save
+  ---
+  duration_ms: 1.0106
+  type: 'test'
+  ...
+# Subtest: 登录校验会同时指出无效邮箱和空密码
+ok 23 - 登录校验会同时指出无效邮箱和空密码
+  ---
+  duration_ms: 2.7173
+  type: 'test'
+  ...
+# Subtest: 登录校验接受格式正确的邮箱和非空密码
+ok 24 - 登录校验接受格式正确的邮箱和非空密码
+  ---
+  duration_ms: 0.2946
+  type: 'test'
+  ...
+# Subtest: 注册校验要求姓名、八位密码和一致的确认密码
+ok 25 - 注册校验要求姓名、八位密码和一致的确认密码
+  ---
+  duration_ms: 0.2139
+  type: 'test'
+  ...
+# Subtest: 注册校验接受完整且有效的账户信息
+ok 26 - 注册校验接受完整且有效的账户信息
+  ---
+  duration_ms: 0.1804
+  type: 'test'
+  ...
+# Subtest: 认证回调只接受站内绝对路径
+ok 27 - 认证回调只接受站内绝对路径
+  ---
+  duration_ms: 0.3301
+  type: 'test'
+  ...
+# Subtest: auth readiness exposes only fully configured and explicitly enabled providers
+ok 28 - auth readiness exposes only fully configured and explicitly enabled providers
+  ---
+  duration_ms: 2.7503
+  type: 'test'
+  ...
+# Subtest: auth readiness hides disabled providers even when credentials exist
+ok 29 - auth readiness hides disabled providers even when credentials exist
+  ---
+  duration_ms: 0.2851
+  type: 'test'
+  ...
+# Subtest: email auth defaults on when the setting has not been configured
+ok 30 - email auth defaults on when the setting has not been configured
+  ---
+  duration_ms: 0.3538
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8550.5239

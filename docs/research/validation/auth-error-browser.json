@@ -1,0 +1,10 @@
+[
+  {
+    "check": "unconfigured-google-shows-recoverable-error",
+    "pass": true
+  },
+  {
+    "check": "invalid-reset-token-rejected",
+    "pass": true
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "title": "我的视频",
+  "nav": {
+    "items": [
+      {
+        "title": "我的视频",
+        "url": "/my-videos",
+        "icon": "Film"
+      }
+    ]
+  },
+  "top_nav": {
+    "items": [
+      {
+        "title": "我的视频",
+        "url": "/my-videos",
+        "icon": "Film"
+      },
+      {
+        "title": "设置",
+        "url": "/settings",
+        "icon": "Settings"
+      }
+    ]
+  }
+}

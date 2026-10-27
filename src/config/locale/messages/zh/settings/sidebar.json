@@ -1,0 +1,46 @@
+{
+  "title": "设置",
+  "nav": {
+    "items": [
+      {
+        "title": "个人资料",
+        "url": "/settings/profile",
+        "icon": "User"
+      },
+      {
+        "title": "账户安全",
+        "url": "/settings/security",
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "账单",
+        "url": "/settings/billing",
+        "icon": "CreditCard"
+      },
+      {
+        "title": "支付",
+        "url": "/settings/payments",
+        "icon": "DollarSign"
+      },
+      {
+        "title": "积分",
+        "url": "/settings/credits",
+        "icon": "Coins"
+      }
+    ]
+  },
+  "top_nav": {
+    "items": [
+      {
+        "title": "我的视频",
+        "url": "/my-videos",
+        "icon": "Film"
+      },
+      {
+        "title": "设置",
+        "url": "/settings",
+        "icon": "Settings"
+      }
+    ]
+  }
+}

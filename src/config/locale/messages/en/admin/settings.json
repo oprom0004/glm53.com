@@ -1,0 +1,116 @@
+{
+  "groups": {
+    "email_auth": "Email Auth",
+    "google_auth": "Google Auth",
+    "google_auth_description": "Create an OAuth client of type Web application in Google Cloud, enter its Client ID and Client Secret below, then enable Google sign-in. Email sign-in can stay enabled. Save these settings separately in each environment.",
+    "github_auth": "Github Auth",
+    "basic_payment": "Basic Payment",
+    "stripe": "Stripe",
+    "creem": "Creem",
+    "paypal": "Paypal",
+    "resend": "Resend",
+    "r2": "Cloudflare R2",
+    "r2_description": "Store input images and generated videos in Cloudflare R2. Configure S3 credentials, the bucket and its public domain.",
+    "s3": "AWS S3",
+    "openrouter": "OpenRouter",
+    "polaris": "Wan video API (Polaris / compatible gateway)",
+    "polaris_description": "Configure any Wan-compatible API key, endpoint and model IDs. Separate OpenRouter, Replicate, Fal, Gemini and Kie settings remain available below; their protocols are not interchangeable.",
+    "replicate": "Replicate",
+    "fal": "Fal",
+    "google_analytics": "Google Analytics",
+    "clarity": "Clarity",
+    "plausible": "Plausible",
+    "openpanel": "OpenPanel",
+    "vercel_analytics": "Vercel Analytics",
+    "adsense": "Adsense",
+    "affonso": "Affonso",
+    "promotekit": "PromoteKit",
+    "tawk": "Tawk",
+    "crisp": "Crisp",
+    "credit": "Credit",
+    "appinfo": "App Info",
+    "user_role": "User Role"
+  },
+  "edit": {
+    "title": "Settings",
+    "crumbs": {
+      "admin": "Admin",
+      "settings": "Settings"
+    },
+    "tabs": {
+      "general": "General",
+      "auth": "Auth",
+      "payment": "Payment",
+      "credit": "Credit",
+      "email": "Email",
+      "storage": "Storage",
+      "ai": "AI",
+      "analytics": "Analytics",
+      "ads": "Ads",
+      "affiliate": "Affiliate",
+      "customer_service": "Customer Service",
+      "setup": "Setup checklist"
+    },
+    "buttons": {
+      "submit": "Save"
+    }
+  },
+  "secrets": {
+    "clear_title": "Clear saved secret",
+    "clear_tip": "Turn this on and save changes to remove the stored value."
+  },
+  "google": {
+    "fields": {
+      "google_auth_enabled": {
+        "title": "Enable Google sign-in",
+        "tip": "The Google button appears on sign-in and sign-up pages only when this is enabled and both credentials are present. Turning this off does not disable email sign-in."
+      },
+      "google_one_tap_enabled": {
+        "title": "Enable Google One Tap (optional)",
+        "tip": "Not required for standard Google sign-in. For One Tap, also register the matching JavaScript origin in Google Cloud: http://localhost:3000 or https://wanai30.com."
+      },
+      "google_client_id": {
+        "title": "Google Client ID",
+        "tip": "Use an OAuth Web client ID, not a Gemini API key. Register these exact authorized redirect URIs in Google Cloud: local http://localhost:3000/api/auth/callback/google; production https://wanai30.com/api/auth/callback/google. Do not append /zh or a trailing slash."
+      },
+      "google_client_secret": {
+        "title": "Google Client Secret",
+        "tip": "Use the secret paired with this Client ID. It is server-only and stored values are never sent back to the browser. Leave blank to keep the saved value; use the clear switch and save to remove it."
+      }
+    }
+  },
+  "polaris": {
+    "settings_errors": {
+      "invalid_base_url": "Enter a public HTTPS endpoint without credentials, query parameters or fragments.",
+      "invalid_api_key": "The API key must not contain whitespace or a Bearer prefix.",
+      "invalid_model_id": "One or more model IDs are invalid. Use identifiers supplied by the provider.",
+      "invalid_r2_settings": "Check the 32-character Account ID, bucket name, S3 endpoint and upload path.",
+      "invalid_output_hosts": "Enter exact download hostnames without a protocol, path or wildcard.",
+      "invalid_price": "Wan prices must be whole or half credits from 1 to 99,999.5, or blank to disable.",
+      "invalid_settings": "The settings are invalid. Check the values and save again."
+    },
+    "check": {
+      "title": "Check Wan API models",
+      "description": "Read /v1/models using the saved API key and endpoint. Model IDs can be entered manually if the provider does not support model discovery.",
+      "button": "Check models",
+      "idle": "No request is made until you start the check.",
+      "loading": "Checking the API…",
+      "success": "Found {count} Wan models.",
+      "empty": "The connection succeeded, but no supported Wan models were returned.",
+      "list_label": "Wan models returned by the API",
+      "errors": {
+        "unauthenticated": "Your session expired. Sign in and try again.",
+        "forbidden": "You do not have permission to check these settings.",
+        "missing_key": "Save a Wan API key before checking models.",
+        "invalid_base_url": "The saved base URL is invalid.",
+        "invalid_api_key": "The saved API key format is invalid.",
+        "invalid_key": "The provider rejected the saved API key.",
+        "access_denied": "The saved API key cannot list models.",
+        "rate_limited": "The API is rate limiting checks. Try again later.",
+        "unavailable": "The API is unavailable or does not support model discovery. Check the endpoint or enter model IDs manually.",
+        "timeout": "The API check timed out. Try again.",
+        "invalid_response": "The API returned an invalid response."
+      }
+    }
+  }
+}

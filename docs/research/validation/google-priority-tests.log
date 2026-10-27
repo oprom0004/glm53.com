@@ -1,0 +1,71 @@
+TAP version 13
+# Subtest: 登录校验会同时指出无效邮箱和空密码
+ok 1 - 登录校验会同时指出无效邮箱和空密码
+  ---
+  duration_ms: 3.0019
+  type: 'test'
+  ...
+# Subtest: 登录校验接受格式正确的邮箱和非空密码
+ok 2 - 登录校验接受格式正确的邮箱和非空密码
+  ---
+  duration_ms: 3.8327
+  type: 'test'
+  ...
+# Subtest: 注册校验要求姓名、八位密码和一致的确认密码
+ok 3 - 注册校验要求姓名、八位密码和一致的确认密码
+  ---
+  duration_ms: 0.336
+  type: 'test'
+  ...
+# Subtest: 注册校验接受完整且有效的账户信息
+ok 4 - 注册校验接受完整且有效的账户信息
+  ---
+  duration_ms: 0.3356
+  type: 'test'
+  ...
+# Subtest: 认证回调只接受站内绝对路径
+ok 5 - 认证回调只接受站内绝对路径
+  ---
+  duration_ms: 0.5937
+  type: 'test'
+  ...
+# a [Error]: ENVIRONMENT_FALLBACK
+#     at <anonymous> (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\use-intl@4.3.6_react@19.2.1\\node_modules\\use-intl\\dist\\esm\\production\\react.js:1:1025)
+#     at p (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\use-intl@4.3.6_react@19.2.1\\node_modules\\use-intl\\dist\\esm\\production\\react.js:1:1202)
+#     at <anonymous> (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\next-intl@4.3.6_next@16.0.7_52319db9b6415cc19c8758ee3bc99a97\\node_modules\\next-intl\\dist\\esm\\production\\react-client\\index.js:1:126)
+#     at SocialProviders (I:\\jp\\code\\wanai30.com\\src\\shared\\blocks\\sign\\social-providers.tsx:29:13)
+#     at Object.react_stack_bottom_frame (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\react-dom@19.2.1_react@19.2.1\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:25904:20)
+#     at renderWithHooks (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\react-dom@19.2.1_react@19.2.1\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:7662:22)
+#     at updateFunctionComponent (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\react-dom@19.2.1_react@19.2.1\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:10166:19)
+#     at beginWork (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\react-dom@19.2.1_react@19.2.1\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:11778:18)
+#     at runWithFiberInDEV (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\react-dom@19.2.1_react@19.2.1\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:871:30)
+#     at performUnitOfWork (I:\\jp\\code\\wanai30.com\\node_modules\\.pnpm\\react-dom@19.2.1_react@19.2.1\\node_modules\\react-dom\\cjs\\react-dom-client.development.js:17641:22) {
+#   code: 'ENVIRONMENT_FALLBACK'
+# }
+# Subtest: Google remains visible without credentials and does not start unavailable OAuth
+ok 6 - Google remains visible without credentials and does not start unavailable OAuth
+  ---
+  duration_ms: 1410.2217
+  type: 'test'
+  ...
+# Subtest: OAuth notification without a server session cannot complete sign-in
+ok 7 - OAuth notification without a server session cannot complete sign-in
+  ---
+  duration_ms: 17.3131
+  type: 'test'
+  ...
+# Subtest: valid OAuth completion refreshes the shared session and completes the modal once
+ok 8 - valid OAuth completion refreshes the shared session and completes the modal once
+  ---
+  duration_ms: 10.2744
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4098.1164

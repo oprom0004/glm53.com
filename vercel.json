@@ -1,0 +1,44 @@
+{
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "framework": "nextjs",
+  "git": {
+    "deploymentEnabled": {
+      "release/wanai-integration-20260927": false,
+      "fix/production-operations": false,
+      "feat/kie-wan2": false,
+      "feat/dark-default": false,
+      "fix/production-acceptance": false,
+      "fix/upload-signing": false,
+      "fix/contact-email": false
+    }
+  },
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=4096",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  },
+  "functions": {
+    "src/app/api/cron/**/*.ts": {
+      "maxDuration": 300
+    },
+    "src/app/api/**/*.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/ai/**/*.ts": {
+      "maxDuration": 300
+    },
+    "src/app/api/payment/**/*.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/storage/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "crons": [
+    { "path": "/api/cron/wan-videos", "schedule": "0 3 * * *" },
+    { "path": "/api/cron/annual-credits", "schedule": "0 4 * * *" },
+    { "path": "/api/cron/upload-parts", "schedule": "0 5 * * *" }
+  ]
+}

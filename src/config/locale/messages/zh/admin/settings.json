@@ -1,0 +1,116 @@
+{
+  "groups": {
+    "email_auth": "邮箱认证",
+    "google_auth": "Google认证",
+    "google_auth_description": "在 Google Cloud 控制台创建“Web 应用”类型的 OAuth 客户端，填写下方 Client ID 和 Client Secret，然后启用 Google 登录。邮箱登录可继续保留；各环境需要分别保存配置。",
+    "github_auth": "Github认证",
+    "basic_payment": "基础支付",
+    "stripe": "Stripe",
+    "creem": "Creem",
+    "paypal": "Paypal",
+    "resend": "Resend",
+    "r2": "Cloudflare R2",
+    "r2_description": "输入图片和生成视频统一保存到 Cloudflare R2。请填写 S3 访问密钥、存储桶和公开访问域名。",
+    "s3": "AWS S3",
+    "openrouter": "OpenRouter",
+    "polaris": "Wan 视频接口（Polaris / 兼容网关）",
+    "polaris_description": "可填写 Polaris 或其他兼容 Wan 协议的 API Key、接口地址和模型 ID。OpenRouter、Replicate、Fal、Gemini、Kie 的独立接口配置在下方保留；各自协议不互换。",
+    "replicate": "Replicate",
+    "fal": "Fal",
+    "google_analytics": "谷歌分析",
+    "clarity": "Clarity",
+    "plausible": "Plausible",
+    "openpanel": "OpenPanel",
+    "vercel_analytics": "Vercel Analytics",
+    "adsense": "Adsense",
+    "affonso": "Affonso",
+    "promotekit": "PromoteKit",
+    "tawk": "Tawk",
+    "crisp": "Crisp",
+    "credit": "积分",
+    "appinfo": "应用信息",
+    "user_role": "用户角色"
+  },
+  "edit": {
+    "title": "设置",
+    "crumbs": {
+      "admin": "管理后台",
+      "settings": "设置"
+    },
+    "tabs": {
+      "general": "通用",
+      "auth": "认证",
+      "payment": "支付",
+      "credit": "积分",
+      "email": "邮箱",
+      "storage": "存储",
+      "ai": "AI",
+      "analytics": "分析",
+      "ads": "广告",
+      "affiliate": "联盟营销",
+      "customer_service": "客服",
+      "setup": "配置检查"
+    },
+    "buttons": {
+      "submit": "保存"
+    }
+  },
+  "secrets": {
+    "clear_title": "清除已保存的密钥",
+    "clear_tip": "开启后保存即可删除当前已保存的值。"
+  },
+  "google": {
+    "fields": {
+      "google_auth_enabled": {
+        "title": "启用 Google 登录",
+        "tip": "开启且两项凭据均已填写后，登录和注册页面才会显示 Google 授权按钮。关闭此开关不会影响邮箱登录。"
+      },
+      "google_one_tap_enabled": {
+        "title": "启用 Google One Tap（可选）",
+        "tip": "普通 Google 授权登录不需要开启。使用 One Tap 时，还需在 Google 控制台配置对应的 JavaScript 来源：http://localhost:3000 或 https://wanai30.com。"
+      },
+      "google_client_id": {
+        "title": "Google 客户端 ID（Client ID）",
+        "tip": "填写 OAuth Web 客户端 ID，不是 Gemini API Key。Google 控制台的授权重定向 URI 必须完全匹配：本地 http://localhost:3000/api/auth/callback/google；生产 https://wanai30.com/api/auth/callback/google。不添加 /zh 或末尾斜杠。"
+      },
+      "google_client_secret": {
+        "title": "Google 客户端密钥（Client Secret）",
+        "tip": "填写与 Client ID 配套的密钥，仅供服务端使用。已保存的密钥不会回填到浏览器；留空保存会保留原值，开启清除开关后保存才会删除。"
+      }
+    }
+  },
+  "polaris": {
+    "settings_errors": {
+      "invalid_base_url": "请填写公开的 HTTPS 接口地址，不要包含密钥、查询参数或片段。",
+      "invalid_api_key": "API 密钥格式无效，请勿包含空格或 Bearer 前缀。",
+      "invalid_model_id": "一个或多个模型 ID 无效，请使用供应商提供的模型标识。",
+      "invalid_r2_settings": "R2 配置格式无效，请检查 32 位 Account ID、存储桶名、S3 端点和上传路径。",
+      "invalid_output_hosts": "视频下载域名格式无效，请填写完整主机名，不要包含协议、路径或通配符。",
+      "invalid_price": "Wan 单价必须为 1 至 99,999.5 的整数或半积分，留空表示禁用。",
+      "invalid_settings": "配置无效，请检查后保存。"
+    },
+    "check": {
+      "title": "检查 Wan 接口模型",
+      "description": "使用已保存的 API Key 和接口地址读取 /v1/models。不支持模型列表的供应商可手动填写模型 ID。",
+      "button": "检查模型",
+      "idle": "只有点击检查后才会发起请求。",
+      "loading": "正在检查接口…",
+      "success": "找到 {count} 个 Wan 模型。",
+      "empty": "连接成功，但没有返回受支持的 Wan 模型。",
+      "list_label": "接口返回的 Wan 模型",
+      "errors": {
+        "unauthenticated": "登录已过期，请重新登录后再试。",
+        "forbidden": "你没有权限检查这些配置。",
+        "missing_key": "请先保存 Wan 接口 API Key。",
+        "invalid_base_url": "已保存的接口地址无效。",
+        "invalid_api_key": "已保存的 API Key 格式无效。",
+        "invalid_key": "供应商拒绝了已保存的 API Key。",
+        "access_denied": "当前 API Key 无权读取模型列表。",
+        "rate_limited": "接口暂时限流，请稍后重试。",
+        "unavailable": "接口不可用或不支持模型列表，可检查地址或手动填写模型 ID。",
+        "timeout": "接口检查超时，请重试。",
+        "invalid_response": "接口返回了无效响应。"
+      }
+    }
+  }
+}

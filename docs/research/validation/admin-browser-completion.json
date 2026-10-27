@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "url": "/admin/settings/setup",
+      "status": 200
+    },
+    {
+      "url": "/admin/settings/auth",
+      "status": 200
+    },
+    {
+      "url": "/admin/settings/ai",
+      "status": 200
+    },
+    {
+      "url": "/admin/settings/storage",
+      "status": 200
+    },
+    {
+      "url": "/admin/settings/payment",
+      "status": 200
+    },
+    {
+      "url": "/admin/settings/pricing",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

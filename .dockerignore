@@ -1,0 +1,21 @@
+.next
+.vercel
+.vscode
+.wrangler
+data
+debug
+node_modules
+.cursorrules
+.git
+vercel.json
+wrangler.toml
+
+# Local credentials and test artifacts must not enter the image build context.
+.env*
+!.env.example
+.dev.vars*
+.test
+.debug
+*.db
+*.db-shm
+*.db-wal

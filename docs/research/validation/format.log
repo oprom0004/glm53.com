@@ -1,0 +1,13 @@
+src/app/[locale]/layout.tsx 268ms
+src/app/[locale]/(auth)/layout.tsx 45ms (unchanged)
+src/app/[locale]/(landing)/page.tsx 32ms
+src/app/[locale]/(landing)/pricing/page.tsx 26ms
+src/app/[locale]/(landing)/activity/ai-tasks/[id]/refresh/page.tsx 45ms
+src/app/api/ai/query/route.ts 43ms
+src/app/api/ai/query/route.test.ts 47ms
+src/components/wan/wan-header.tsx 113ms
+src/components/wan/wan-pricing-unavailable.tsx 21ms
+src/themes/default/blocks/pricing.tsx 25ms
+src/config/style/theme.css 95ms
+src/proxy.ts 25ms
+next.config.mjs 34ms

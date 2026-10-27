@@ -1,0 +1,9 @@
+{
+  "checks": 79,
+  "differences": [
+    {
+      "path": "public/sitemap.xml",
+      "unchanged": false
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: concurrent task charges cannot overspend and createAITask has no trial-credit parameter
+ok 1 - concurrent task charges cannot overspend and createAITask has no trial-credit parameter
+  ---
+  duration_ms: 5834.0573
+  type: 'test'
+  ...
+# Subtest: fresh reads and atomic complete catalog saves do not expose unrelated secrets
+ok 2 - fresh reads and atomic complete catalog saves do not expose unrelated secrets
+  ---
+  duration_ms: 5928.7727
+  type: 'test'
+  ...
+# Subtest: unauthenticated, ordinary admin, inactive and expired super-admin cannot write
+ok 3 - unauthenticated, ordinary admin, inactive and expired super-admin cannot write
+  ---
+  duration_ms: 36.2592
+  type: 'test'
+  ...
+# Subtest: simultaneous first saves and stale revisions never overwrite the winning catalog
+ok 4 - simultaneous first saves and stale revisions never overwrite the winning catalog
+  ---
+  duration_ms: 40.7139
+  type: 'test'
+  ...
+# Subtest: invalid inputs cannot partially save and malformed storage does not become a default quote
+ok 5 - invalid inputs cannot partially save and malformed storage does not become a default quote
+  ---
+  duration_ms: 24.9569
+  type: 'test'
+  ...
+# Subtest: generic configuration mutations cannot bypass the super-admin pricing write boundary
+ok 6 - generic configuration mutations cannot bypass the super-admin pricing write boundary
+  ---
+  duration_ms: 21.6208
+  type: 'test'
+  ...
+# Subtest: case-insensitive database keys cannot bypass the generic pricing write boundary
+ok 7 - case-insensitive database keys cannot bypass the generic pricing write boundary
+  ---
+  duration_ms: 32.8413
+  type: 'test'
+  ...
+# Subtest: HTTP write rechecks roles, returns safe field errors and prevents cross-origin mutation
+ok 8 - HTTP write rechecks roles, returns safe field errors and prevents cross-origin mutation
+  ---
+  duration_ms: 32.0589
+  type: 'test'
+  ...
+# Subtest: public catalog is no-store, omits secrets, and fails closed on a corrupt value
+ok 9 - public catalog is no-store, omits secrets, and fails closed on a corrupt value
+  ---
+  duration_ms: 23.458
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8807.6002

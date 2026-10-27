@@ -1,0 +1,65 @@
+{
+  "fields": {
+    "subscription_no": "订阅号",
+    "interval": "周期",
+    "provider": "提供商",
+    "current_period": "当前周期",
+    "plan": "计划",
+    "status": "状态",
+    "amount": "金额",
+    "created_at": "创建时间",
+    "end_time": "结束时间",
+    "action": "操作"
+  },
+  "view": {
+    "credits_tip": "订阅积分在已付费账期结束时过期。永久积分包独立于订阅，即使没有订阅也可使用。",
+    "annual_credits_tip": "年付套餐每个服务月发放 {credits} 积分，并非一次发放全年。未使用的月度积分到期不结转。取消续费仍保留已付费年度内剩余服务月的额度。",
+    "payment_attention": "此订阅需要处理，请在管理订阅中检查付款或停止后续续费。",
+    "title": "当前计划",
+    "tip": "你的订阅将在 {date} 自动续费",
+    "end_tip": "你的订阅将在 {date} 自动取消",
+    "no_subscription": "未订阅",
+    "buttons": {
+      "adjust": "购买永久积分",
+      "subscribe": "去订阅",
+      "manage": "管理订阅",
+      "cancel": "取消订阅"
+    }
+  },
+  "list": {
+    "title": "订阅记录",
+    "tabs": {
+      "all": "全部",
+      "active": "活跃",
+      "pending_cancel": "待取消",
+      "canceled": "已取消",
+      "trialing": "试用中",
+      "paused": "暂停中",
+      "expired": "已过期"
+    }
+  },
+  "cancel": {
+    "title": "取消订阅",
+    "description": "确定停止后续续费吗？已付费周期仍可使用。年付套餐保留已付费年度内剩余服务月的积分额度，各月积分按期过期。此操作不代表退款。",
+    "success": "已停止订阅续费",
+    "cycles": { "month": "每 {count} 个月", "year": "每 {count} 年" },
+    "fields": {
+      "subscription_no": "订阅号",
+      "subscription_amount": "订阅金额",
+      "interval_cycle": "付费周期",
+      "subscription_created_at": "订阅创建时间",
+      "current_period": "当前周期",
+      "start_at": "开始时间",
+      "end_at": "结束时间"
+    },
+    "crumbs": {
+      "settings": "设置",
+      "billing": "账单",
+      "cancel": "取消订阅"
+    },
+    "buttons": {
+      "confirm_cancel": "停止后续续费"
+    }
+  },
+  "cycles": { "month": "每 {count} 个月", "year": "每 {count} 年" }
+}

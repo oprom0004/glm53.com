@@ -1,0 +1,1101 @@
+{
+  "summary": {
+    "added": 151,
+    "modified": 121,
+    "removed": 1
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "change": "modified"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "change": "added"
+    },
+    {
+      "path": "next.config.mjs",
+      "change": "modified"
+    },
+    {
+      "path": "package.json",
+      "change": "modified"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "change": "modified"
+    },
+    {
+      "path": "public/sitemap.xml",
+      "change": "removed"
+    },
+    {
+      "path": "scripts/fixtures/video-rates-preview.client.tsx",
+      "change": "added"
+    },
+    {
+      "path": "scripts/fixtures/video-rates-preview.mjs",
+      "change": "added"
+    },
+    {
+      "path": "scripts/run-tests.mjs",
+      "change": "added"
+    },
+    {
+      "path": "src/app/[locale]/(admin)/admin/settings/[tab]/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(admin)/admin/settings/pricing/page.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/app/[locale]/(auth)/layout.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(auth)/sign-in/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(auth)/sign-up/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/[...slug]/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/activity/ai-tasks/[id]/refresh/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/pricing/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/settings/billing/cancel/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/settings/billing/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/settings/credits/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/settings/layout.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/settings/payments/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/settings/tasks/page.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/wan-2-5/page.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/wan-2-6/page.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/wan-2-7/page.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/app/[locale]/(landing)/wan-3/page.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/(oauth)/layout.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/layout.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/[locale]/not-found.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/api/admin/polaris/models/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/admin/pricing/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/admin/video-pricing/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/query/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/query/route.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/api/ai/wan/capabilities/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/capabilities/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/generate/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/generate/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/query/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/query/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/quote/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/quote/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/upload/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/ai/wan/upload/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/payment/callback/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/payment/callback/route.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/api/payment/catalog/route.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/payment/checkout/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/payment/checkout/route.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/api/payment/notify/[provider]/route.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/api/payment/notify/[provider]/route.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/api/payment/notify/route-notify.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/robots.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/app/sitemap.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/app/sitemap.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/generator-copy.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/generator-copy.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/use-wan-generation.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-comparison.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-cta.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-demo-video.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-faq.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-features.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-footer.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-generator-one-click.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-generator.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-generator.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-header.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-header.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-hero.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-home-locale.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-lineup.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-lineup.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-media-performance.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-navigation.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-pricing-account.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-pricing-unavailable.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-pricing.integration.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-pricing.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-pricing.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-session-sync.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/components/wan/wan-use-cases.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/components/wan/wan-version-page.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/config/index.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/index.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/admin/pricing.json",
+      "change": "added"
+    },
+    {
+      "path": "src/config/locale/messages/en/admin/settings.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/common.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/pages/index.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/pages/pricing.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/settings/billing.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/settings/credits.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/settings/sidebar.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/en/settings/tasks.json",
+      "change": "added"
+    },
+    {
+      "path": "src/config/locale/messages/en/wan-home.json",
+      "change": "added"
+    },
+    {
+      "path": "src/config/locale/messages/zh/admin/pricing.json",
+      "change": "added"
+    },
+    {
+      "path": "src/config/locale/messages/zh/admin/settings.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/common.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/pages/index.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/pages/pricing.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/settings/billing.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/settings/credits.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/settings/sidebar.json",
+      "change": "modified"
+    },
+    {
+      "path": "src/config/locale/messages/zh/settings/tasks.json",
+      "change": "added"
+    },
+    {
+      "path": "src/config/locale/messages/zh/wan-home.json",
+      "change": "added"
+    },
+    {
+      "path": "src/config/locale/wan-messages.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/config/site.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/config/style/theme.css",
+      "change": "modified"
+    },
+    {
+      "path": "src/core/auth/client.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/core/auth/config.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/core/auth/google-config.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/core/auth/no-trial-side-effect.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/core/db/index.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/core/db/sqlite.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/ai/fal.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/ai/gemini.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/ai/kie.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/ai/polaris-video.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/ai/polaris-video.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/ai/provider-endpoints.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/ai/replicate.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/payment/creem.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/index.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/payment/paypal.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/stripe-mode.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/stripe-scope.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/stripe-scope.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/stripe-settlement.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/stripe.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/payment/stripe.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/payment/types.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/storage/index.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/extensions/storage/oss.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/storage/oss.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/storage/r2.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/extensions/storage/r2.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/instrumentation.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/proxy.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/account/account-overview.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/account/task-history.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/account/task-history.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/common/built-with.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/common/error-boundary.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/common/locale-selector.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/common/locale-selector.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/common/page-header.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/common/theme-toggler.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/common/top-banner.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/console/layout.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/dashboard/filter.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/dashboard/header.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/dashboard/sidebar-buttons.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/email/verify-email.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/form/form-card.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/form/form-secret-contract.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/form/index.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/form/input.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/form/wan-pricing-settings.test.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/form/wan-pricing-settings.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/generator/image.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/generator/music.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/generator/video.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/panel/panel-card.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/payment/payment-modal.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/payment/payment-providers.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/polaris/model-check.interaction.test.cjs",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/polaris/model-check.tsx",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/sign/auth-validation.test.mts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/sign/auth-validation.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/blocks/sign/sign-in-form.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/sign/sign-in.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/sign/sign-modal.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/sign/sign-up-form.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/sign/sign-up.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/sign/sign-user.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/sign/social-providers.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/table/dropdown.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/table/table-card.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/blocks/table/time.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/components/ai-elements/actions.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/components/ai-elements/message.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/components/ai-elements/prompt-input.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/components/ui/input-group.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/components/ui/textarea.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/contexts/app.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/lib/account-overview.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/account-overview.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/annual-credit-policy.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/annual-credit-policy.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/auth-provider-readiness.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/auth-provider-readiness.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/config-key-policy.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/ip.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/lib/json-ld.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/json-ld.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/payment-event-time.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/payment-order-linkage.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/pricing-selection.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/pricing-selection.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/seo.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/seo.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/lib/task-history.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/task-history.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/wan-catalog-config.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/wan-product-catalog.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/wan-product-catalog.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/lib/wan-video-rate-config.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/models/ai_task.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/models/config.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/models/credit-concurrency.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/models/credit.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/models/order.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/models/payment-refund.integration.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/models/payment-refund.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/models/payment-refund.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/models/payment-transaction.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/models/subscription.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/services/ai.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/services/annual-credits.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/annual-credits.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/credit-pack-checkout.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/credit-pack-checkout.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/legacy-payment-replay.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/payment-events.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/payment-transaction.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/payment-validation.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/payment-validation.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/payment.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/services/polaris-model-check.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/polaris-models.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/polaris-models.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/polaris-settings.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/provider-endpoint.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/security-regression.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/setting-secrets.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/settings.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/settings.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/services/storage.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/shared/services/stripe-payment-scope.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/subscription-plans.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-catalog-api.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-catalog.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-catalog.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-checkout.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-checkout.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-generation-flow.integration.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-models.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-purchase-flow.integration.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-api.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-config.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-contract.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-pricing-settings.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-pricing-settings.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-pricing.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-pricing.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-recovery.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-storage.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-storage.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-worker.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video-worker.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video.test.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/services/wan-video.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/test/cleanup.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/test/payment-db.ts",
+      "change": "added"
+    },
+    {
+      "path": "src/shared/types/blocks/form.d.ts",
+      "change": "modified"
+    },
+    {
+      "path": "src/themes/default/blocks/cta.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/themes/default/blocks/features-list.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/themes/default/blocks/hero.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/themes/default/blocks/pricing.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/themes/default/blocks/showcases-flow.tsx",
+      "change": "modified"
+    },
+    {
+      "path": "src/themes/default/blocks/showcases.tsx",
+      "change": "modified"
+    }
+  ]
+}

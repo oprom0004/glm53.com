@@ -1,0 +1,147 @@
+
+> wanai30@1.0.0 build I:\jp\code\wanai30.com
+> next build
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   ▲ Next.js 16.0.7 (Turbopack)
+   - Environments: .env.local, .env
+   - Experiments (use with caution):
+     ✓ mdxRs
+     ✓ turbopackFileSystemCacheForDev
+
+[MDX] updated map file in 103.23289999999997ms
+   Creating an optimized production build ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ✓ Compiled successfully in 51s
+   Running TypeScript ...
+   Collecting page data using 7 workers ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Generating static pages using 7 workers (0/28) ...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+   Generating static pages using 7 workers (7/28) 
+   Generating static pages using 7 workers (14/28) 
+   Generating static pages using 7 workers (21/28) 
+ ✓ Generating static pages using 7 workers (28/28) in 2.4s
+   Finalizing page optimization ...
+
+Route (app)                                      Revalidate  Expire
+┌ ○ /_not-found
+├ ƒ /[locale]
+├ ƒ /[locale]/[...slug]
+├ ƒ /[locale]/activity
+├ ƒ /[locale]/activity/ai-tasks
+├ ƒ /[locale]/activity/ai-tasks/[id]/refresh
+├ ƒ /[locale]/activity/chats
+├ ƒ /[locale]/activity/feedbacks
+├ ƒ /[locale]/admin
+├ ƒ /[locale]/admin/ai-tasks
+├ ƒ /[locale]/admin/apikeys
+├ ƒ /[locale]/admin/categories
+├ ƒ /[locale]/admin/categories/[id]/edit
+├ ƒ /[locale]/admin/categories/add
+├ ƒ /[locale]/admin/chats
+├ ƒ /[locale]/admin/credits
+├ ƒ /[locale]/admin/no-permission
+├ ƒ /[locale]/admin/payments
+├ ƒ /[locale]/admin/permissions
+├ ƒ /[locale]/admin/posts
+├ ƒ /[locale]/admin/posts/[id]/edit
+├ ƒ /[locale]/admin/posts/add
+├ ƒ /[locale]/admin/roles
+├ ƒ /[locale]/admin/roles/[id]/edit
+├ ƒ /[locale]/admin/roles/[id]/edit-permissions
+├ ƒ /[locale]/admin/settings/[tab]
+├ ƒ /[locale]/admin/settings/pricing
+├ ƒ /[locale]/admin/settings/setup
+├ ƒ /[locale]/admin/subscriptions
+├ ƒ /[locale]/admin/users
+├ ƒ /[locale]/admin/users/[id]/edit
+├ ƒ /[locale]/admin/users/[id]/edit-roles
+├ ƒ /[locale]/admin/users/[id]/grant-credits
+├ ƒ /[locale]/ai-image-generator
+├ ƒ /[locale]/ai-music-generator
+├ ƒ /[locale]/ai-video-generator
+├ ƒ /[locale]/auth-callback
+├ ƒ /[locale]/auth-popup
+├ ƒ /[locale]/blog
+├ ƒ /[locale]/blog/[slug]
+├ ƒ /[locale]/blog/category/[slug]
+├ ƒ /[locale]/chat
+├ ƒ /[locale]/chat/[id]
+├ ƒ /[locale]/chat/history
+├ ● /[locale]/docs/[[...slug]]                           1h      1y
+│ ├ /en/docs                                             1h      1y
+│ └ /zh/docs                                             1h      1y
+├ ƒ /[locale]/forgot-password
+├ ƒ /[locale]/no-permission
+├ ƒ /[locale]/pricing
+├ ƒ /[locale]/reset-password
+├ ƒ /[locale]/settings
+├ ƒ /[locale]/settings/apikeys
+├ ƒ /[locale]/settings/apikeys/[id]/delete
+├ ƒ /[locale]/settings/apikeys/[id]/edit
+├ ƒ /[locale]/settings/apikeys/create
+├ ƒ /[locale]/settings/billing
+├ ƒ /[locale]/settings/billing/cancel
+├ ƒ /[locale]/settings/billing/retrieve
+├ ƒ /[locale]/settings/credits
+├ ƒ /[locale]/settings/invoices/retrieve
+├ ƒ /[locale]/settings/payments
+├ ƒ /[locale]/settings/profile
+├ ƒ /[locale]/settings/security
+├ ƒ /[locale]/settings/tasks
+├ ƒ /[locale]/showcases
+├ ƒ /[locale]/sign-in
+├ ƒ /[locale]/sign-up
+├ ƒ /[locale]/updates
+├ ƒ /[locale]/verify-email
+├ ƒ /[locale]/wan-2-5
+├ ƒ /[locale]/wan-2-6
+├ ƒ /[locale]/wan-2-7
+├ ƒ /[locale]/wan-3
+├ ƒ /ads.txt
+├ ƒ /api/admin/polaris/models
+├ ƒ /api/admin/pricing
+├ ƒ /api/admin/video-pricing
+├ ƒ /api/ai/generate
+├ ƒ /api/ai/query
+├ ƒ /api/ai/wan/capabilities
+├ ƒ /api/ai/wan/generate
+├ ƒ /api/ai/wan/query
+├ ƒ /api/ai/wan/quote
+├ ƒ /api/ai/wan/upload
+├ ƒ /api/auth/[...all]
+├ ƒ /api/chat
+├ ƒ /api/chat/info
+├ ƒ /api/chat/list
+├ ƒ /api/chat/messages
+├ ƒ /api/chat/new
+├ ƒ /api/config/get-configs
+├ ƒ /api/docs/search
+├ ƒ /api/payment/callback
+├ ƒ /api/payment/catalog
+├ ƒ /api/payment/checkout
+├ ƒ /api/payment/notify/[provider]
+├ ƒ /api/proxy/file
+├ ƒ /api/storage/upload-image
+├ ƒ /api/user/get-user-credits
+├ ƒ /api/user/get-user-info
+├ ƒ /api/user/is-email-verified
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

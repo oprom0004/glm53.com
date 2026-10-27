@@ -1,0 +1,1900 @@
+
+> wanai30@1.0.0 test I:\jp\code\wanai30.com
+> node scripts/run-tests.mjs
+
+TAP version 13
+# Subtest: legacy query recovers an owned Wan task even when the upstream submission ID is missing
+ok 1 - legacy query recovers an owned Wan task even when the upstream submission ID is missing
+  ---
+  duration_ms: 212.6861
+  type: 'test'
+  ...
+# Subtest: legacy query rejects another owner before either provider is called
+ok 2 - legacy query rejects another owner before either provider is called
+  ---
+  duration_ms: 23.1001
+  type: 'test'
+  ...
+# Subtest: generic query still persists a terminal status when taskInfo has not changed
+ok 3 - generic query still persists a terminal status when taskInfo has not changed
+  ---
+  duration_ms: 24.0109
+  type: 'test'
+  ...
+# Subtest: capabilities are public, no-store and never disclose provider configuration
+ok 4 - capabilities are public, no-store and never disclose provider configuration
+  ---
+  duration_ms: 14.2666
+  type: 'test'
+  ...
+# Subtest: capabilities reject invalid versions and modes with stable errors
+ok 5 - capabilities reject invalid versions and modes with stable errors
+  ---
+  duration_ms: 0.7875
+  type: 'test'
+  ...
+# Subtest: generate delegates once for the authenticated user and returns no-store
+ok 6 - generate delegates once for the authenticated user and returns no-store
+  ---
+  duration_ms: 21.8603
+  type: 'test'
+  ...
+# Subtest: generate maps pricing, balance and idempotency errors without leaking details
+ok 7 - generate maps pricing, balance and idempotency errors without leaking details
+  ---
+  duration_ms: 5.2641
+  type: 'test'
+  ...
+# Subtest: query accepts only a task id and delegates within the authenticated user
+ok 8 - query accepts only a task id and delegates within the authenticated user
+  ---
+  duration_ms: 11.5713
+  type: 'test'
+  ...
+# Subtest: query rejects malformed input and hides cross-user tasks as not found
+ok 9 - query rejects malformed input and hides cross-user tasks as not found
+  ---
+  duration_ms: 3.6532
+  type: 'test'
+  ...
+# Subtest: quote requires authentication and returns a server-calculated snapshot
+ok 10 - quote requires authentication and returns a server-calculated snapshot
+  ---
+  duration_ms: 14.2901
+  type: 'test'
+  ...
+# Subtest: quote rejects malformed JSON, cross-origin calls and disabled resolutions
+ok 11 - quote rejects malformed JSON, cross-origin calls and disabled resolutions
+  ---
+  duration_ms: 4.4485
+  type: 'test'
+  ...
+# Subtest: upload authenticates first and passes exactly one file to user-scoped storage
+ok 12 - upload authenticates first and passes exactly one file to user-scoped storage
+  ---
+  duration_ms: 29.1713
+  type: 'test'
+  ...
+# Subtest: upload rejects wrong content types, extra fields and oversized declarations
+ok 13 - upload rejects wrong content types, extra fields and oversized declarations
+  ---
+  duration_ms: 1.8432
+  type: 'test'
+  ...
+# Subtest: payment returns only to a same-origin path
+ok 14 - payment returns only to a same-origin path
+  ---
+  duration_ms: 1.3845
+  type: 'test'
+  ...
+# [2m2026-09-26T11:59:20.373Z[0m [33mWARN[0m [1m[Better Auth]:[0m No database configuration provided. Using memory adapter in development
+# Subtest: public checkout rejects client-owned provider and price fields before authentication
+ok 15 - public checkout rejects client-owned provider and price fields before authentication
+  ---
+  duration_ms: 27.4489
+  type: 'test'
+  ...
+# Subtest: valid public checkout requires an authenticated user
+ok 16 - valid public checkout requires an authenticated user
+  ---
+  duration_ms: 23.2812
+  type: 'test'
+  ...
+# Subtest: webhook route rejects an unavailable or fallback provider
+ok 17 - webhook route rejects an unavailable or fallback provider
+  ---
+  duration_ms: 7.9179
+  type: 'test'
+  ...
+# Subtest: sitemap includes localized public Wan routes and excludes private routes
+ok 18 - sitemap includes localized public Wan routes and excludes private routes
+  ---
+  duration_ms: 3.9972
+  type: 'test'
+  ...
+# Subtest: all Wan routes share one approved capability-aware generator config
+ok 19 - all Wan routes share one approved capability-aware generator config
+  ---
+  duration_ms: 2.8203
+  type: 'test'
+  ...
+# Subtest: English and Chinese generator copy never advertises the excluded 50-credit gift
+ok 20 - English and Chinese generator copy never advertises the excluded 50-credit gift
+  ---
+  duration_ms: 0.4705
+  type: 'test'
+  ...
+# Subtest: Wan 2.5 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 21 - Wan 2.5 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 9531.968
+  type: 'test'
+  ...
+# Subtest: Wan 2.6 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 22 - Wan 2.6 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 310.3972
+  type: 'test'
+  ...
+# Subtest: Wan 2.7 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 23 - Wan 2.7 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 338.6457
+  type: 'test'
+  ...
+# Subtest: Wan 3.0 click quotes and submits once without a confirmation even when displayed credits are zero
+ok 24 - Wan 3.0 click quotes and submits once without a confirmation even when displayed credits are zero
+  ---
+  duration_ms: 1148.8631
+  type: 'test'
+  ...
+# Subtest: anonymous generation opens sign-in before validating or making any quote/upload/submit request
+ok 25 - anonymous generation opens sign-in before validating or making any quote/upload/submit request
+  ---
+  duration_ms: 534.8037
+  type: 'test'
+  ...
+# Subtest: server insufficient credits opens the en pricing route
+ok 26 - server insufficient credits opens the en pricing route
+  ---
+  duration_ms: 299.9253
+  type: 'test'
+  ...
+# Subtest: server insufficient credits opens the zh pricing route
+ok 27 - server insufficient credits opens the zh pricing route
+  ---
+  duration_ms: 444.8678
+  type: 'test'
+  ...
+# Subtest: old quote response after account switch cannot submit or redirect the new owner
+ok 28 - old quote response after account switch cannot submit or redirect the new owner
+  ---
+  duration_ms: 609.5372
+  type: 'test'
+  ...
+# Subtest: old insufficient response after account switch cannot submit or redirect the new owner
+ok 29 - old insufficient response after account switch cannot submit or redirect the new owner
+  ---
+  duration_ms: 518.0158
+  type: 'test'
+  ...
+# Subtest: account change while an image upload is pending prevents remaining uploads and submission
+ok 30 - account change while an image upload is pending prevents remaining uploads and submission
+  ---
+  duration_ms: 802.1454
+  type: 'test'
+  ...
+# Subtest: unknown submission is owner scoped and can only query the original task instead of generating twice
+ok 31 - unknown submission is owner scoped and can only query the original task instead of generating twice
+  ---
+  duration_ms: 884.4617
+  type: 'test'
+  ...
+# Subtest: blocked local storage cannot turn a successful task into failure
+ok 32 - blocked local storage cannot turn a successful task into failure
+  ---
+  duration_ms: 487.8938
+  type: 'test'
+  ...
+# Subtest: a rejected balance refresh cannot discard a successful task or mark it failed
+ok 33 - a rejected balance refresh cannot discard a successful task or mark it failed
+  ---
+  duration_ms: 45.1923
+  type: 'test'
+  ...
+# Subtest: HTTP 5xx retains the original identity across account switch and never restores another owner task
+ok 34 - HTTP 5xx retains the original identity across account switch and never restores another owner task
+  ---
+  duration_ms: 648.4058
+  type: 'test'
+  ...
+# Subtest: unmount during a quote never continues to upload or submit
+ok 35 - unmount during a quote never continues to upload or submit
+  ---
+  duration_ms: 407.0893
+  type: 'test'
+  ...
+# Subtest: Wan 2.5 renders its real constraints without Prime, reference mode or 1080P
+ok 36 - Wan 2.5 renders its real constraints without Prime, reference mode or 1080P
+  ---
+  duration_ms: 74.647
+  type: 'test'
+  ...
+# Subtest: Wan 3.0 exposes all modes and tiers with a direct generation action
+ok 37 - Wan 3.0 exposes all modes and tiers with a direct generation action
+  ---
+  duration_ms: 16.6316
+  type: 'test'
+  ...
+# Subtest: generator supplies Chinese labels and never includes trial-credit marketing
+ok 38 - generator supplies Chinese labels and never includes trial-credit marketing
+  ---
+  duration_ms: 12.955
+  type: 'test'
+  ...
+# Subtest: generation hook gates sign-in, blocks duplicate quotes and surfaces safe task failure
+ok 39 - generation hook gates sign-in, blocks duplicate quotes and surfaces safe task failure
+  ---
+  duration_ms: 915.5499
+  type: 'test'
+  ...
+# Subtest: anonymous visitors can reach sign-in from both desktop and mobile navigation
+ok 40 - anonymous visitors can reach sign-in from both desktop and mobile navigation
+  ---
+  duration_ms: 84.329
+  type: 'test'
+  ...
+# Subtest: Chinese public pages translate all section headings, media names and model specifications
+ok 41 - Chinese public pages translate all section headings, media names and model specifications
+  ---
+  duration_ms: 530.4405
+  type: 'test'
+  ...
+# Subtest: Chinese navigation keeps locale and generator anchors, including the shared version lineup
+ok 42 - Chinese navigation keeps locale and generator anchors, including the shared version lineup
+  ---
+  duration_ms: 540.151
+  type: 'test'
+  ...
+# Subtest: FAQ controls expose all localized answers to accessible disclosure state
+ok 43 - FAQ controls expose all localized answers to accessible disclosure state
+  ---
+  duration_ms: 1331.4014
+  type: 'test'
+  ...
+# Subtest: English public pages retain English copy and unprefixed internal links without credit giveaways
+ok 44 - English public pages retain English copy and unprefixed internal links without credit giveaways
+  ---
+  duration_ms: 691.84
+  type: 'test'
+  ...
+# Subtest: version lineup en links to every real generator and does not claim Wan 2.5 1080p
+ok 45 - version lineup en links to every real generator and does not claim Wan 2.5 1080p
+  ---
+  duration_ms: 254.5189
+  type: 'test'
+  ...
+# Subtest: version lineup zh links to every real generator and does not claim Wan 2.5 1080p
+ok 46 - version lineup zh links to every real generator and does not claim Wan 2.5 1080p
+  ---
+  duration_ms: 34.0074
+  type: 'test'
+  ...
+# Subtest: below-fold homepage demos do not advertise eager video requests in server HTML
+ok 47 - below-fold homepage demos do not advertise eager video requests in server HTML
+  ---
+  duration_ms: 433.8602
+  type: 'test'
+  ...
+# Subtest: hero preview also waits for visibility instead of unconditional autoplay
+ok 48 - hero preview also waits for visibility instead of unconditional autoplay
+  ---
+  duration_ms: 189.2063
+  type: 'test'
+  ...
+# Subtest: only a visible demo loads and plays; leaving viewport pauses decoding
+ok 49 - only a visible demo loads and plays; leaving viewport pauses decoding
+  ---
+  duration_ms: 602.1928
+  type: 'test'
+  ...
+# Subtest: batched visibility records use the latest state so fast scrolling cannot leave a video running
+ok 50 - batched visibility records use the latest state so fast scrolling cannot leave a video running
+  ---
+  duration_ms: 314.0336
+  type: 'test'
+  ...
+# Subtest: a delayed play promise cannot keep an offscreen or unmounted video running
+ok 51 - a delayed play promise cannot keep an offscreen or unmounted video running
+  ---
+  duration_ms: 484.2006
+  type: 'test'
+  ...
+# Subtest: background tabs pause all demos and only visible demos resume
+ok 52 - background tabs pause all demos and only visible demos resume
+  ---
+  duration_ms: 446.5099
+  type: 'test'
+  ...
+# Subtest: reduced does not auto-download media but explicit play still works
+ok 53 - reduced does not auto-download media but explicit play still works
+  ---
+  duration_ms: 427.4724
+  type: 'test'
+  ...
+# Subtest: saveData does not auto-download media but explicit play still works
+ok 54 - saveData does not auto-download media but explicit play still works
+  ---
+  duration_ms: 180.6617
+  type: 'test'
+  ...
+# Subtest: blocked autoplay presents a manual play control and recovers without a reload
+ok 55 - blocked autoplay presents a manual play control and recovers without a reload
+  ---
+  duration_ms: 287.5065
+  type: 'test'
+  ...
+# Subtest: without IntersectionObserver demos remain manual instead of playing every video
+ok 56 - without IntersectionObserver demos remain manual instead of playing every video
+  ---
+  duration_ms: 315.0442
+  type: 'test'
+  ...
+# Subtest: manual pause survives viewport and tab changes until explicitly resumed
+ok 57 - manual pause survives viewport and tab changes until explicitly resumed
+  ---
+  duration_ms: 258.6052
+  type: 'test'
+  ...
+# Subtest: enabling reduced motion stops automatic playback immediately
+ok 58 - enabling reduced motion stops automatic playback immediately
+  ---
+  duration_ms: 275.2617
+  type: 'test'
+  ...
+# Subtest: desktop and mobile navigation reach every Wan version, pricing and sign-in
+ok 59 - desktop and mobile navigation reach every Wan version, pricing and sign-in
+  ---
+  duration_ms: 109.4006
+  type: 'test'
+  ...
+# Subtest: navigation includes authenticated account target and keyboard-close behavior
+ok 60 - navigation includes authenticated account target and keyboard-close behavior
+  ---
+  duration_ms: 7.253
+  type: 'test'
+  ...
+# Subtest: credits page settles the current annual month before counting and reading the ledger
+ok 61 - credits page settles the current annual month before counting and reading the ledger
+  ---
+  duration_ms: 183.4565
+  type: 'test'
+  ...
+# Subtest: cancel action reauthenticates instead of trusting the rendered user and delegates verified subscription cancellation
+ok 62 - cancel action reauthenticates instead of trusting the rendered user and delegates verified subscription cancellation
+  ---
+  duration_ms: 198.541
+  type: 'test'
+  ...
+# Subtest: billing includes non-terminated paused subscriptions and explains annual monthly allowances
+ok 63 - billing includes non-terminated paused subscriptions and explains annual monthly allowances
+  ---
+  duration_ms: 82.9952
+  type: 'test'
+  ...
+# Subtest: homepage places pricing after use cases and before FAQ
+ok 64 - homepage places pricing after use cases and before FAQ
+  ---
+  duration_ms: 6.6374
+  type: 'test'
+  ...
+# Subtest: pricing en exposes exact catalog terms without changing the three-card layout
+ok 65 - pricing en exposes exact catalog terms without changing the three-card layout
+  ---
+  duration_ms: 13814.0811
+  type: 'test'
+  ...
+# Subtest: pricing zh exposes exact catalog terms without changing the three-card layout
+ok 66 - pricing zh exposes exact catalog terms without changing the three-card layout
+  ---
+  duration_ms: 660.5668
+  type: 'test'
+  ...
+# Subtest: purchase selection restores URL, unrelated query, hash and sign-in return mode
+ok 67 - purchase selection restores URL, unrelated query, hash and sign-in return mode
+  ---
+  duration_ms: 1089.3759
+  type: 'test'
+  ...
+# Subtest: configured catalog controls visible USD amounts, credits, and the submitted revision
+ok 68 - configured catalog controls visible USD amounts, credits, and the submitted revision
+  ---
+  duration_ms: 1219.7614
+  type: 'test'
+  ...
+# Subtest: annual cards only compare discounts for equal credits and a lower annual price
+ok 69 - annual cards only compare discounts for equal credits and a lower annual price
+  ---
+  duration_ms: 432.0006
+  type: 'test'
+  ...
+# Subtest: an annual premium does not advertise savings over monthly billing
+ok 70 - an annual premium does not advertise savings over monthly billing
+  ---
+  duration_ms: 406.13
+  type: 'test'
+  ...
+# Subtest: stale pricing refresh updates the quote but never automatically purchases
+ok 71 - stale pricing refresh updates the quote but never automatically purchases
+  ---
+  duration_ms: 904.7642
+  type: 'test'
+  ...
+# Subtest: failed quote refresh retains the stale quote warning and prevents another purchase
+ok 72 - failed quote refresh retains the stale quote warning and prevents another purchase
+  ---
+  duration_ms: 526.9721
+  type: 'test'
+  ...
+# Subtest: a malformed refreshed catalog is never accepted as a purchasable quote
+ok 73 - a malformed refreshed catalog is never accepted as a purchasable quote
+  ---
+  duration_ms: 516.0129
+  type: 'test'
+  ...
+# Subtest: quote refresh preserves the pack request identity for original-order recovery
+ok 74 - quote refresh preserves the pack request identity for original-order recovery
+  ---
+  duration_ms: 568.4652
+  type: 'test'
+  ...
+# Subtest: late quote refresh after an account change cannot update the new account UI
+ok 75 - late quote refresh after an account change cannot update the new account UI
+  ---
+  duration_ms: 396.9505
+  type: 'test'
+  ...
+# Subtest: pack retries keep an identity and block duplicate submits when local storage is unavailable
+ok 76 - pack retries keep an identity and block duplicate submits when local storage is unavailable
+  ---
+  duration_ms: 338.2335
+  type: 'test'
+  ...
+# Subtest: expired pack checkout rotates its request only after authoritative expiry and exposes recovery links
+ok 77 - expired pack checkout rotates its request only after authoritative expiry and exposes recovery links
+  ---
+  duration_ms: 315.8916
+  type: 'test'
+  ...
+# Subtest: stale response after changing account cannot navigate or clear newer pending state
+ok 78 - stale response after changing account cannot navigate or clear newer pending state
+  ---
+  duration_ms: 339.4151
+  type: 'test'
+  ...
+# Subtest: existing subscription redirects to billing while packs remain purchasable
+ok 79 - existing subscription redirects to billing while packs remain purchasable
+  ---
+  duration_ms: 397.7186
+  type: 'test'
+  ...
+# Subtest: unconfigured Stripe shows unavailable checkout without asking for unsafe payment retries
+ok 80 - unconfigured Stripe shows unavailable checkout without asking for unsafe payment retries
+  ---
+  duration_ms: 426.5688
+  type: 'test'
+  ...
+# Subtest: English and Chinese Wan-facing message resources have matching key sets
+ok 81 - English and Chinese Wan-facing message resources have matching key sets
+  ---
+  duration_ms: 4.974
+  type: 'test'
+  ...
+# Subtest: saved Google credentials register the provider and expose readiness without its secret
+ok 82 - saved Google credentials register the provider and expose readiness without its secret
+  ---
+  duration_ms: 6.4895
+  type: 'test'
+  ...
+# Subtest: disabled or incomplete Google configuration cannot register a sign-in provider
+ok 83 - disabled or incomplete Google configuration cannot register a sign-in provider
+  ---
+  duration_ms: 0.4666
+  type: 'test'
+  ...
+# Subtest: Google secret stays blank in the admin view and survives an empty settings save
+ok 84 - Google secret stays blank in the admin view and survives an empty settings save
+  ---
+  duration_ms: 1.8494
+  type: 'test'
+  ...
+# Subtest: auth lifecycle grants roles only and has no credit side effect
+ok 85 - auth lifecycle grants roles only and has no credit side effect
+  ---
+  duration_ms: 3.3568
+  type: 'test'
+  ...
+# Subtest: Wan 3 submission uses the approved endpoint, normalized key and exact payload once
+ok 86 - Wan 3 submission uses the approved endpoint, normalized key and exact payload once
+  ---
+  duration_ms: 109.8357
+  type: 'test'
+  ...
+# Subtest: Wan 2 image submission uses the videos endpoint and only one first frame
+ok 87 - Wan 2 image submission uses the videos endpoint and only one first frame
+  ---
+  duration_ms: 1.1791
+  type: 'test'
+  ...
+# Subtest: invalid input and unsafe configuration fail before HTTP and never expose secrets
+ok 88 - invalid input and unsafe configuration fail before HTTP and never expose secrets
+  ---
+  duration_ms: 0.9028
+  type: 'test'
+  ...
+# Subtest: query normalizes processing, success and definite failure without downloading output
+ok 89 - query normalizes processing, success and definite failure without downloading output
+  ---
+  duration_ms: 2.3053
+  type: 'test'
+  ...
+# Subtest: HTTP and network failures return stable safe errors without retrying
+ok 90 - HTTP and network failures return stable safe errors without retrying
+  ---
+  duration_ms: 1.0416
+  type: 'test'
+  ...
+# fal input https://gateway.example.com/fal/fal-ai/test { prompt: 'A lake' }
+# replicate input { prompt: 'A lake' }
+# Subtest: Wan compatible gateway uses its configured URL and model alias for generate, query and model discovery
+ok 91 - Wan compatible gateway uses its configured URL and model alias for generate, query and model discovery
+  ---
+  duration_ms: 41.5378
+  type: 'test'
+  ...
+# Subtest: Studio provider configurations reach each adapter and its actual request URL
+ok 92 - Studio provider configurations reach each adapter and its actual request URL
+  ---
+  duration_ms: 15.5346
+  type: 'test'
+  ...
+# Subtest: Wan 2 accepts flat and wrapped query responses independently of task ID prefix
+ok 93 - Wan 2 accepts flat and wrapped query responses independently of task ID prefix
+  ---
+  duration_ms: 3.9342
+  type: 'test'
+  ...
+# Subtest: Creem environment is selected only from server configuration
+ok 94 - Creem environment is selected only from server configuration
+  ---
+  duration_ms: 0.984
+  type: 'test'
+  ...
+# Subtest: PayPal environment is selected only from server configuration
+ok 95 - PayPal environment is selected only from server configuration
+  ---
+  duration_ms: 2.0045
+  type: 'test'
+  ...
+# Subtest: Stripe key and checkout modes are server-derived and must agree
+ok 96 - Stripe key and checkout modes are server-derived and must agree
+  ---
+  duration_ms: 1.8765
+  type: 'test'
+  ...
+# Subtest: Stripe signed events must match configured mode and Connect account
+ok 97 - Stripe signed events must match configured mode and Connect account
+  ---
+  duration_ms: 0.8604
+  type: 'test'
+  ...
+# Subtest: Stripe refuses cross-mode checkout retrieval without calling the wrong API environment
+ok 98 - Stripe refuses cross-mode checkout retrieval without calling the wrong API environment
+  ---
+  duration_ms: 10.9206
+  type: 'test'
+  ...
+# Subtest: same-mode checkout retrieval preserves the payable session for both Stripe key types
+ok 99 - same-mode checkout retrieval preserves the payable session for both Stripe key types
+  ---
+  duration_ms: 1017.502
+  type: 'test'
+  ...
+# Subtest: a missing same-mode Stripe session requires review and never exposes the provider response
+ok 100 - a missing same-mode Stripe session requires review and never exposes the provider response
+  ---
+  duration_ms: 4.5941
+  type: 'test'
+  ...
+# Subtest: Stripe does not reuse another project customer with the same email or trust client scope metadata
+ok 101 - Stripe does not reuse another project customer with the same email or trust client scope metadata
+  ---
+  duration_ms: 10.0097
+  type: 'test'
+  ...
+# Subtest: Stripe finds its own customer beyond a foreign first page without changing existing customers
+ok 102 - Stripe finds its own customer beyond a foreign first page without changing existing customers
+  ---
+  duration_ms: 25.911
+  type: 'test'
+  ...
+# Subtest: Stripe billing portal refuses legacy/shared customers before creating a portal session
+ok 103 - Stripe billing portal refuses legacy/shared customers before creating a portal session
+  ---
+  duration_ms: 7.5778
+  type: 'test'
+  ...
+# Subtest: Stripe billing portal remains available for a WanAI-isolated customer
+ok 104 - Stripe billing portal remains available for a WanAI-isolated customer
+  ---
+  duration_ms: 9.4702
+  type: 'test'
+  ...
+# Subtest: Stripe never falls back to a missing portal configuration
+ok 105 - Stripe never falls back to a missing portal configuration
+  ---
+  duration_ms: 5.9088
+  type: 'test'
+  ...
+# Subtest: Stripe never falls back to a default portal configuration
+ok 106 - Stripe never falls back to a default portal configuration
+  ---
+  duration_ms: 2.8754
+  type: 'test'
+  ...
+# Subtest: Stripe never falls back to a subscription_update portal configuration
+ok 107 - Stripe never falls back to a subscription_update portal configuration
+  ---
+  duration_ms: 5.6905
+  type: 'test'
+  ...
+# Subtest: Stripe never falls back to a subscription_cancel portal configuration
+ok 108 - Stripe never falls back to a subscription_cancel portal configuration
+  ---
+  duration_ms: 4.3033
+  type: 'test'
+  ...
+# Subtest: Stripe charges 1590 cents with month for starter-monthly-800
+ok 109 - Stripe charges 1590 cents with month for starter-monthly-800
+  ---
+  duration_ms: 51.2617
+  type: 'test'
+  ...
+# Subtest: Stripe charges 4590 cents with month for creator-monthly-2400
+ok 110 - Stripe charges 4590 cents with month for creator-monthly-2400
+  ---
+  duration_ms: 12.0185
+  type: 'test'
+  ...
+# Subtest: Stripe charges 9590 cents with month for pro-monthly-5200
+ok 111 - Stripe charges 9590 cents with month for pro-monthly-5200
+  ---
+  duration_ms: 22.0908
+  type: 'test'
+  ...
+# Subtest: Stripe charges 17200 cents with year for starter-annual-800-v1
+ok 112 - Stripe charges 17200 cents with year for starter-annual-800-v1
+  ---
+  duration_ms: 13.0928
+  type: 'test'
+  ...
+# Subtest: Stripe charges 49500 cents with year for creator-annual-2400-v1
+ok 113 - Stripe charges 49500 cents with year for creator-annual-2400-v1
+  ---
+  duration_ms: 28.4819
+  type: 'test'
+  ...
+# Subtest: Stripe charges 103600 cents with year for pro-annual-5200-v1
+ok 114 - Stripe charges 103600 cents with year for pro-annual-5200-v1
+  ---
+  duration_ms: 37.048
+  type: 'test'
+  ...
+# Subtest: Stripe charges 1990 cents with one-time for starter-credits-800-v2
+ok 115 - Stripe charges 1990 cents with one-time for starter-credits-800-v2
+  ---
+  duration_ms: 3.4156
+  type: 'test'
+  ...
+# Subtest: Stripe charges 5490 cents with one-time for creator-credits-2400-v2
+ok 116 - Stripe charges 5490 cents with one-time for creator-credits-2400-v2
+  ---
+  duration_ms: 43.3606
+  type: 'test'
+  ...
+# Subtest: Stripe charges 10990 cents with one-time for pro-credits-5200-v2
+ok 117 - Stripe charges 10990 cents with one-time for pro-credits-5200-v2
+  ---
+  duration_ms: 33.537
+  type: 'test'
+  ...
+# Subtest: Stripe rejects invalid signatures as invalid requests before fetching
+ok 118 - Stripe rejects invalid signatures as invalid requests before fetching
+  ---
+  duration_ms: 38.4031
+  type: 'test'
+  ...
+# Subtest: Stripe acknowledges signed out-of-scope events without API calls
+ok 119 - Stripe acknowledges signed out-of-scope events without API calls
+  ---
+  duration_ms: 43.6729
+  type: 'test'
+  ...
+# Subtest: Stripe test key never settles a live-mode event
+ok 120 - Stripe test key never settles a live-mode event
+  ---
+  duration_ms: 17.6577
+  type: 'test'
+  ...
+# Subtest: Stripe normalizes live secret keys consistently for signed payment webhooks
+ok 121 - Stripe normalizes live secret keys consistently for signed payment webhooks
+  ---
+  duration_ms: 29.4368
+  type: 'test'
+  ...
+# Subtest: Stripe one-time checkout uses confirmed PaymentIntent and base amount
+ok 122 - Stripe one-time checkout uses confirmed PaymentIntent and base amount
+  ---
+  duration_ms: 5.3616
+  type: 'test'
+  ...
+# Subtest: Stripe asynchronous success settles and asynchronous failure grants nothing
+ok 123 - Stripe asynchronous success settles and asynchronous failure grants nothing
+  ---
+  duration_ms: 7.3546
+  type: 'test'
+  ...
+# Subtest: Stripe subscription checkout and invoice share transaction and historical paid period
+ok 124 - Stripe subscription checkout and invoice share transaction and historical paid period
+  ---
+  duration_ms: 22.531
+  type: 'test'
+  ...
+# Subtest: Stripe paid invoice refuses manual, split or incomplete payment allocations
+ok 125 - Stripe paid invoice refuses manual, split or incomplete payment allocations
+  ---
+  duration_ms: 5.5689
+  type: 'test'
+  ...
+# Subtest: Stripe does not fulfill a checkout whose PaymentIntent differs in amount
+ok 126 - Stripe does not fulfill a checkout whose PaymentIntent differs in amount
+  ---
+  duration_ms: 4.1008
+  type: 'test'
+  ...
+# Subtest: Stripe failed renewal never declares payment success
+ok 127 - Stripe failed renewal never declares payment success
+  ---
+  duration_ms: 3.2287
+  type: 'test'
+  ...
+# Subtest: Stripe period-end cancellation uses update, retains paid period and records a watermark
+ok 128 - Stripe period-end cancellation uses update, retains paid period and records a watermark
+  ---
+  duration_ms: 1.9308
+  type: 'test'
+  ...
+# Subtest: Stripe past-due cancellation stops collection immediately without prorating or invoicing
+ok 129 - Stripe past-due cancellation stops collection immediately without prorating or invoicing
+  ---
+  duration_ms: 1.8066
+  type: 'test'
+  ...
+# Subtest: Stripe subscription lifecycle snapshots preserve signed event time
+ok 130 - Stripe subscription lifecycle snapshots preserve signed event time
+  ---
+  duration_ms: 5.7473
+  type: 'test'
+  ...
+# Subtest: Stripe successful refund is linked to the original PaymentIntent and cumulative amount
+ok 131 - Stripe successful refund is linked to the original PaymentIntent and cumulative amount
+  ---
+  duration_ms: 15.9504
+  type: 'test'
+  ...
+# Subtest: configured monthly price is validated before charging and Connect headers apply to all calls
+ok 132 - configured monthly price is validated before charging and Connect headers apply to all calls
+  ---
+  duration_ms: 21.6113
+  type: 'test'
+  ...
+# Subtest: signed Connect events from another account are rejected before API reads
+ok 133 - signed Connect events from another account are rejected before API reads
+  ---
+  duration_ms: 18.8094
+  type: 'test'
+  ...
+# Subtest: legacy one-time refunds resolve application scope by invoice even without PaymentIntent metadata
+ok 134 - legacy one-time refunds resolve application scope by invoice even without PaymentIntent metadata
+  ---
+  duration_ms: 28.1883
+  type: 'test'
+  ...
+# Subtest: Stripe serializes same-subscription authoritative reads before assigning state order
+ok 135 - Stripe serializes same-subscription authoritative reads before assigning state order
+  ---
+  duration_ms: 88.6726
+  type: 'test'
+  ...
+# Subtest: Stripe checkout forwards protected metadata and an order-scoped idempotency key
+ok 136 - Stripe checkout forwards protected metadata and an order-scoped idempotency key
+  ---
+  duration_ms: 16.7035
+  type: 'test'
+  ...
+# Subtest: Stripe cancellation shares the authoritative-read queue and cannot overtake an in-flight read
+ok 137 - Stripe cancellation shares the authoritative-read queue and cannot overtake an in-flight read
+  ---
+  duration_ms: 48.5374
+  type: 'test'
+  ...
+# Subtest: Stripe refuses a checkout session from another environment before retrieval
+ok 138 - Stripe refuses a checkout session from another environment before retrieval
+  ---
+  duration_ms: 50.8728
+  type: 'test'
+  ...
+# Subtest: Stripe maps refund lifecycle events to the normalized refund event
+ok 139 - Stripe maps refund lifecycle events to the normalized refund event
+  ---
+  duration_ms: 0.3623
+  type: 'test'
+  ...
+# Subtest: Stripe refund normalization keeps cumulative amount and invoice linkage
+ok 140 - Stripe refund normalization keeps cumulative amount and invoice linkage
+  ---
+  duration_ms: 10.7558
+  type: 'test'
+  ...
+# Subtest: Stripe refund normalization rejects a charge from another payment intent
+ok 141 - Stripe refund normalization rejects a charge from another payment intent
+  ---
+  duration_ms: 12.3845
+  type: 'test'
+  ...
+# Subtest: OSS upload normalizes object keys and returns the permanent public URL
+ok 142 - OSS upload normalizes object keys and returns the permanent public URL
+  ---
+  duration_ms: 12.8392
+  type: 'test'
+  ...
+# Subtest: OSS download transfers the remote body through the same provider
+ok 143 - OSS download transfers the remote body through the same provider
+  ---
+  duration_ms: 72.5088
+  type: 'test'
+  ...
+# Subtest: R2 is the only active storage even with leftover OSS credentials
+ok 144 - R2 is the only active storage even with leftover OSS credentials
+  ---
+  duration_ms: 17.1608
+  type: 'test'
+  ...
+# Subtest: R2 signs uploads and HEAD against S3 endpoint, returns public domain without credentials
+ok 145 - R2 signs uploads and HEAD against S3 endpoint, returns public domain without credentials
+  ---
+  duration_ms: 136.2526
+  type: 'test'
+  ...
+# Subtest: task history renders processing, failure and success states without trial balance UI
+ok 146 - task history renders processing, failure and success states without trial balance UI
+  ---
+  duration_ms: 359.8688
+  type: 'test'
+  ...
+# Subtest: language switch keeps the annual purchase selection and pricing anchor
+ok 147 - language switch keeps the annual purchase selection and pricing anchor
+  ---
+  duration_ms: 4725.511
+  type: 'test'
+  ...
+# Subtest: restricted browser storage cannot block a language change
+ok 148 - restricted browser storage cannot block a language change
+  ---
+  duration_ms: 210.676
+  type: 'test'
+  ...
+# Subtest: language control announces its purpose in the active locale
+ok 149 - language control announces its purpose in the active locale
+  ---
+  duration_ms: 34.2306
+  type: 'test'
+  ...
+# Subtest: configured provider secret renders masked and empty with an accessible reveal control
+ok 150 - configured provider secret renders masked and empty with an accessible reveal control
+  ---
+  duration_ms: 79.1642
+  type: 'test'
+  ...
+# Subtest: video rate editor en exposes 24 labeled rates and preserves disabled blanks
+ok 151 - video rate editor en exposes 24 labeled rates and preserves disabled blanks
+  ---
+  duration_ms: 3804.7205
+  type: 'test'
+  ...
+# Subtest: video rate editor zh exposes 24 labeled rates and preserves disabled blanks
+ok 152 - video rate editor zh exposes 24 labeled rates and preserves disabled blanks
+  ---
+  duration_ms: 201.7196
+  type: 'test'
+  ...
+# Subtest: invalid video rate stays inline and focuses the field without sending a save
+ok 153 - invalid video rate stays inline and focuses the field without sending a save
+  ---
+  duration_ms: 550.6049
+  type: 'test'
+  ...
+# Subtest: video editor sends rates to its own endpoint, disables overrides and recovers conflicts
+ok 154 - video editor sends rates to its own endpoint, disables overrides and recovers conflicts
+  ---
+  duration_ms: 791.5993
+  type: 'test'
+  ...
+# Subtest: video save normalizes saved values, clears dirty state and uses the new revision
+ok 155 - video save normalizes saved values, clears dirty state and uses the new revision
+  ---
+  duration_ms: 800.9623
+  type: 'test'
+  ...
+# Subtest: unknown video save preserves the draft, blocks repeats and locks on expired reload session
+ok 156 - unknown video save preserves the draft, blocks repeats and locks on expired reload session
+  ---
+  duration_ms: 936.4749
+  type: 'test'
+  ...
+# Subtest: both pricing forms share pending navigation warnings and release all unload guards
+ok 157 - both pricing forms share pending navigation warnings and release all unload guards
+  ---
+  duration_ms: 3409.4385
+  type: 'test'
+  ...
+# Subtest: admin catalog en shows nine products with precise price and credit labels
+ok 158 - admin catalog en shows nine products with precise price and credit labels
+  ---
+  duration_ms: 150.933
+  type: 'test'
+  ...
+# Subtest: admin catalog zh shows nine products with precise price and credit labels
+ok 159 - admin catalog zh shows nine products with precise price and credit labels
+  ---
+  duration_ms: 185.5399
+  type: 'test'
+  ...
+# Subtest: invalid fractional cents and zero credits remain visible and focus the first field without a request
+ok 160 - invalid fractional cents and zero credits remain visible and focus the first field without a request
+  ---
+  duration_ms: 359.6269
+  type: 'test'
+  ...
+# Subtest: save submits the complete draft and original revision once and accepts only confirmed server values
+ok 161 - save submits the complete draft and original revision once and accepts only confirmed server values
+  ---
+  duration_ms: 776.8853
+  type: 'test'
+  ...
+# Subtest: conflict preserves unsaved values and blocks overwrite until the admin explicitly reloads
+ok 162 - conflict preserves unsaved values and blocks overwrite until the admin explicitly reloads
+  ---
+  duration_ms: 1088.2358
+  type: 'test'
+  ...
+# Subtest: an unknown save outcome blocks repeat writes and a failed reload still preserves the draft
+ok 163 - an unknown save outcome blocks repeat writes and a failed reload still preserves the draft
+  ---
+  duration_ms: 618.4547
+  type: 'test'
+  ...
+# Subtest: server field validation is mapped to the input while permission loss locks all saves
+ok 164 - server field validation is mapped to the input while permission loss locks all saves
+  ---
+  duration_ms: 645.2566
+  type: 'test'
+  ...
+# Subtest: leaving a dirty form uses the shared dialog and keeping edits preserves the draft
+ok 165 - leaving a dirty form uses the shared dialog and keeping edits preserves the draft
+  ---
+  duration_ms: 586.3828
+  type: 'test'
+  ...
+# Subtest: unmount aborts an in-flight save so a late response cannot commit UI state
+ok 166 - unmount aborts an in-flight save so a late response cannot commit UI state
+  ---
+  duration_ms: 294.7868
+  type: 'test'
+  ...
+# Subtest: discarding edits allows navigation without a second native unload warning
+ok 167 - discarding edits allows navigation without a second native unload warning
+  ---
+  duration_ms: 673.6768
+  type: 'test'
+  ...
+# Subtest: IME commit Enter cannot trigger a pricing form submission
+ok 168 - IME commit Enter cannot trigger a pricing form submission
+  ---
+  duration_ms: 280.1289
+  type: 'test'
+  ...
+# Subtest: en: model check is explicit, safe, retryable and abortable
+ok 169 - en: model check is explicit, safe, retryable and abortable
+  ---
+  duration_ms: 730.2004
+  type: 'test'
+  ...
+# Subtest: zh: model check is explicit, safe, retryable and abortable
+ok 170 - zh: model check is explicit, safe, retryable and abortable
+  ---
+  duration_ms: 132.4021
+  type: 'test'
+  ...
+# Subtest: 登录校验会同时指出无效邮箱和空密码
+ok 171 - 登录校验会同时指出无效邮箱和空密码
+  ---
+  duration_ms: 2.7837
+  type: 'test'
+  ...
+# Subtest: 登录校验接受格式正确的邮箱和非空密码
+ok 172 - 登录校验接受格式正确的邮箱和非空密码
+  ---
+  duration_ms: 0.2365
+  type: 'test'
+  ...
+# Subtest: 注册校验要求姓名、八位密码和一致的确认密码
+ok 173 - 注册校验要求姓名、八位密码和一致的确认密码
+  ---
+  duration_ms: 0.2447
+  type: 'test'
+  ...
+# Subtest: 注册校验接受完整且有效的账户信息
+ok 174 - 注册校验接受完整且有效的账户信息
+  ---
+  duration_ms: 0.1395
+  type: 'test'
+  ...
+# Subtest: 认证回调只接受站内绝对路径
+ok 175 - 认证回调只接受站内绝对路径
+  ---
+  duration_ms: 2.819
+  type: 'test'
+  ...
+# Subtest: account overview scopes every aggregate to the server session user
+ok 176 - account overview scopes every aggregate to the server session user
+  ---
+  duration_ms: 7.4067
+  type: 'test'
+  ...
+# Subtest: annual UTC windows preserve the original anchor and exclude the end
+ok 177 - annual UTC windows preserve the original anchor and exclude the end
+  ---
+  duration_ms: 21.1217
+  type: 'test'
+  ...
+# Subtest: annual snapshots reject malformed ownership, credits, dates and policy versions
+ok 178 - annual snapshots reject malformed ownership, credits, dates and policy versions
+  ---
+  duration_ms: 4.0434
+  type: 'test'
+  ...
+# Subtest: auth readiness exposes only fully configured and explicitly enabled providers
+ok 179 - auth readiness exposes only fully configured and explicitly enabled providers
+  ---
+  duration_ms: 2.5832
+  type: 'test'
+  ...
+# Subtest: auth readiness hides disabled providers even when credentials exist
+ok 180 - auth readiness hides disabled providers even when credentials exist
+  ---
+  duration_ms: 0.2358
+  type: 'test'
+  ...
+# Subtest: email auth defaults on when the setting has not been configured
+ok 181 - email auth defaults on when the setting has not been configured
+  ---
+  duration_ms: 0.1563
+  type: 'test'
+  ...
+# Subtest: product JSON-LD exposes real charge amounts and links to the matching purchase mode
+ok 182 - product JSON-LD exposes real charge amounts and links to the matching purchase mode
+  ---
+  duration_ms: 3.2955
+  type: 'test'
+  ...
+# Subtest: JSON-LD uses configured prices rather than the default catalog
+ok 183 - JSON-LD uses configured prices rather than the default catalog
+  ---
+  duration_ms: 0.4754
+  type: 'test'
+  ...
+# Subtest: JSON-LD serialization escapes tag boundaries
+ok 184 - JSON-LD serialization escapes tag boundaries
+  ---
+  duration_ms: 0.2011
+  type: 'test'
+  ...
+# Subtest: purchase helpers recover selection and constrain payment navigation
+ok 185 - purchase helpers recover selection and constrain payment navigation
+  ---
+  duration_ms: 15.5421
+  type: 'test'
+  ...
+# Subtest: every public Wan page has unique localized metadata and absolute alternates
+ok 186 - every public Wan page has unique localized metadata and absolute alternates
+  ---
+  duration_ms: 3.0478
+  type: 'test'
+  ...
+# Subtest: private metadata is noindex and nofollow
+ok 187 - private metadata is noindex and nofollow
+  ---
+  duration_ms: 4.8248
+  type: 'test'
+  ...
+# Subtest: Wan task history exposes only safe product fields and media URLs
+ok 188 - Wan task history exposes only safe product fields and media URLs
+  ---
+  duration_ms: 16.2273
+  type: 'test'
+  ...
+# Subtest: task history query bounds pagination and always scopes the repository by owner
+ok 189 - task history query bounds pagination and always scopes the repository by owner
+  ---
+  duration_ms: 1.1342
+  type: 'test'
+  ...
+# Subtest: unsafe video URLs and provider error payloads are reduced to safe summaries
+ok 190 - unsafe video URLs and provider error payloads are reduced to safe summaries
+  ---
+  duration_ms: 0.2585
+  type: 'test'
+  ...
+# Subtest: missing catalog retains the nine canonical products and legacy defaults
+ok 191 - missing catalog retains the nine canonical products and legacy defaults
+  ---
+  duration_ms: 12.2781
+  type: 'test'
+  ...
+# Subtest: exact decimal parsing and independent credits preserve fixed identifiers and policies
+ok 192 - exact decimal parsing and independent credits preserve fixed identifiers and policies
+  ---
+  duration_ms: 1.795
+  type: 'test'
+  ...
+# Subtest: invalid, incomplete and manipulated drafts are rejected with field errors
+ok 193 - invalid, incomplete and manipulated drafts are rejected with field errors
+  ---
+  duration_ms: 2.2605
+  type: 'test'
+  ...
+# Subtest: malformed stored catalogs fail closed instead of silently reverting to defaults
+ok 194 - malformed stored catalogs fail closed instead of silently reverting to defaults
+  ---
+  duration_ms: 0.6103
+  type: 'test'
+  ...
+# Subtest: annual comparison only exists for equal allowances with genuine savings
+ok 195 - annual comparison only exists for equal allowances with genuine savings
+  ---
+  duration_ms: 0.4853
+  type: 'test'
+  ...
+# Subtest: checkout catalog and displayed annual credit costs use approved server amounts
+ok 196 - checkout catalog and displayed annual credit costs use approved server amounts
+  ---
+  duration_ms: 72.3297
+  type: 'test'
+  ...
+# Subtest: concurrent task charges cannot overspend and createAITask has no trial-credit parameter
+ok 197 - concurrent task charges cannot overspend and createAITask has no trial-credit parameter
+  ---
+  duration_ms: 18588.4635
+  type: 'test'
+  ...
+# Subtest: legacy Stripe invoice-as-transaction orders retain history and refund through verified invoice linkage
+ok 198 - legacy Stripe invoice-as-transaction orders retain history and refund through verified invoice linkage
+  ---
+  duration_ms: 18670.8868
+  type: 'test'
+  ...
+# Subtest: legacy Checkout-as-transaction orders refund through verified invoice without rewriting history
+ok 199 - legacy Checkout-as-transaction orders refund through verified invoice without rewriting history
+  ---
+  duration_ms: 53.3215
+  type: 'test'
+  ...
+# Subtest: a contradictory legacy Checkout ID cannot use invoice fallback
+ok 200 - a contradictory legacy Checkout ID cannot use invoice fallback
+  ---
+  duration_ms: 42.165
+  type: 'test'
+  ...
+# Subtest: canonical PaymentIntent and matching invoice settle once without rewriting identifiers
+ok 201 - canonical PaymentIntent and matching invoice settle once without rewriting identifiers
+  ---
+  duration_ms: 51.0398
+  type: 'test'
+  ...
+# Subtest: PaymentIntent and invoice pointing at different orders fail closed without revoking either grant
+ok 202 - PaymentIntent and invoice pointing at different orders fail closed without revoking either grant
+  ---
+  duration_ms: 59.1973
+  type: 'test'
+  ...
+# Subtest: invoice fallback cannot override a different canonical PaymentIntent on the paid order
+ok 203 - invoice fallback cannot override a different canonical PaymentIntent on the paid order
+  ---
+  duration_ms: 37.1546
+  type: 'test'
+  ...
+# Subtest: a matched PaymentIntent still rejects contradictory persisted invoice linkage
+ok 204 - a matched PaymentIntent still rejects contradictory persisted invoice linkage
+  ---
+  duration_ms: 38.8471
+  type: 'test'
+  ...
+# Subtest: full refunds reclaim only remaining source credits and keep consumed credits for review
+ok 205 - full refunds reclaim only remaining source credits and keep consumed credits for review
+  ---
+  duration_ms: 4.7751
+  type: 'test'
+  ...
+# Subtest: partial refunds never create negative credit and require manual review
+ok 206 - partial refunds never create negative credit and require manual review
+  ---
+  duration_ms: 0.3045
+  type: 'test'
+  ...
+# Subtest: refund validation rejects cumulative amounts beyond the paid order
+ok 207 - refund validation rejects cumulative amounts beyond the paid order
+  ---
+  duration_ms: 0.9319
+  type: 'test'
+  ...
+# (node:41792) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: opening history or its count directly settles the current annual month without exposing receipts
+ok 208 - opening history or its count directly settles the current annual month without exposing receipts
+  ---
+  duration_ms: 16956.3952
+  type: 'test'
+  ...
+# Subtest: lazy balance reads do not accumulate or reset spent credits; user history hides receipts
+ok 209 - lazy balance reads do not accumulate or reset spent credits; user history hides receipts
+  ---
+  duration_ms: 136.4725
+  type: 'test'
+  ...
+# Subtest: twelve monthly grants and no thirteenth are shared by aggregate balances and spending
+ok 210 - twelve monthly grants and no thirteenth are shared by aggregate balances and spending
+  ---
+  duration_ms: 401.4377
+  type: 'test'
+  ...
+# Subtest: direct spending settles a month and consumes expiring credits before permanent credits
+ok 211 - direct spending settles a month and consumes expiring credits before permanent credits
+  ---
+  duration_ms: 61.0758
+  type: 'test'
+  ...
+# Subtest: a failed outer spending transaction rolls back the new monthly grant
+ok 212 - a failed outer spending transaction rolls back the new monthly grant
+  ---
+  duration_ms: 75.4155
+  type: 'test'
+  ...
+# Subtest: full refund races with month settlement, replays once and blocks future grants
+ok 213 - full refund races with month settlement, replays once and blocks future grants
+  ---
+  duration_ms: 107.2427
+  type: 'test'
+  ...
+# Subtest: partial refunds stay manual review without deleting future paid months
+ok 214 - partial refunds stay manual review without deleting future paid months
+  ---
+  duration_ms: 66.9054
+  type: 'test'
+  ...
+# Subtest: late partial refund cannot downgrade a refunded annual order or restore future months
+ok 215 - late partial refund cannot downgrade a refunded annual order or restore future months
+  ---
+  duration_ms: 71.7589
+  type: 'test'
+  ...
+# Subtest: cancel action reloads ownership, keeps paid annual access, and is safe to repeat
+ok 216 - cancel action reloads ownership, keeps paid annual access, and is safe to repeat
+  ---
+  duration_ms: 71.6902
+  type: 'test'
+  ...
+# Subtest: cancel action never invokes a fallback provider for an unavailable contract provider
+ok 217 - cancel action never invokes a fallback provider for an unavailable contract provider
+  ---
+  duration_ms: 43.2745
+  type: 'test'
+  ...
+# Subtest: canceling renewal preserves every paid month, not an unpaid thirteenth
+ok 218 - canceling renewal preserves every paid month, not an unpaid thirteenth
+  ---
+  duration_ms: 173.0921
+  type: 'test'
+  ...
+# Subtest: refunded annual sources cannot be restored by a failed generation task
+ok 219 - refunded annual sources cannot be restored by a failed generation task
+  ---
+  duration_ms: 186.0948
+  type: 'test'
+  ...
+# Subtest: corrupt entitlement ownership fails closed without granting the next month
+ok 220 - corrupt entitlement ownership fails closed without granting the next month
+  ---
+  duration_ms: 44.7847
+  type: 'test'
+  ...
+# Subtest: annual payment stores a zero receipt and only the current month, once
+ok 221 - annual payment stores a zero receipt and only the current month, once
+  ---
+  duration_ms: 46.9284
+  type: 'test'
+  ...
+# Subtest: annual notification at 2028-04-01T00:00:00Z never backfills expired credits
+ok 222 - annual notification at 2028-04-01T00:00:00Z never backfills expired credits
+  ---
+  duration_ms: 44.6298
+  type: 'test'
+  ...
+# Subtest: annual notification at 2027-12-01T00:00:00Z never backfills expired credits
+ok 223 - annual notification at 2027-12-01T00:00:00Z never backfills expired credits
+  ---
+  duration_ms: 42.9274
+  type: 'test'
+  ...
+# Subtest: annual notification at 2029-02-01T00:00:00Z never backfills expired credits
+ok 224 - annual notification at 2029-02-01T00:00:00Z never backfills expired credits
+  ---
+  duration_ms: 38.3033
+  type: 'test'
+  ...
+# Subtest: year-price monthly-interval mismatch cannot settle
+ok 225 - year-price monthly-interval mismatch cannot settle
+  ---
+  duration_ms: 18.8279
+  type: 'test'
+  ...
+# Subtest: annual renewal replays use the persisted order and independent year
+ok 226 - annual renewal replays use the persisted order and independent year
+  ---
+  duration_ms: 75.3981
+  type: 'test'
+  ...
+# Subtest: durable request identity cannot create another payment after settlement, but a new purchase can
+ok 227 - durable request identity cannot create another payment after settlement, but a new purchase can
+  ---
+  duration_ms: 14631.2869
+  type: 'test'
+  ...
+# Subtest: ambiguous create retries identical server parameters and settled replay never calls Stripe
+ok 228 - ambiguous create retries identical server parameters and settled replay never calls Stripe
+  ---
+  duration_ms: 57.951
+  type: 'test'
+  ...
+# Subtest: unknown old results require review; only verified expiry releases a reservation
+ok 229 - unknown old results require review; only verified expiry releases a reservation
+  ---
+  duration_ms: 44.4099
+  type: 'test'
+  ...
+# Subtest: a lost request ID can resume the original session and recovery replay stays settled
+ok 230 - a lost request ID can resume the original session and recovery replay stays settled
+  ---
+  duration_ms: 109.1118
+  type: 'test'
+  ...
+# Subtest: lost request recovery verifies expiry then allows an explicit new purchase
+ok 231 - lost request recovery verifies expiry then allows an explicit new purchase
+  ---
+  duration_ms: 67.0032
+  type: 'test'
+  ...
+# Subtest: recovery for another pack offers explicit resume without changing the original purchase
+ok 232 - recovery for another pack offers explicit resume without changing the original purchase
+  ---
+  duration_ms: 58.0838
+  type: 'test'
+  ...
+# Subtest: unknown old checkout remains fail-closed after request recovery
+ok 233 - unknown old checkout remains fail-closed after request recovery
+  ---
+  duration_ms: 58.7052
+  type: 'test'
+  ...
+# Subtest: recovered ambiguous creation reuses original idempotency payload, never the recovery row
+ok 234 - recovered ambiguous creation reuses original idempotency payload, never the recovery row
+  ---
+  duration_ms: 57.7696
+  type: 'test'
+  ...
+# Subtest: recovery cannot cross an owner boundary and safely retires known unpaid test sessions on live switch
+ok 235 - recovery cannot cross an owner boundary and safely retires known unpaid test sessions on live switch
+  ---
+  duration_ms: 80.0573
+  type: 'test'
+  ...
+# Subtest: a replayed legacy paid renewal invoice creates no new order or credits
+ok 236 - a replayed legacy paid renewal invoice creates no new order or credits
+  ---
+  duration_ms: 12605.7468
+  type: 'test'
+  ...
+# Subtest: a replayed legacy refunded renewal invoice creates no new order or credits
+ok 237 - a replayed legacy refunded renewal invoice creates no new order or credits
+  ---
+  duration_ms: 58.2284
+  type: 'test'
+  ...
+# Subtest: renewal rejects a canonical PaymentIntent that conflicts with the persisted invoice
+ok 238 - renewal rejects a canonical PaymentIntent that conflicts with the persisted invoice
+  ---
+  duration_ms: 47.4655
+  type: 'test'
+  ...
+# Subtest: subscription reservation validates and locks its owner before returning one concurrent reservation
+ok 239 - subscription reservation validates and locks its owner before returning one concurrent reservation
+  ---
+  duration_ms: 50.9231
+  type: 'test'
+  ...
+# Subtest: conflicting intent/invoice orders and mismatched legacy owners fail closed
+ok 240 - conflicting intent/invoice orders and mismatched legacy owners fail closed
+  ---
+  duration_ms: 87.3622
+  type: 'test'
+  ...
+# Subtest: subscription state rejects duplicate and out-of-order signed events
+ok 241 - subscription state rejects duplicate and out-of-order signed events
+  ---
+  duration_ms: 4.506
+  type: 'test'
+  ...
+# Subtest: reserved checkout metadata cannot be overwritten by public custom metadata
+ok 242 - reserved checkout metadata cannot be overwritten by public custom metadata
+  ---
+  duration_ms: 2.408
+  type: 'test'
+  ...
+# Subtest: payment validation rejects provider, owner, order, currency and amount tampering
+ok 243 - payment validation rejects provider, owner, order, currency and amount tampering
+  ---
+  duration_ms: 1.0612
+  type: 'test'
+  ...
+# Subtest: model check uses the approved endpoint and returns only safe unique Wan IDs
+ok 244 - model check uses the approved endpoint and returns only safe unique Wan IDs
+  ---
+  duration_ms: 93.0835
+  type: 'test'
+  ...
+# Subtest: missing keys, unsafe origins and upstream errors become safe codes
+ok 245 - missing keys, unsafe origins and upstream errors become safe codes
+  ---
+  duration_ms: 2.2003
+  type: 'test'
+  ...
+# Subtest: admin model check authorizes before reading config or contacting Polaris
+ok 246 - admin model check authorizes before reading config or contacting Polaris
+  ---
+  duration_ms: 0.7656
+  type: 'test'
+  ...
+# Subtest: public auth readiness never serializes provider credentials
+ok 247 - public auth readiness never serializes provider credentials
+  ---
+  duration_ms: 8.5997
+  type: 'test'
+  ...
+# Subtest: authentication source has no first-login credit grant
+ok 248 - authentication source has no first-login credit grant
+  ---
+  duration_ms: 13.9823
+  type: 'test'
+  ...
+# Subtest: admin settings and credit model expose no new-user gift switch
+ok 249 - admin settings and credit model expose no new-user gift switch
+  ---
+  duration_ms: 2.022
+  type: 'test'
+  ...
+# Subtest: generic settings accept only registered canonical names and explicit secret clear controls
+ok 250 - generic settings accept only registered canonical names and explicit secret clear controls
+  ---
+  duration_ms: 10.0723
+  type: 'test'
+  ...
+# Subtest: Wan provider settings are server-only admin fields with explicit secret metadata
+ok 251 - Wan provider settings are server-only admin fields with explicit secret metadata
+  ---
+  duration_ms: 16.3463
+  type: 'test'
+  ...
+# Subtest: Wan model and price settings expose the approved defaults as server-only fields
+ok 252 - Wan model and price settings expose the approved defaults as server-only fields
+  ---
+  duration_ms: 0.7819
+  type: 'test'
+  ...
+# Subtest: video rates are registered under pricing and cannot be submitted through generic settings
+ok 253 - video rates are registered under pricing and cannot be submitted through generic settings
+  ---
+  duration_ms: 1.4054
+  type: 'test'
+  ...
+# Subtest: Polaris model ids are normalized and unsafe identifiers are rejected
+ok 254 - Polaris model ids are normalized and unsafe identifiers are rejected
+  ---
+  duration_ms: 1.9635
+  type: 'test'
+  ...
+# Subtest: Polaris price settings accept blank, integer or half-credit values only
+ok 255 - Polaris price settings accept blank, integer or half-credit values only
+  ---
+  duration_ms: 0.6769
+  type: 'test'
+  ...
+# Subtest: provider endpoints and R2 settings reject unsafe input without exposing secrets
+ok 256 - provider endpoints and R2 settings reject unsafe input without exposing secrets
+  ---
+  duration_ms: 4.7744
+  type: 'test'
+  ...
+# Subtest: admin config view never serializes stored secrets and reports configured state
+ok 257 - admin config view never serializes stored secrets and reports configured state
+  ---
+  duration_ms: 0.3774
+  type: 'test'
+  ...
+# Subtest: empty secret submissions preserve stored values and explicit clear removes them
+ok 258 - empty secret submissions preserve stored values and explicit clear removes them
+  ---
+  duration_ms: 0.6462
+  type: 'test'
+  ...
+# Subtest: configured secrets gain an explicit clear switch without exposing their value
+ok 259 - configured secrets gain an explicit clear switch without exposing their value
+  ---
+  duration_ms: 0.7716
+  type: 'test'
+  ...
+# Subtest: non-empty environment settings override database values while empty values do not
+ok 260 - non-empty environment settings override database values while empty values do not
+  ---
+  duration_ms: 0.2568
+  type: 'test'
+  ...
+# Subtest: fresh reads and atomic complete catalog saves do not expose unrelated secrets
+ok 261 - fresh reads and atomic complete catalog saves do not expose unrelated secrets
+  ---
+  duration_ms: 12751.656
+  type: 'test'
+  ...
+# Subtest: unauthenticated, ordinary admin, inactive and expired super-admin cannot write
+ok 262 - unauthenticated, ordinary admin, inactive and expired super-admin cannot write
+  ---
+  duration_ms: 44.5349
+  type: 'test'
+  ...
+# Subtest: simultaneous first saves and stale revisions never overwrite the winning catalog
+ok 263 - simultaneous first saves and stale revisions never overwrite the winning catalog
+  ---
+  duration_ms: 50.4259
+  type: 'test'
+  ...
+# Subtest: invalid inputs cannot partially save and malformed storage does not become a default quote
+ok 264 - invalid inputs cannot partially save and malformed storage does not become a default quote
+  ---
+  duration_ms: 44.7971
+  type: 'test'
+  ...
+# Subtest: generic configuration mutations cannot bypass the super-admin pricing write boundary
+ok 265 - generic configuration mutations cannot bypass the super-admin pricing write boundary
+  ---
+  duration_ms: 22.5989
+  type: 'test'
+  ...
+# Subtest: case-insensitive database keys cannot bypass the generic pricing write boundary
+ok 266 - case-insensitive database keys cannot bypass the generic pricing write boundary
+  ---
+  duration_ms: 46.1539
+  type: 'test'
+  ...
+# Subtest: HTTP write rechecks roles, returns safe field errors and prevents cross-origin mutation
+ok 267 - HTTP write rechecks roles, returns safe field errors and prevents cross-origin mutation
+  ---
+  duration_ms: 53.4165
+  type: 'test'
+  ...
+# Subtest: public catalog is no-store, omits secrets, and fails closed on a corrupt value
+ok 268 - public catalog is no-store, omits secrets, and fails closed on a corrupt value
+  ---
+  duration_ms: 75.0969
+  type: 'test'
+  ...
+# (node:35260) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: configured price and credits govern new purchases; custom monthly price uses dynamic Stripe data
+ok 269 - configured price and credits govern new purchases; custom monthly price uses dynamic Stripe data
+  ---
+  duration_ms: 12732.7619
+  type: 'test'
+  ...
+# Subtest: outdated or absent quote revision cannot create a new payable order after configuration changes
+ok 270 - outdated or absent quote revision cannot create a new payable order after configuration changes
+  ---
+  duration_ms: 215.662
+  type: 'test'
+  ...
+# Subtest: existing monthly session is recovered at its original price after a catalog update
+ok 271 - existing monthly session is recovered at its original price after a catalog update
+  ---
+  duration_ms: 54.0636
+  type: 'test'
+  ...
+# Subtest: credit pack request replay keeps its original credits after a catalog update
+ok 272 - credit pack request replay keeps its original credits after a catalog update
+  ---
+  duration_ms: 91.7488
+  type: 'test'
+  ...
+# Subtest: catalog change between quote loading and reservation cannot reserve stale financial values
+ok 273 - catalog change between quote loading and reservation cannot reserve stale financial values
+  ---
+  duration_ms: 27.2851
+  type: 'test'
+  ...
+# Subtest: an uncertain subscription creation retries the original snapshot after a price change
+ok 274 - an uncertain subscription creation retries the original snapshot after a price change
+  ---
+  duration_ms: 55.6912
+  type: 'test'
+  ...
+# Subtest: a corrupt current catalog does not block monthly open checkout recovery
+ok 275 - a corrupt current catalog does not block monthly open checkout recovery
+  ---
+  duration_ms: 56.4475
+  type: 'test'
+  ...
+# Subtest: a corrupt current catalog does not block monthly uncertain checkout recovery
+ok 276 - a corrupt current catalog does not block monthly uncertain checkout recovery
+  ---
+  duration_ms: 67.1009
+  type: 'test'
+  ...
+# Subtest: a corrupt current catalog does not block credits open checkout recovery
+ok 277 - a corrupt current catalog does not block credits open checkout recovery
+  ---
+  duration_ms: 50.7817
+  type: 'test'
+  ...
+# Subtest: a corrupt current catalog does not block credits uncertain checkout recovery
+ok 278 - a corrupt current catalog does not block credits uncertain checkout recovery
+  ---
+  duration_ms: 59.3031
+  type: 'test'
+  ...
+# Subtest: an unavailable initial quote never creates a default-price order even if the catalog recovers mid-request
+ok 279 - an unavailable initial quote never creates a default-price order even if the catalog recovers mid-request
+  ---
+  duration_ms: 34.236
+  type: 'test'
+  ...
+# Subtest: corrupt current catalog blocks all new purchases without a payable order
+ok 280 - corrupt current catalog blocks all new purchases without a payable order
+  ---
+  duration_ms: 36.6932
+  type: 'test'
+  ...
+# Subtest: custom annual checkout grants its paid snapshot each month despite later catalog changes
+ok 281 - custom annual checkout grants its paid snapshot each month despite later catalog changes
+  ---
+  duration_ms: 205.0422
+  type: 'test'
+  ...
+# Subtest: annual checkout derives yearly price and monthly allowance only from the server catalog
+ok 282 - annual checkout derives yearly price and monthly allowance only from the server catalog
+  ---
+  duration_ms: 34.3151
+  type: 'test'
+  ...
+# Subtest: configured monthly Price IDs remain usable while new products never reuse them
+ok 283 - configured monthly Price IDs remain usable while new products never reuse them
+  ---
+  duration_ms: 39.8282
+  type: 'test'
+  ...
+# Subtest: credit packs create permanent one-time orders and replay an open session without another charge
+ok 284 - credit packs create permanent one-time orders and replay an open session without another charge
+  ---
+  duration_ms: 49.8327
+  type: 'test'
+  ...
+# Subtest: different-plan checkout provides explicit resume and verified expiry unlocks a new choice
+ok 285 - different-plan checkout provides explicit resume and verified expiry unlocks a new choice
+  ---
+  duration_ms: 71.9678
+  type: 'test'
+  ...
+# Subtest: client financial overrides, invalid products and invalid pack requests cannot create payable orders
+ok 286 - client financial overrides, invalid products and invalid pack requests cannot create payable orders
+  ---
+  duration_ms: 31.4096
+  type: 'test'
+  ...
+# Subtest: paid pack callback grants permanent credits once, supports a fresh purchase and revokes on refund
+ok 287 - paid pack callback grants permanent credits once, supports a fresh purchase and revokes on refund
+  ---
+  duration_ms: 117.7192
+  type: 'test'
+  ...
+# Subtest: quote, request validation and recovery preserve the exact Wan generation contract
+ok 288 - quote, request validation and recovery preserve the exact Wan generation contract
+  ---
+  duration_ms: 13.4818
+  type: 'test'
+  ...
+# Subtest: approved Stripe plan survives checkout, signed settlement, replay and refund contracts
+ok 289 - approved Stripe plan survives checkout, signed settlement, replay and refund contracts
+  ---
+  duration_ms: 4.6711
+  type: 'test'
+  ...
+# Subtest: fresh generation configuration uses the atomic video-rate settings over legacy values
+ok 290 - fresh generation configuration uses the atomic video-rate settings over legacy values
+  ---
+  duration_ms: 11268.1778
+  type: 'test'
+  ...
+# Subtest: corrupt atomic video rates stop generation instead of using a default price
+ok 291 - corrupt atomic video rates stop generation instead of using a default price
+  ---
+  duration_ms: 34.4009
+  type: 'test'
+  ...
+# Subtest: ordinary config writes cannot modify per-second rates or their case aliases
+ok 292 - ordinary config writes cannot modify per-second rates or their case aliases
+  ---
+  duration_ms: 36.1212
+  type: 'test'
+  ...
+# Subtest: editor preserves old per-second values and saves the complete rate matrix atomically
+ok 293 - editor preserves old per-second values and saves the complete rate matrix atomically
+  ---
+  duration_ms: 58.187
+  type: 'test'
+  ...
+# Subtest: video rate saves reject missing, ordinary, inactive and expired administrators
+ok 294 - video rate saves reject missing, ordinary, inactive and expired administrators
+  ---
+  duration_ms: 53.4588
+  type: 'test'
+  ...
+# Subtest: invalid or incomplete rates never partially persist
+ok 295 - invalid or incomplete rates never partially persist
+  ---
+  duration_ms: 47.1661
+  type: 'test'
+  ...
+# Subtest: stale and simultaneous edits cannot overwrite a newer video rate matrix
+ok 296 - stale and simultaneous edits cannot overwrite a newer video rate matrix
+  ---
+  duration_ms: 56.5277
+  type: 'test'
+  ...
+# Subtest: environment overrides are visible, immutable in the editor, and do not replace stored rates
+ok 297 - environment overrides are visible, immutable in the editor, and do not replace stored rates
+  ---
+  duration_ms: 43.1989
+  type: 'test'
+  ...
+# Subtest: video-rate HTTP endpoints protect reads and writes and return safe validation errors
+ok 298 - video-rate HTTP endpoints protect reads and writes and return safe validation errors
+  ---
+  duration_ms: 57.7177
+  type: 'test'
+  ...
+# Subtest: approved Wan matrix is the single source for models, duration and default rates
+ok 299 - approved Wan matrix is the single source for models, duration and default rates
+  ---
+  duration_ms: 5.9586
+  type: 'test'
+  ...
+# Subtest: quote normalization enforces mode, duration, resolution and configured model
+ok 300 - quote normalization enforces mode, duration, resolution and configured model
+  ---
+  duration_ms: 1.4188
+  type: 'test'
+  ...
+# Subtest: saved prices override defaults, explicit blanks disable a resolution and rate parsing is strict
+ok 301 - saved prices override defaults, explicit blanks disable a resolution and rate parsing is strict
+  ---
+  duration_ms: 0.8386
+  type: 'test'
+  ...
+# Subtest: capabilities expose only safe availability and the approved public matrix
+ok 302 - capabilities expose only safe availability and the approved public matrix
+  ---
+  duration_ms: 1.2646
+  type: 'test'
+  ...
+# Subtest: recovery never re-submits paid work and keeps uncertain states reserved
+ok 303 - recovery never re-submits paid work and keeps uncertain states reserved
+  ---
+  duration_ms: 2.9715
+  type: 'test'
+  ...
+# Subtest: input media accepts only the current user canonical R2 namespace
+ok 304 - input media accepts only the current user canonical R2 namespace
+  ---
+  duration_ms: 2.7965
+  type: 'test'
+  ...
+# Subtest: image uploads verify MIME magic and use a random user-scoped object key
+ok 305 - image uploads verify MIME magic and use a random user-scoped object key
+  ---
+  duration_ms: 9.6639
+  type: 'test'
+  ...
+# Subtest: video persistence validates provider output and returns the permanent R2 URL
+ok 306 - video persistence validates provider output and returns the permanent R2 URL
+  ---
+  duration_ms: 30.3059
+  type: 'test'
+  ...
+# Subtest: custom result hosts are explicitly allowed, never matched by suffix or redirected
+ok 307 - custom result hosts are explicitly allowed, never matched by suffix or redirected
+  ---
+  duration_ms: 1.1527
+  type: 'test'
+  ...
+# wan_video_recovery_unavailable
+# Subtest: worker recovery runs the persisted sweep and reports sanitized failure state
+ok 308 - worker recovery runs the persisted sweep and reports sanitized failure state
+  ---
+  duration_ms: 3.3076
+  type: 'test'
+  ...
+# Subtest: a paid task keeps its model mapping and refuses to poll a different gateway
+ok 309 - a paid task keeps its model mapping and refuses to poll a different gateway
+  ---
+  duration_ms: 10346.6529
+  type: 'test'
+  ...
+# Subtest: duplicate submissions create one durable task, charge once and call Polaris once
+ok 310 - duplicate submissions create one durable task, charge once and call Polaris once
+  ---
+  duration_ms: 37.0793
+  type: 'test'
+  ...
+# Subtest: insufficient credits never contact Polaris or leave a task row
+ok 311 - insufficient credits never contact Polaris or leave a task row
+  ---
+  duration_ms: 24.6635
+  type: 'test'
+  ...
+# Subtest: definite rejection refunds exactly once while unknown submission keeps the debit reserved
+ok 312 - definite rejection refunds exactly once while unknown submission keeps the debit reserved
+  ---
+  duration_ms: 61.0614
+  type: 'test'
+  ...
+# Subtest: polling saves a successful video once and denies cross-user reads
+ok 313 - polling saves a successful video once and denies cross-user reads
+  ---
+  duration_ms: 56.5966
+  type: 'test'
+  ...
+1..313
+# tests 313
+# suites 0
+# pass 313
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 131525.4088
