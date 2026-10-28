@@ -31,9 +31,9 @@ yarn-error.log*
 *.db-shm
 *.db-wal
 
-# Documentation
-*.md
-!README.md
+# Internal Documentation
+/docs/**
+!content/**
 
 # Config files that aren't needed for build
 .vscode

@@ -1,0 +1,50 @@
+---
+title: 'GLM-5.3 正式版本发布'
+description: '753B 稀疏 MoE 架构、100 万字原生长程记忆与 SWE-bench 58.4% 登顶开源榜首'
+date: '2026-10-28'
+tags: ['GLM-5.3', 'Frontier MoE', '1M Context', 'SWE-bench', 'Apache 2.0']
+version: '5.3.0'
+---
+
+## 🚀 GLM-5.3 生产环境里程碑发布
+
+我们正式发布 **GLM-5.3**。作为新一代前沿级混合专家（Mixture of Experts）基础模型，GLM-5.3 在真实软件工程代码诊断、百万字超长上下文无损召回以及企业级私有化部署方面树立了新的开源标杆。
+
+<Accordion type="multiple" className="not-prose w-full">
+    <AccordionItem value="architecture">
+        <AccordionTrigger>一、753B 稀疏 MoE 与 MLA 显存优化</AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-4 text-balance">
+        <ul className="list-disc space-y-2 pl-4">
+            <li><strong>753B 总参数 / 48B 动态激活</strong>：采用 128 细粒度子专家与 Top-8 门控路由，兼具千亿深度与百亿推理速度。</li>
+            <li><strong>MLA 多头潜在注意力</strong>：对 Key/Value 矩阵进行低秩压缩，KV Cache 显存占用骤降 73%。</li>
+            <li><strong>45+ tokens/s 吞吐</strong>：标准 8 卡 H100 节点即可全速运行 FP8 生产推理。</li>
+        </ul>
+        </AccordionContent>
+    </AccordionItem>
+
+    <AccordionItem value="benchmarks">
+        <AccordionTrigger>二、三大权威评测登顶</AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-4 text-balance">
+        <ul className="list-disc space-y-2 pl-4">
+            <li><strong>SWE-bench Verified 达 58.4%</strong>：超越 Claude 3.5 Sonnet (57.2%) 与 OpenAI Codex (56.5%)，登顶全球开源第一。</li>
+            <li><strong>Terminal-Bench 3.0 达 64.8%</strong>：原生沙盒与 Linux 终端工具闭环，全面胜任自主 DevOps 运维。</li>
+            <li><strong>1M 大海捞针召回率 99.8%</strong>：百万字极端文本深度下几乎零信息丢失。</li>
+        </ul>
+        </AccordionContent>
+    </AccordionItem>
+
+    <AccordionItem value="commercial">
+        <AccordionTrigger>三、Apache 2.0 商业友好开源</AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-4 text-balance">
+        <ul className="list-disc space-y-2 pl-4">
+            <li>权重完全开源，无商业分成限制与二次授权壁垒。</li>
+            <li>支持金融、军工及敏感企业在纯物理断网（Air-Gapped）环境下独立部署。</li>
+            <li>提供 100% 兼容 OpenAI 格式的 RESTful API 接入。</li>
+        </ul>
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
+> 快速体验
+
+访问 [在线工作台](/chat) 或通过 [API 开发文档](/docs/api-reference) 接入。

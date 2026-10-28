@@ -1,0 +1,50 @@
+---
+title: 'GLM-5.3 Official Release'
+description: '753B Sparse MoE architecture, 1M native context window, and world-leading 58.4% SWE-bench Verified coding.'
+date: '2026-10-28'
+tags: ['GLM-5.3', 'Frontier MoE', '1M Context', 'SWE-bench', 'Apache 2.0']
+version: '5.3.0'
+---
+
+## 🚀 GLM-5.3 Production Milestone Release
+
+We are excited to announce the production release of **GLM-5.3**. As a next-generation frontier Mixture of Experts (MoE) foundation model, GLM-5.3 establishes a new open-source standard for authentic software engineering, million-token context synthesis, and air-gapped on-premises deployment.
+
+<Accordion type="multiple" className="not-prose w-full">
+    <AccordionItem value="architecture">
+        <AccordionTrigger>1. 753B Sparse MoE & MLA VRAM Optimization</AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-4 text-balance">
+        <ul className="list-disc space-y-2 pl-4">
+            <li><strong>753B Total / 48B Active Parameters</strong>: 128 fine-grained experts with Top-8 gating routing, balancing 700B+ capacity with lightweight runtime overhead.</li>
+            <li><strong>Multi-Head Latent Attention (MLA)</strong>: Low-rank latent projection reduces KV Cache VRAM footprint by 73%.</li>
+            <li><strong>45+ tokens/s Throughput</strong>: Runs full FP8 inference on standard 8x H100 nodes.</li>
+        </ul>
+        </AccordionContent>
+    </AccordionItem>
+
+    <AccordionItem value="benchmarks">
+        <AccordionTrigger>2. Frontier Benchmark Leadership</AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-4 text-balance">
+        <ul className="list-disc space-y-2 pl-4">
+            <li><strong>SWE-bench Verified (58.4%)</strong>: Surpasses Claude 3.5 Sonnet (57.2%) and OpenAI Codex (56.5%) to become #1 open-weights model globally.</li>
+            <li><strong>Terminal-Bench 3.0 (64.8%)</strong>: Native Linux shell and Docker tool-calling loops for autonomous SRE & DevOps.</li>
+            <li><strong>1M Needle-In-A-Haystack (99.8%)</strong>: Lossless multi-hop precision across full 1,000,000-token sequence lengths.</li>
+        </ul>
+        </AccordionContent>
+    </AccordionItem>
+
+    <AccordionItem value="commercial">
+        <AccordionTrigger>3. Apache 2.0 Permissive Licensing</AccordionTrigger>
+        <AccordionContent className="flex flex-col gap-4 text-balance">
+        <ul className="list-disc space-y-2 pl-4">
+            <li>Full model weights released under Apache 2.0 with zero commercial royalty restrictions.</li>
+            <li>Enables air-gapped on-premises cluster deployment for banking, healthcare, and defense.</li>
+            <li>Exposes 100% OpenAI-compatible RESTful endpoints.</li>
+        </ul>
+        </AccordionContent>
+    </AccordionItem>
+</Accordion>
+
+> Quickstart
+
+Launch the [Chat Studio](/chat) or review the [API Reference](/docs/api-reference).
