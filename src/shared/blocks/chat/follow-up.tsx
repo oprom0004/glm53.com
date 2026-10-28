@@ -145,5 +145,11 @@ export function FollowUp({
     return null;
   }
 
-  return <ChatInput handleSubmit={submitMessage} status={status} />;
+  return (
+    <ChatInput
+      handleSubmit={submitMessage}
+      status={status}
+      textareaClassName="min-h-[64px]"
+    />
+  );
 }

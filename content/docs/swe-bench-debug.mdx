@@ -1,0 +1,94 @@
+---
+title: "SWE-bench Verified Debugging Playbook"
+description: "How GLM-5.3 reached 58.4% on SWE-bench Verified, leading global open-source models in multi-file bug diagnosis and autonomous self-correction."
+---
+
+# SWE-bench Verified Debugging Playbook
+
+**SWE-bench Verified** is the gold standard benchmark for AI software engineering. Sourced from 2,294 real-world production pull requests and issues across premier open-source repositories (Django, SymPy, pytest, matplotlib, scikit-learn), it tests an LLM's capacity to:
+1. Ingest large, messy multi-package repositories.
+2. Accurately localize obscure multi-file race conditions or regressions.
+3. Synthesize a surgical unified diff patch.
+4. **Pass the complete project regression test suite without introducing breaking changes**.
+
+GLM-5.3 leads all open models worldwide with a **58.4% resolution rate**, providing proven production utility for real enterprise teams.
+
+---
+
+## The Autonomous Self-Correction Loop
+
+GLM-5.3's engineering supremacy stems from its native support for **tool-driven test-repair loops**:
+
+```
+     [1. Capture Production Issue / Traceback]
+                        │
+                        ▼
+     [2. GLM-5.3 Ingests Repos via 1M Context Window]
+                        │
+                        ▼
+     [3. Generate Minimal Reproducible Test Case]
+                        │
+                        ▼
+     [4. Sandboxed Runner (Docker / Headless Linux)] ───► Fails (Red Light: Bug confirmed)
+                        │
+                        ▼
+     [5. GLM-5.3 Diagnoses Root Cause & Emits Unified Diff]
+                        │
+                        ▼
+     [6. Auto-Apply Patch & Re-Execute Test Suite]   ───► Passes (Green Light: 0 regressions)
+                        │
+                        ▼
+     [7. Output Production Pull Request]
+```
+
+---
+
+## Production Walkthrough: Concurrency Race Condition
+
+### 1. The Symptom
+A distributed connection pool periodically raised intermittent `ConnectionClosedError` under 5,000 QPS burst traffic, which never manifested in unit tests.
+
+### 2. Context Prompt
+
+```markdown
+<context>
+Here is `pool.py` and our underlying socket wrapper `socket_io.py`.
+Under peak traffic, workers occasionally read stale descriptors from drained sockets.
+</context>
+
+<instruction>
+Examine whether a race window exists between `acquire()` and `keepalive_worker()`.
+Emit a minimal unified diff patch.
+</instruction>
+```
+
+### 3. GLM-5.3 Output Patch
+
+GLM-5.3 discovered that `release()` lacked spinlock atomic barriers against concurrent drain checks in `keepalive_worker`:
+
+```diff
+diff --git a/network/pool.py b/network/pool.py
+index a41bc89..8f21e02 100644
+--- a/network/pool.py
++++ b/network/pool.py
+@@ -142,6 +142,10 @@ class ConnectionPool:
+         async with self._lock:
++            # Check if socket was concurrently marked draining
++            if conn.is_draining or conn.is_closed:
++                await self._destroy_connection(conn)
++                return await self.acquire()
+             conn.last_used_at = time.monotonic()
+             self._idle_connections.append(conn)
++            self._notify_waiters()
+```
+
+---
+
+## Production Agent Best Practices
+
+1. **Isolate Sandbox Execution**:
+   Wrap GLM-5.3 tool executions inside ephemeral container sandboxes to safeguard system boundaries.
+2. **Targeted Sub-Suite Testing**:
+   Have the model run `pytest -k <target>` initially, and only run the full regression suite once the minimal reproducer passes.
+3. **Allocate Sufficient Reasoning Tokens**:
+   Set `max_tokens: 8192` so the model can construct an exhaustive AST semantic trace before emitting the final patch.

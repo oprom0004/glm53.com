@@ -1,0 +1,143 @@
+---
+title: "API Reference & SDK Integration"
+description: "100% OpenAI-compatible REST API reference for GLM-5.3, complete with Python, TypeScript, and cURL production examples."
+---
+
+# API Reference & SDK Integration
+
+GLM-5.3 provides a fully industry-standard RESTful API that is **100% compatible with the OpenAI API specification**. You can drop it into any existing application by merely changing the `baseURL` and `apiKey`.
+
+---
+
+## Endpoints & Model Identifiers
+
+- **Base URL**: `https://api.glm53.com/v1`
+- **Supported Model IDs**:
+  - `z-ai/glm-5.3`: 753B MoE frontier flagship model with 1,000,000 token context window and deep reasoning.
+  - `z-ai/glm-5.3-flash`: 320B high-throughput low-latency model for real-time applications.
+
+---
+
+## SDK Code Samples
+
+### 1. Python (Official `openai` SDK)
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ.get("GLM_API_KEY", "your-api-key"),
+    base_url="https://api.glm53.com/v1"
+)
+
+response = client.chat.completions.create(
+    model="z-ai/glm-5.3",
+    messages=[
+        {
+            "role": "system",
+            "content": "You are a world-class distributed systems engineer. Output production-ready, type-safe code."
+        },
+        {
+            "role": "user",
+            "content": "Implement a distributed sliding window rate-limiter in Go using Redis and Lua with stampede protection."
+        }
+    ],
+    temperature=0.2,
+    max_tokens=4096,
+    stream=True
+)
+
+for chunk in response:
+    content = chunk.choices[0].delta.content or ""
+    print(content, end="", flush=True)
+```
+
+---
+
+### 2. TypeScript / Node.js (Vercel AI SDK)
+
+```typescript
+import { createOpenAI } from '@ai-sdk/openai';
+import { streamText } from 'ai';
+
+const glmClient = createOpenAI({
+  baseURL: 'https://api.glm53.com/v1',
+  apiKey: process.env.GLM_API_KEY,
+});
+
+async function run() {
+  const result = await streamText({
+    model: glmClient('z-ai/glm-5.3'),
+    prompt: 'Explain why these Rust lifetime annotations fail the borrow checker and supply a zero-cost abstraction patch:',
+    temperature: 0.1,
+  });
+
+  for await (const textPart of result.textStream) {
+    process.stdout.write(textPart);
+  }
+}
+
+run();
+```
+
+---
+
+### 3. Raw cURL
+
+```bash
+curl https://api.glm53.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "z-ai/glm-5.3",
+    "messages": [
+      {"role": "user", "content": "Hello, GLM-5.3!"}
+    ],
+    "temperature": 0.3,
+    "stream": false
+  }'
+```
+
+---
+
+## Tool Calling (Function Calling)
+
+GLM-5.3 natively generates precise JSON arguments adhering strictly to the provided JSON Schema definitions:
+
+```json
+{
+  "model": "z-ai/glm-5.3",
+  "messages": [
+    {"role": "user", "content": "Fetch order OR-2026-9981 status from the regional database and retry the payment pipeline"}
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "query_order_status",
+        "description": "Fetches real-time status of a distributed database order record",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "order_id": {"type": "string", "description": "Unique cluster order ID"}
+          },
+          "required": ["order_id"]
+        }
+      }
+    }
+  ],
+  "tool_choice": "auto"
+}
+```
+
+---
+
+## Status Codes & Troubleshooting
+
+| HTTP Status | Error Code | Description | Suggested Resolution |
+| :--- | :--- | :--- | :--- |
+| **401 Unauthorized** | `invalid_api_key` | Missing or revoked API key | Ensure `Authorization: Bearer <key>` is valid in request header. |
+| **429 Too Many Requests** | `rate_limit_exceeded` | Concurrency limit reached | Upgrade your tier or reduce burst parallel requests. |
+| **400 Bad Request** | `context_length_exceeded` | Context exceeds 1M tokens | Prune redundant historical payloads or summarize prior context. |
+| **500 Server Error** | `inference_engine_busy` | Cluster temporary overload | Implement exponential backoff in client connection retries. |

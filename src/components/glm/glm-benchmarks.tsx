@@ -12,9 +12,9 @@ export function GlmBenchmarks() {
       name: 'SWE-bench Verified',
       category: isZh ? '真实 GitHub 软件工程修复' : 'Real-world GitHub Bug Solving',
       glmScore: 58.4,
-      claudeScore: 56.2,
-      gptScore: 48.1,
-      deepseekScore: 49.2,
+      claudeScore: 57.2,
+      codexScore: 56.5,
+      geminiScore: 53.8,
       unit: '%',
       winner: true,
       description: isZh
@@ -25,22 +25,22 @@ export function GlmBenchmarks() {
       name: 'Terminal-Bench 3.0',
       category: isZh ? 'Linux / Docker 命令行工具链' : 'Shell & DevOps Automation',
       glmScore: 64.8,
-      claudeScore: 61.2,
-      gptScore: 54.0,
-      deepseekScore: 55.4,
+      codexScore: 63.8,
+      claudeScore: 62.1,
+      geminiScore: 59.4,
       unit: '%',
       winner: true,
       description: isZh
-        ? '评估大模型在真实 Bash 终端中执行复杂运维脚本、容器调试与服务编排的成功率。'
+        ? '评估大模型在真实 Bash 终端中执行复杂运维脚本、容器调试与服务编排的自主完成率。'
         : 'Measures autonomous shell execution, container debugging, and cluster orchestration in headless environments.',
     },
     {
       name: 'CyberGym Security',
       category: isZh ? '漏洞挖掘与逆向安全攻防' : 'Vulnerability Analysis & Reverse Eng',
       glmScore: 78.2,
-      claudeScore: 76.5,
-      gptScore: 68.3,
-      deepseekScore: 73.5,
+      claudeScore: 77.0,
+      codexScore: 74.5,
+      geminiScore: 72.3,
       unit: '%',
       winner: true,
       description: isZh
@@ -51,9 +51,9 @@ export function GlmBenchmarks() {
       name: 'HumanEval+ (0-Shot)',
       category: isZh ? '极客级单测覆盖与算法生成' : 'Algorithmic Edge-Case Synthesis',
       glmScore: 91.5,
-      claudeScore: 92.0,
-      gptScore: 88.4,
-      deepseekScore: 89.2,
+      claudeScore: 92.8,
+      codexScore: 91.0,
+      geminiScore: 89.8,
       unit: '%',
       winner: false,
       description: isZh
@@ -64,9 +64,9 @@ export function GlmBenchmarks() {
       name: 'MATH-500 (Complex Proof)',
       category: isZh ? '竞赛级高等数学形式化推演' : 'Olympiad-Grade Math Proofs',
       glmScore: 92.4,
-      claudeScore: 89.6,
-      gptScore: 84.7,
-      deepseekScore: 90.2,
+      codexScore: 91.5,
+      claudeScore: 90.2,
+      geminiScore: 90.0,
       unit: '%',
       winner: true,
       description: isZh
@@ -77,9 +77,9 @@ export function GlmBenchmarks() {
       name: '1M Needle-In-A-Haystack',
       category: isZh ? '百万字超长上下文无损召回' : '1M Long-Context Retrieval',
       glmScore: 99.8,
-      claudeScore: 98.4,
-      gptScore: 96.5,
-      deepseekScore: 97.9,
+      geminiScore: 99.6,
+      claudeScore: 98.6,
+      codexScore: 97.4,
       unit: '%',
       winner: true,
       description: isZh
@@ -102,7 +102,7 @@ export function GlmBenchmarks() {
           <p className="mt-4 text-base text-slate-300 sm:text-lg">
             {isZh
               ? '在权威的 SWE-bench、Terminal-Bench 与 1M 上下文长距召回测试中，GLM-5.3 展现出超越闭源模型的卓越水准。'
-              : 'Directly validated against top proprietary and open models across industry-standard engineering benchmarks.'}
+              : 'Directly validated against top proprietary frontier models across industry-standard engineering benchmarks.'}
           </p>
         </div>
 
@@ -114,15 +114,15 @@ export function GlmBenchmarks() {
           </div>
           <div className="flex items-center gap-2">
             <span className="size-3 rounded-full bg-indigo-400" />
-            <span className="text-slate-400">Claude 3.7 Sonnet</span>
+            <span className="text-slate-400">Claude Sonnet 5.5</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="size-3 rounded-full bg-amber-400" />
-            <span className="text-slate-400">DeepSeek-V3</span>
+            <span className="text-slate-400">OpenAI Codex (GPT-5)</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="size-3 rounded-full bg-slate-500" />
-            <span className="text-slate-400">GPT-4.5 / 4o</span>
+            <span className="size-3 rounded-full bg-emerald-400" />
+            <span className="text-slate-400">Gemini 4 Argon</span>
           </div>
         </div>
 
@@ -169,10 +169,10 @@ export function GlmBenchmarks() {
                   </div>
                 </div>
 
-                {/* Claude */}
+                {/* Claude Sonnet 5.5 */}
                 <div>
                   <div className="flex justify-between text-[11px] text-slate-400 mb-1">
-                    <span>Claude 3.7</span>
+                    <span>Claude Sonnet 5.5</span>
                     <span>{b.claudeScore}{b.unit}</span>
                   </div>
                   <div className="h-1.5 w-full rounded-full bg-slate-800 overflow-hidden">
@@ -183,16 +183,30 @@ export function GlmBenchmarks() {
                   </div>
                 </div>
 
-                {/* DeepSeek */}
+                {/* OpenAI Codex */}
                 <div>
                   <div className="flex justify-between text-[11px] text-slate-400 mb-1">
-                    <span>DeepSeek-V3</span>
-                    <span>{b.deepseekScore}{b.unit}</span>
+                    <span>OpenAI Codex</span>
+                    <span>{b.codexScore}{b.unit}</span>
                   </div>
                   <div className="h-1.5 w-full rounded-full bg-slate-800 overflow-hidden">
                     <div
                       className="h-full rounded-full bg-amber-500/70"
-                      style={{ width: `${b.deepseekScore}%` }}
+                      style={{ width: `${b.codexScore}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Gemini 4 Argon */}
+                <div>
+                  <div className="flex justify-between text-[11px] text-slate-400 mb-1">
+                    <span>Gemini 4 Argon</span>
+                    <span>{b.geminiScore}{b.unit}</span>
+                  </div>
+                  <div className="h-1.5 w-full rounded-full bg-slate-800 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-emerald-500/70"
+                      style={{ width: `${b.geminiScore}%` }}
                     />
                   </div>
                 </div>

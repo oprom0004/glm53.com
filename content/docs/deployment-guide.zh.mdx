@@ -1,0 +1,87 @@
+---
+title: "企业私有化集群部署手册"
+description: "基于 vLLM、SGLang、Ollama 与 8 卡 H100/H200 节点部署 GLM-5.3 旗舰版与 Flash 极速版的生产实战指南"
+---
+
+# 企业私有化集群部署手册
+
+GLM-5.3 基于开放友好的 **Apache 2.0 协议** 开源全部权重。企业客户可以在完全断网的私有内网或专属云算力集群上独立部署，彻底杜绝代码与机密资产外泄风险。
+
+---
+
+## 算力配置与显存需求
+
+| 部署形态 | 最低显存容量 | 推荐 GPU 规格 | 推理引擎支持 | 预期吞吐 |
+| :--- | :--- | :--- | :--- | :--- |
+| **GLM-5.3 (753B) FP8 旗舰版** | 8x 80GB (640GB+) | 8x NVIDIA H100 / H200 / A100 | vLLM 0.6.0+ / SGLang | ~45 tokens/s |
+| **GLM-5.3 (753B) INT4 量化版** | 4x 80GB (320GB) | 4x H100 / 4x A100 (80GB) | SGLang / TensorRT-LLM | ~60 tokens/s |
+| **GLM-5.3-Flash (320B) FP8** | 4x 80GB / 2x 141GB | 4x A100 / 2x H200 | vLLM / SGLang | ~140 tokens/s |
+| **GLM-5.3-Flash (320B) INT4** | 96GB 显存 | 4x RTX 4090 (24GB) / Mac Studio | Ollama / llama.cpp | ~85 tokens/s |
+
+---
+
+## 方案 1: 使用 vLLM 高并发集群部署 (推荐)
+
+vLLM 原生支持 GLM-5.3 的 MLA（多头潜在注意力）与动态 MoE 专家路由：
+
+### 1. 安装最新版推理引擎
+```bash
+pip install --upgrade vllm triton torch
+```
+
+### 2. 8 卡 Tensor Parallelism (TP=8) 启动脚本
+
+```bash
+python3 -m vllm.entrypoints.openai.api_server \
+  --model zhipuai/glm-5.3 \
+  --tensor-parallel-size 8 \
+  --quantization fp8 \
+  --max-model-len 131072 \
+  --trust-remote-code \
+  --port 8000 \
+  --gpu-memory-utilization 0.95 \
+  --enable-chunked-prefill
+```
+
+启动完成后，系统将暴露符合 OpenAI 规范的本地接口：`http://localhost:8000/v1`。
+
+---
+
+## 方案 2: 使用 SGLang 极致长文本推理
+
+针对 100 万 Token（1M）极长上下文场景，**SGLang** 结合 RadixAttention 拥有更优秀的 KV Cache 复用率：
+
+```bash
+python3 -m sglang.launch_server \
+  --model-path zhipuai/glm-5.3 \
+  --tp 8 \
+  --quantization fp8 \
+  --context-length 1000000 \
+  --mem-fraction-static 0.88 \
+  --port 30000
+```
+
+---
+
+## 方案 3: 使用 Ollama 本地轻量化运行 (Flash 极速版)
+
+开发人员可以在配备 4x 4090 或 Apple M3 Max (128GB 统一内存) 的单机工作站上运行量化版：
+
+```bash
+# 下载并启动 Flash 极速版 (INT4 GGUF)
+ollama run glm-5.3-flash:int4
+
+# 测试终端对话
+>>> 请帮我编写一段高并发 Rust channel 消费循环...
+```
+
+---
+
+## 生产环境运维调优建议
+
+1. **启用 Chunked Prefill (分块预填充)**：
+   在 100 万字长文档场景下，必须开启 `--enable-chunked-prefill`，避免在预填充（Prefill）阶段阻塞正在解码的实时短请求；
+2. **多机分布式扩展 (Pipeline Parallelism)**：
+   若需部署 FP16 原生精度全量参数，建议采用 2 节点 x 8 卡 H100（PP=2, TP=8），通过高速 400Gbps InfiniBand (IB) 网络互联；
+3. **负载均衡与健康检查**：
+   在前端部署 Nginx 或 Envoy，配置针对 `/health` 端点的定时心跳检测，并按并发流数进行加权负载均衡。

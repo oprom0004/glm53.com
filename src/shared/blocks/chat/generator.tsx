@@ -98,6 +98,34 @@ export function ChatGenerator() {
     setChat(null);
   }, []);
 
+  const isZh = locale === 'zh';
+  const suggestionChips = [
+    {
+      label: isZh ? '调试代码' : 'Debug Code',
+      prompt: isZh
+        ? '请帮我排查这段 Python 高并发异步代码中的死锁与内存泄漏风险，并给出最佳实践修复补丁：'
+        : 'Analyze this concurrent async Python code for deadlocks and memory leaks, providing a production patch:',
+    },
+    {
+      label: isZh ? '分析长文件' : 'Analyze Doc',
+      prompt: isZh
+        ? '我需要全景比对两份分布式系统白皮书，提取出共识机制与容灾设计的核心异同：'
+        : 'Extract core consensus and disaster-recovery architectural differences between two whitepapers:',
+    },
+    {
+      label: isZh ? '剖析 MoE 原理' : 'MoE Architecture',
+      prompt: isZh
+        ? '请从硬件与计算图层面剖析 MoE (混合专家网络) 为何能在 753B 参数下保持高吞吐推理？'
+        : 'Explain how MoE achieves high throughput with low active VRAM on a 753B parameter model:',
+    },
+    {
+      label: isZh ? '制定架构方案' : 'Formulate Plan',
+      prompt: isZh
+        ? '请为团队设计从单体平滑迁移至微服务与事件驱动架构的 6 个月落地方案，包含分库切分策略：'
+        : 'Design an enterprise 6-month migration plan from monolith to event-driven microservices:',
+    },
+  ];
+
   return (
     <div className="flex h-screen flex-col overflow-hidden">
       <header className="bg-background sticky top-0 z-10 flex w-full items-center gap-2 px-4 py-3">
@@ -105,11 +133,19 @@ export function ChatGenerator() {
         <div className="flex-1"></div>
         <LocaleSelector />
       </header>
-      <div className="mx-auto -mt-16 flex h-screen w-full flex-1 flex-col items-center justify-center px-4 pb-6 md:max-w-2xl">
-        <h2 className="mb-4 text-center text-3xl font-bold">{t('title')}</h2>
+      <div className="mx-auto -mt-12 flex h-screen w-full flex-1 flex-col items-center justify-center px-4 pb-6 md:max-w-3xl">
+        <div className="mb-6 flex flex-col items-center text-center">
+          <h1 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
+            {t('title')}
+          </h1>
+          <p className="mt-2 text-sm text-slate-400">
+            {t('subtitle')}
+          </p>
+        </div>
         <ChatInput
           error={error}
           handleSubmit={handleSubmit}
+          textareaClassName="min-h-[115px]"
           onInputChange={() => {
             if (status === 'error') {
               setStatus(undefined);
@@ -120,6 +156,23 @@ export function ChatGenerator() {
           }}
           status={status}
         />
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+          {suggestionChips.map((chip, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() =>
+                handleSubmit(
+                  { text: chip.prompt },
+                  { model: 'z-ai/glm-5.3', reasoning: true }
+                )
+              }
+              className="rounded-full border border-slate-800 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-400 transition hover:border-cyan-500/40 hover:bg-slate-800 hover:text-slate-200"
+            >
+              {chip.label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

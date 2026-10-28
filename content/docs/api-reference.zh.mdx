@@ -1,0 +1,143 @@
+---
+title: "API 快速接入与接口参考"
+description: "完全兼容 OpenAI 协议规范的 GLM-5.3 接口调用指南，提供 Python、Node.js 与 cURL 生产级示例"
+---
+
+# API 快速接入与接口参考
+
+GLM-5.3 提供符合行业标准且 100% 兼容 OpenAI 格式的 RESTful API，您可以直接替换现有项目中的 `baseURL` 和 `apiKey`，无需重写任何业务调用代码。
+
+---
+
+## 核心接口端点
+
+- **基础请求地址（Base URL）**：`https://api.glm53.com/v1`
+- **支持模型 ID**：
+  - `z-ai/glm-5.3`：753B MoE 旗舰模型，支持 1,000,000 Token 上下文与深度代码推理。
+  - `z-ai/glm-5.3-flash`：320B 极速模型，超低延迟与高并发吞吐。
+
+---
+
+## 代码调用示例
+
+### 1. Python (使用官方 `openai` SDK)
+
+```python
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.environ.get("GLM_API_KEY", "your-api-key"),
+    base_url="https://api.glm53.com/v1"
+)
+
+response = client.chat.completions.create(
+    model="z-ai/glm-5.3",
+    messages=[
+        {
+            "role": "system",
+            "content": "你是一位资深分布式系统架构师。请以严谨的逻辑分析系统设计并给出带类型声明的代码实现。"
+        },
+        {
+            "role": "user",
+            "content": "请用 Go 实现一个基于 Redis 和 Lua 脚本的滑动窗口限流器，具备防击穿保护与并发安全性。"
+        }
+    ],
+    temperature=0.2,
+    max_tokens=4096,
+    stream=True
+)
+
+for chunk in response:
+    content = chunk.choices[0].delta.content or ""
+    print(content, end="", flush=True)
+```
+
+---
+
+### 2. TypeScript / Node.js (Vercel AI SDK)
+
+```typescript
+import { createOpenAI } from '@ai-sdk/openai';
+import { streamText } from 'ai';
+
+const glmClient = createOpenAI({
+  baseURL: 'https://api.glm53.com/v1',
+  apiKey: process.env.GLM_API_KEY,
+});
+
+async function run() {
+  const result = await streamText({
+    model: glmClient('z-ai/glm-5.3'),
+    prompt: '请分析下面这段 Rust 代码中的生命周期标注为什么无法通过编译器检查...',
+    temperature: 0.1,
+  });
+
+  for await (const textPart of result.textStream) {
+    process.stdout.write(textPart);
+  }
+}
+
+run();
+```
+
+---
+
+### 3. 原生 cURL 调用
+
+```bash
+curl https://api.glm53.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "z-ai/glm-5.3",
+    "messages": [
+      {"role": "user", "content": "Hello, GLM-5.3!"}
+    ],
+    "temperature": 0.3,
+    "stream": false
+  }'
+```
+
+---
+
+## 高级特性：原生工具调用（Function / Tool Calling）
+
+GLM-5.3 原生支持高精度的 JSON Schema 约束与多步工具链调用：
+
+```json
+{
+  "model": "z-ai/glm-5.3",
+  "messages": [
+    {"role": "user", "content": "请帮我查询集群订单号 OR-2026-9981 的状态并在终端执行重试"}
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "query_order_status",
+        "description": "查询分布式集群中指定订单的实时状态",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "order_id": {"type": "string", "description": "订单号"}
+          },
+          "required": ["order_id"]
+        }
+      }
+    }
+  ],
+  "tool_choice": "auto"
+}
+```
+
+---
+
+## 错误码速查表
+
+| HTTP 状态码 | 错误代码 | 说明 | 解决方案 |
+| :--- | :--- | :--- | :--- |
+| **401 Unauthorized** | `invalid_api_key` | 密钥缺失或校验失败 | 检查请求头 `Authorization: Bearer <key>` 是否正确。 |
+| **429 Too Many Requests** | `rate_limit_exceeded` | 超过套餐并发请求上限 | 升级到 Pro 旗舰或企业定制并发通道。 |
+| **400 Bad Request** | `context_length_exceeded` | Token 总长度超出限制 | 单次会话 Token 超出 1,000,000 限制，请做分段截断或使用 Long-Context 引导。 |
+| **500 Server Error** | `inference_engine_busy` | 算力集群极高负载排队中 | 建议在客户端引入 Exponential Backoff（指数退避重试机制）。 |

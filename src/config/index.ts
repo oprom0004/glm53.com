@@ -7,12 +7,12 @@ export type ConfigMap = Record<string, string>;
 
 const defaultAppUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://wanai30.com'
+    ? 'https://glm53.com'
     : 'http://localhost:3000';
 
 export const envConfigs: ConfigMap = {
   app_url: process.env.NEXT_PUBLIC_APP_URL || defaultAppUrl,
-  site_url: process.env.NEXT_PUBLIC_SITE_URL || 'https://wanai30.com',
+  site_url: process.env.NEXT_PUBLIC_SITE_URL || 'https://glm53.com',
   app_name: process.env.NEXT_PUBLIC_APP_NAME ?? 'ShipAny App',
   app_description: process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? '',
   app_logo: process.env.NEXT_PUBLIC_APP_LOGO ?? '/logo.png',

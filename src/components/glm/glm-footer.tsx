@@ -117,17 +117,27 @@ export function GlmFooter() {
                 </a>
               </li>
               <li>
+                <Link href="/docs" className="hover:text-cyan-400 transition">
+                  {isZh ? '开发者文档' : 'Documentation'}
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-cyan-400 transition">
+                  {isZh ? '技术博客' : 'Engineering Blog'}
+                </Link>
+              </li>
+              <li>
                 <a href="#faq" className="hover:text-cyan-400 transition">
-                  {isZh ? '常见问题 FAQ' : 'FAQ & Documentation'}
+                  {isZh ? '常见问题 FAQ' : 'FAQ'}
                 </a>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-cyan-400 transition">
+                <Link href="/terms-of-service" className="hover:text-cyan-400 transition">
                   {isZh ? '服务协议' : 'Terms of Service'}
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-cyan-400 transition">
+                <Link href="/privacy-policy" className="hover:text-cyan-400 transition">
                   {isZh ? '隐私政策' : 'Privacy Policy'}
                 </Link>
               </li>

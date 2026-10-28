@@ -1,0 +1,87 @@
+---
+title: "On-Premises Cluster Deployment Guide"
+description: "Production guide for deploying GLM-5.3 Flagship and Flash using vLLM, SGLang, Ollama, and 8x H100/H200 multi-GPU clusters."
+---
+
+# On-Premises Cluster Deployment Guide
+
+GLM-5.3 open-weights are licensed under the business-permissive **Apache 2.0 license**. Enterprise teams can deploy instances on air-gapped internal data centers or dedicated private VPC clusters with zero risk of IP data leakage.
+
+---
+
+## Hardware Sizing & VRAM Requirements
+
+| Target Setup | Minimum VRAM | Recommended Accelerators | Supported Engine | Throughput |
+| :--- | :--- | :--- | :--- | :--- |
+| **GLM-5.3 (753B) FP8 Flagship** | 8x 80GB (640GB+) | 8x NVIDIA H100 / H200 / A100 | vLLM 0.6.0+ / SGLang | ~45 tokens/s |
+| **GLM-5.3 (753B) INT4 Quantized** | 4x 80GB (320GB) | 4x H100 / 4x A100 (80GB) | SGLang / TensorRT-LLM | ~60 tokens/s |
+| **GLM-5.3-Flash (320B) FP8** | 4x 80GB / 2x 141GB | 4x A100 / 2x H200 | vLLM / SGLang | ~140 tokens/s |
+| **GLM-5.3-Flash (320B) INT4** | 96GB VRAM | 4x RTX 4090 (24GB) / Mac Studio | Ollama / llama.cpp | ~85 tokens/s |
+
+---
+
+## Strategy 1: High-Concurrency vLLM Cluster (Recommended)
+
+vLLM natively accelerates GLM-5.3's MLA and sparse MoE routing layers:
+
+### 1. Install Dependencies
+```bash
+pip install --upgrade vllm triton torch
+```
+
+### 2. Launch with 8-GPU Tensor Parallelism (TP=8)
+
+```bash
+python3 -m vllm.entrypoints.openai.api_server \
+  --model zhipuai/glm-5.3 \
+  --tensor-parallel-size 8 \
+  --quantization fp8 \
+  --max-model-len 131072 \
+  --trust-remote-code \
+  --port 8000 \
+  --gpu-memory-utilization 0.95 \
+  --enable-chunked-prefill
+```
+
+The instance exposes an OpenAI-compatible endpoint at `http://localhost:8000/v1`.
+
+---
+
+## Strategy 2: SGLang for 1M Long-Context Synthesis
+
+For extreme 1,000,000-token repositories, **SGLang** with RadixAttention maximizes KV cache reuse:
+
+```bash
+python3 -m sglang.launch_server \
+  --model-path zhipuai/glm-5.3 \
+  --tp 8 \
+  --quantization fp8 \
+  --context-length 1000000 \
+  --mem-fraction-static 0.88 \
+  --port 30000
+```
+
+---
+
+## Strategy 3: Local Workstation with Ollama (Flash Edition)
+
+Engineers can run quantized weights on local developer workstations (4x RTX 4090 or Apple M3 Max 128GB Unified Memory):
+
+```bash
+# Pull and execute Flash INT4 GGUF
+ollama run glm-5.3-flash:int4
+
+# Interactive CLI session
+>>> Synthesize a high-throughput Rust channel worker loop...
+```
+
+---
+
+## Production Reliability Practices
+
+1. **Enable Chunked Prefill**:
+   Always pass `--enable-chunked-prefill` to prevent massive 1M document ingestion from starving short concurrent interactive queries.
+2. **Multi-Node Pipeline Parallelism**:
+   To serve full unquantized FP16 weights, scale across 2 nodes with 8x H100 each (PP=2, TP=8) linked via 400Gbps InfiniBand (IB) interconnects.
+3. **Health Probes & Load Balancing**:
+   Place an Envoy or Nginx reverse proxy routing to `/health` probes, balancing traffic based on active token decode streams.

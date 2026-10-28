@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "title": "WanAI 3.0",
-    "description": "Create cinematic AI video from text, images, and references with WanAI 3.0.",
-    "keywords": "wan ai, wan 3.0, ai video generator, text to video"
+    "title": "GLM-5.3 AI",
+    "description": "GLM-5.3 next-generation frontier open-weight LLM with 753B MoE architecture and 1M context recall.",
+    "keywords": "GLM-5.3, GLM 5.3, GLM-5, AI chat, open weights, LLM"
   },
   "sign": {
-    "sign_in_title": "Sign in to WanAI",
-    "sign_in_eyebrow": "Creator access",
-    "sign_in_description": "Return to your projects, generation history, and creator credits.",
+    "sign_in_title": "Sign in to GLM-5.3",
+    "sign_in_eyebrow": "Developer access",
+    "sign_in_description": "Return to your conversations, API keys, and workspace credits.",
     "sign_in_action": "Sign in",
     "sign_in_error": "We couldn't sign you in. Check your email and password, then try again.",
     "sign_up_title": "Create your account",

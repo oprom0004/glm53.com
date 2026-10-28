@@ -47,6 +47,8 @@ next-env.d.ts
 
 data*
 *debug*
+!content/docs/**
+!content/**
 
 *.db
 

@@ -7,7 +7,7 @@
           "src": "/logo.png",
           "alt": "GLM-5.3 AI"
         },
-        "url": "/chat"
+        "url": "/"
       },
       "show_trigger": false
     },
@@ -59,26 +59,8 @@
             "target": "_blank"
           },
           {
-            "title": "GitHub",
-            "url": "https://github.com/your-app-name",
-            "icon": "Github",
-            "target": "_blank"
-          },
-          {
-            "title": "推特",
-            "url": "https://twitter.com/your-app-name",
-            "icon": "RiTwitterXFill",
-            "target": "_blank"
-          },
-          {
-            "title": "Discord",
-            "url": "https://discord.gg/your-app-name",
-            "icon": "RiDiscordFill",
-            "target": "_blank"
-          },
-          {
             "title": "邮箱",
-            "url": "mailto:support@your-domain.com",
+            "url": "mailto:support@glm53.com",
             "icon": "Mail",
             "target": "_blank"
           }
@@ -101,7 +83,8 @@
     }
   },
   "generator": {
-    "title": "GLM-5.3 智能工作台",
+    "title": "GLM-5.3",
+    "subtitle": "753B MoE 开源前沿大模型 · 100 万字长文本记忆",
     "input_placeholder": "让人工智能编写代码、排查错误、分析超长文件或制定方案..."
   },
   "history": {

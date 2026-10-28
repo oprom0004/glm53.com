@@ -1,7 +1,89 @@
 ---
-title: Introduction
+title: "GLM-5.3 Overview & Architecture Guide"
+description: "In-depth technical guide on the 753B Sparse MoE architecture, 1M native context window, and world-leading open-source coding engine."
 ---
 
-## What is YourAppName?
+# GLM-5.3 Official Developer Guide & Architecture Overview
 
-YourAppName is an AI SaaS development framework based on NextJS, with built-in rich components and AI SDKs to help you quickly complete AI SaaS project development.
+**GLM-5.3** is a next-generation frontier Mixture of Experts (MoE) open-weights large language model released under the Apache 2.0 permissive license.
+
+Engineered specifically for real-world software engineering, multi-step autonomous tool agents, and extreme million-token contextual synthesis, GLM-5.3 achieves top scores on **SWE-bench Verified (58.4%)**, **Terminal-Bench 3.0 (64.8%)**, and **1M Needle-In-A-Haystack (99.8%)**, challenging and surpassing closed-source frontier baselines.
+
+---
+
+## Architectural Highlights
+
+```
++--------------------------------------------------------------------+
+|                  GLM-5.3 Frontier MoE Core Engine                  |
++--------------------------------------------------------------------+
+|  Context: 1,000,000 Tokens (Native RingAttention + YaRN Extension)|
+|  Total Params: 753B        | Active Params: 48B per Token (MoE)    |
+|  Attention: MLA (Multi-Head Latent Attention, KV Cache -73%)       |
+|  Execution: Native Sandboxed Tool-Calling (Bash, Python, Docker)   |
++--------------------------------------------------------------------+
+```
+
+### 1. 753B Sparse MoE with Fine-Grained Expert Routing
+GLM-5.3 is built on a 753-billion parameter architecture that dynamically routes tokens to only **48 billion active parameters**:
+- **Fine-Grained Routing**: The feedforward network (FFN) is subdivided into 128 granular sub-experts, with a learned gating router selecting the Top-8 best-matched experts per token.
+- **Shared Experts Mechanism**: Two dedicated shared experts remain active at all times, capturing universal semantic, syntax, and reasoning invariants.
+- **Throughput Efficiency**: Achieves 45+ tokens/s throughput under FP8 precision, delivering the reasoning power of dense 700B+ models at roughly 1/6th the compute overhead.
+
+### 2. Multi-Head Latent Attention (MLA)
+To eliminate the quadratic KV cache explosion across massive context windows, GLM-5.3 implements **Multi-Head Latent Attention (MLA)**:
+- Compresses Keys and Values into low-rank latent vectors before storage.
+- Drastically reduces KV cache VRAM footprint by **73%** compared to traditional MHA, enabling full 1,000,000 token inference on standard 8x H100/H200 nodes.
+
+### 3. Native Sandboxed Tool-Calling and Agent Loop
+GLM-5.3 is pre-trained and fine-tuned on tens of millions of authentic GitHub pull requests, git diff patches, and Linux terminal sessions:
+- Flawless generation and application of unified diff format patches.
+- Closed-loop agent execution: write tests -> capture assertion traces -> patch code -> re-verify.
+
+---
+
+## Model Selection Matrix
+
+| Spec Dimension | GLM-5.3 (753B MoE Flagship) | GLM-5.3-Flash (320B High Speed) |
+| :--- | :--- | :--- |
+| **Total Parameters** | 753 Billion | 320 Billion |
+| **Active Parameters** | 48 Billion / Token | 32 Billion / Token |
+| **Context Window** | **1,000,000 Tokens (1M)** | **128,000 Tokens (128K)** |
+| **Time-to-First-Token (TTFT)** | ~420ms | **< 180ms** |
+| **Inference Throughput** | ~45 tokens/s (FP8) | **140+ tokens/s** |
+| **Target Use-Cases** | Multi-file refactoring, architecture plans, zero-day security | Real-time IDE completion, PR reviews, microservices log streaming |
+| **Recommended Hardware** | 8x H100 / H200 (80GB/141GB) | 4x RTX 4090 (INT4) or dual 80GB GPUs |
+
+---
+
+## Quickstart
+
+### 1. Online Interactive Studio
+Visit the [Chat Studio](/chat) to immediately interact with GLM-5.3 Flagship and Flash modes with zero configuration.
+
+### 2. Standard OpenAI-Compatible API
+GLM-5.3 exposes a fully standard OpenAI-compatible REST API. You can drop it into any existing Python, TypeScript, or Go codebase:
+
+```bash
+curl https://api.glm53.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "z-ai/glm-5.3",
+    "messages": [
+      {"role": "system", "content": "You are a world-class code architect and software engineer."},
+      {"role": "user", "content": "Analyze potential concurrency race conditions in this event loop..."}
+    ],
+    "temperature": 0.2,
+    "stream": true
+  }'
+```
+
+---
+
+## Next Steps
+
+- [OpenAI-Compatible API Reference](/docs/api-reference): Detailed parameter specifications and client SDK integration.
+- [1M Token Long-Context Engineering Guide](/docs/prompt-guide): Structuring repository context without memory decay.
+- [SWE-bench Real-World Debugging Playbook](/docs/swe-bench-debug): Multi-file AST patching and test-driven self-correction.
+- [On-Premises Deployment Guide](/docs/deployment-guide): Enterprise vLLM, SGLang, and Ollama cluster configuration.

@@ -37,7 +37,7 @@ export function GlmModels() {
             'Native autonomous sandboxed tool-calling (Bash, Docker, Python)',
             'Open weights under Apache 2.0 with private on-prem deployment',
           ],
-      ctaText: isZh ? '使用 GLM-5.3 对话' : 'Launch GLM-5.3',
+      ctaText: isZh ? '使用 GLM-5.3 对话' : 'Start with GLM-5.3',
       ctaHref: '/chat?model=glm-5.3',
     },
     {
@@ -67,7 +67,7 @@ export function GlmModels() {
             'Optimized distillation cutting deployment compute cost by 65%',
             'Runs on standard 4x RTX 4090 (INT4) or dual 80GB accelerators',
           ],
-      ctaText: isZh ? '使用 Flash 极速版' : 'Launch Flash Mode',
+      ctaText: isZh ? '使用 Flash 极速版' : 'Start with Flash',
       ctaHref: '/chat?model=glm-5.3-flash',
     },
   ];

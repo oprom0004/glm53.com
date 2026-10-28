@@ -101,16 +101,10 @@ export function GlmHero() {
               {isZh ? '新一代开源前沿大语言模型' : 'Next-Gen Open Frontier Intelligence'}
             </span>
           </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg sm:leading-8 font-normal">
-            {isZh
-              ? '卓越的代码编写能力，拥有 100 万字长文本记忆，更支持全自动化运行与任务拆解。'
-              : 'Unsurpassed code reasoning, 1,000,000-token context recall, and native autonomous tool calling for mission-critical engineering.'}
-          </p>
         </div>
 
-        {/* Central Action Launcher Prompt Bar (Matching User Reference) */}
-        <div className="mx-auto mt-10 max-w-3xl">
+        {/* Central Action Launcher Prompt Bar */}
+        <div className="mx-auto mt-6 max-w-3xl">
           <div className="relative rounded-2xl border border-slate-700/80 bg-[#0a0f1d]/95 p-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-cyan-500/20 backdrop-blur-xl transition-all focus-within:border-cyan-400 focus-within:ring-cyan-400/40">
             {/* Top Bar inside Box: Mode Switchers & Model Dropdown */}
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 px-2 pb-2.5">
@@ -214,13 +208,13 @@ export function GlmHero() {
                     handleLaunch();
                   }
                 }}
-                rows={3}
+                rows={4}
                 placeholder={
                   isZh
                     ? '让人工智能编写代码、排查错误、分析超长文件或制定方案...'
                     : 'Ask GLM-5.3 to write code, debug errors, analyze 1M-token docs, or plan architectures...'
                 }
-                className="w-full resize-none bg-transparent px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none"
+                className="w-full resize-none bg-transparent px-3.5 py-3 text-sm sm:text-base text-slate-100 placeholder-slate-400/80 focus:outline-none min-h-[110px] leading-relaxed"
               />
 
               {/* Bottom Send Action */}

@@ -7,8 +7,8 @@ test('homepage places pricing after use cases and before FAQ', async () => {
     new URL('../../app/[locale]/(landing)/page.tsx', import.meta.url),
     'utf8'
   );
-  const useCases = source.indexOf('<WanUseCases');
-  const pricing = source.indexOf('<WanPricing');
-  const faq = source.indexOf('<WanFaq');
+  const useCases = source.indexOf('<GlmWorkflows');
+  const pricing = source.indexOf('<GlmPricing');
+  const faq = source.indexOf('<GlmFaq');
   assert.ok(useCases >= 0 && pricing > useCases && faq > pricing);
 });

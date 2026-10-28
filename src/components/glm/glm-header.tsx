@@ -19,12 +19,13 @@ export function GlmHeader() {
   const isZh = useLocale() === 'zh';
 
   const navItems = [
-    { href: '/#models', label: isZh ? '机型选型' : 'Models' },
-    { href: '/#architecture', label: isZh ? '架构底座' : 'Architecture' },
     { href: '/#workflows', label: isZh ? '生产力场景' : 'Workflows' },
     { href: '/#benchmarks', label: isZh ? '基准评测' : 'Benchmarks' },
-    { href: '/#hardware', label: isZh ? '部署测算器' : 'Hardware Sizing' },
+    { href: '/#models', label: isZh ? '机型选型' : 'Models' },
+    { href: '/#architecture', label: isZh ? '架构底座' : 'Architecture' },
+    { href: '/#hardware', label: isZh ? '部署测算' : 'Hardware' },
     { href: '/#pricing', label: isZh ? '定价方案' : 'Pricing' },
+    { href: '/docs', label: isZh ? '开发文档' : 'Docs' },
     { href: '/#faq', label: isZh ? '常见问题' : 'FAQ' },
   ];
 
@@ -136,7 +137,7 @@ export function GlmHeader() {
               href="/chat"
               className="inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-400 px-4 text-xs font-bold text-slate-950 shadow-[0_0_20px_rgba(77,227,255,0.3)] transition hover:from-cyan-400 hover:to-cyan-300 hover:shadow-[0_0_25px_rgba(77,227,255,0.5)] active:scale-95"
             >
-              <span>{isZh ? '进入工作台' : 'Launch Studio'}</span>
+              <span>{isZh ? '免费体验' : 'Try Free'}</span>
               <ArrowRight className="size-3.5" />
             </LocaleLink>
           </div>

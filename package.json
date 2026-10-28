@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
-    "build:fast": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "build": "next build --webpack",
+    "build:fast": "NODE_OPTIONS='--max-old-space-size=4096' next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",

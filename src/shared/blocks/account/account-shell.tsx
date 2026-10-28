@@ -1,8 +1,8 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { WanHeader } from '@/components/wan/wan-header';
-import { ArrowUpRight, Coins, Film, Plus, Settings2 } from 'lucide-react';
+import { GlmHeader } from '@/components/glm/glm-header';
+import { ArrowUpRight, Coins, MessageSquare, Plus, Settings2 } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { Link, usePathname } from '@/core/i18n/navigation';
@@ -21,34 +21,34 @@ export function AccountShell({ children }: { children: ReactNode }) {
   }[];
   const credits = user?.credits?.remainingCredits;
   const items = [
-    { title: isZh ? '我的视频' : 'My Videos', url: '/my-videos', icon: 'Film' },
+    { title: isZh ? '智能对话' : 'AI Chat', url: '/chat', icon: 'MessageSquare' },
     ...settings,
   ];
   return (
     <div className="bg-background min-h-screen">
-      <WanHeader />
+      <GlmHeader />
       <div className="mx-auto max-w-[1400px] px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
           <aside className="min-w-0 lg:sticky lg:top-24 lg:w-56 lg:shrink-0 lg:self-start">
             <div className="mb-6 hidden items-center gap-3 lg:flex">
-              <div className="flex size-11 items-center justify-center rounded-2xl bg-violet-600/10 font-semibold text-violet-600 dark:text-violet-300">
-                {user?.name?.slice(0, 1).toUpperCase() || 'W'}
+              <div className="flex size-11 items-center justify-center rounded-2xl bg-cyan-500/10 font-bold text-cyan-400">
+                {user?.name?.slice(0, 1).toUpperCase() || 'G'}
               </div>
               <div className="min-w-0">
                 <p className="truncate text-sm font-semibold">
-                  {user?.name || (isZh ? '创作空间' : 'Your workspace')}
+                  {user?.name || (isZh ? '开发者工作区' : 'Developer workspace')}
                 </p>
                 <p className="text-muted-foreground mt-1 text-xs">
-                  {isZh ? '让想法动起来' : 'Bring your ideas to life'}
+                  {isZh ? 'GLM-5.3 智能引擎' : 'GLM-5.3 Frontier AI'}
                 </p>
               </div>
             </div>
             <Link
-              href="/wan-3"
-              className="mb-6 hidden items-center justify-center gap-2 rounded-full bg-violet-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-500 lg:flex"
+              href="/chat"
+              className="mb-6 hidden items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-400 px-4 py-3 text-sm font-bold text-slate-950 shadow-sm transition hover:from-cyan-400 hover:to-cyan-300 lg:flex"
             >
               <Plus className="size-4" />
-              {isZh ? '创建视频' : 'Create video'}
+              <span>{isZh ? '新建对话' : 'New Chat'}</span>
             </Link>
             <p className="text-muted-foreground mb-3 hidden px-3 text-[10px] font-semibold tracking-[0.18em] uppercase lg:block">
               {isZh ? '个人空间' : 'Workspace'}
@@ -65,7 +65,7 @@ export function AccountShell({ children }: { children: ReactNode }) {
                     key={item.url}
                     href={item.url}
                     aria-current={active ? 'page' : undefined}
-                    className={`flex shrink-0 items-center gap-2.5 rounded-xl px-3 py-3 text-sm transition ${active ? 'bg-violet-600/10 font-semibold text-violet-700 dark:text-violet-300' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
+                    className={`flex shrink-0 items-center gap-2.5 rounded-xl px-3 py-3 text-sm transition ${active ? 'bg-cyan-500/15 font-semibold text-cyan-400 border border-cyan-500/30' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
                   >
                     <SmartIcon name={item.icon} size={17} />
                     {item.title}
@@ -73,9 +73,9 @@ export function AccountShell({ children }: { children: ReactNode }) {
                 );
               })}
             </nav>
-            <div className="mt-8 hidden rounded-2xl border border-violet-500/15 bg-violet-600/5 p-4 lg:block">
+            <div className="mt-8 hidden rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 lg:block">
               <p className="text-muted-foreground flex items-center gap-2 text-xs">
-                <Coins className="size-4" />
+                <Coins className="size-4 text-[#ffd166]" />
                 {isZh ? '可用积分' : 'Available credits'}
               </p>
               <p className="mt-3 text-2xl font-semibold tabular-nums">
@@ -83,7 +83,7 @@ export function AccountShell({ children }: { children: ReactNode }) {
               </p>
               <Link
                 href="/pricing"
-                className="mt-4 flex items-center justify-between text-xs font-semibold text-violet-600 dark:text-violet-300"
+                className="mt-4 flex items-center justify-between text-xs font-semibold text-cyan-400 hover:underline"
               >
                 {isZh ? '获取更多积分' : 'Get more credits'}
                 <ArrowUpRight className="size-4" />
@@ -93,7 +93,7 @@ export function AccountShell({ children }: { children: ReactNode }) {
           <main className="min-w-0 flex-1">
             {pathname.startsWith('/settings') && (
               <div className="mb-7">
-                <p className="mb-3 flex items-center gap-2 text-xs font-medium text-violet-600 dark:text-violet-300">
+                <p className="mb-3 flex items-center gap-2 text-xs font-medium text-cyan-400">
                   <Settings2 className="size-4" />
                   {isZh ? '账户设置' : 'ACCOUNT SETTINGS'}
                 </p>
@@ -110,13 +110,13 @@ export function AccountShell({ children }: { children: ReactNode }) {
             )}
             {children}
             <footer className="text-muted-foreground border-border/50 mt-12 flex flex-wrap items-center justify-between gap-3 border-t pt-5 text-xs">
-              <span>© {new Date().getFullYear()} WanAI 3.0</span>
+              <span>© {new Date().getFullYear()} GLM-5.3 AI (glm53.com)</span>
               <Link
-                href="/wan-3"
-                className="flex items-center gap-1.5 hover:text-violet-600"
+                href="/chat"
+                className="flex items-center gap-1.5 hover:text-cyan-400"
               >
-                <Film className="size-3.5" />
-                {isZh ? '返回创作' : 'Back to create'}
+                <MessageSquare className="size-3.5" />
+                {isZh ? '返回对话' : 'Back to chat'}
               </Link>
             </footer>
           </main>

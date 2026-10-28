@@ -43,6 +43,20 @@ export const PUBLIC_PAGE_SEO: Record<string, LocalizedPageSeo> = {
         '随时体验 GLM-5.3 (753B) 旗舰版与 GLM-5.3-Flash 高速版，提供永久积分包、月付开发者订阅与企业高并发专属专线方案。',
     },
   },
+  chat: {
+    en: {
+      path: '/chat',
+      title: 'GLM-5.3 Chat — Free AI Chat Online with GLM 5.3',
+      description:
+        'Chat online with GLM-5.3: 753B open-weight frontier model, 1M context recall, code reasoning, and multi-turn technical intelligence.',
+    },
+    zh: {
+      path: '/chat',
+      title: 'GLM-5.3 智能对话 — 免费在线体验 GLM 5.3 旗舰大模型',
+      description:
+        '在线体验 GLM-5.3：753B MoE 架构、100 万字长文本记忆、代码调试与深度逻辑推理。',
+    },
+  },
   wan25: {
     en: {
       path: '/wan-2-5',

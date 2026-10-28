@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "title": "WanAI 3.0",
-    "description": "使用 WanAI 3.0 从文本、图像和参考素材创建电影感 AI 视频。",
-    "keywords": "wan ai, wan 3.0, AI 视频生成器, 文生视频"
+    "title": "GLM-5.3 AI",
+    "description": "GLM-5.3 新一代开源前沿大语言模型，拥有 753B MoE 架构与 100 万字上下文记忆。",
+    "keywords": "GLM-5.3, GLM 5.3, GLM-5, 大语言模型, AI代码, 开源AI"
   },
   "sign": {
-    "sign_in_title": "登录 WanAI",
-    "sign_in_eyebrow": "创作者入口",
-    "sign_in_description": "继续查看你的项目、生成记录和创作积分。",
+    "sign_in_title": "登录 GLM-5.3",
+    "sign_in_eyebrow": "开发者与用户入口",
+    "sign_in_description": "继续查看你的项目、对话记录与计算积分。",
     "sign_in_action": "登录",
     "sign_in_error": "暂时无法登录，请检查邮箱和密码后重试。",
     "sign_up_title": "创建你的账户",

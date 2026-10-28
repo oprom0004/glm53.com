@@ -28,14 +28,15 @@ export const siteConfig = {
   locales,
 } as const;
 
-export const publicWanRoutes = [
+export const publicGlmRoutes = [
   '/',
+  '/chat',
   '/pricing',
-  '/wan-2-5',
-  '/wan-2-6',
-  '/wan-2-7',
-  '/wan-3',
+  '/docs',
+  '/blog',
 ] as const;
+
+export const publicWanRoutes = publicGlmRoutes;
 
 export function localizedPath(path: string, locale: string) {
   const normalized =

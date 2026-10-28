@@ -1,7 +1,89 @@
 ---
-title: 介绍
+title: "GLM-5.3 开发者指南与架构概述"
+description: "753B MoE 稀疏激活架构、100 万字原生上下文窗口与世界级开源代码推理引擎完全解析"
 ---
 
-## 什么是 YourAppName?
+# GLM-5.3 官方开发者指南与架构概述
 
-YourAppName 是一个基于 NextJS 的 AI SaaS 开发框架，内置丰富的组件和 AI SDK，帮助你快速完成 AI SaaS 项目开发。
+**GLM-5.3** 是新一代前沿级混合专家（Mixture of Experts, MoE）开源大语言模型，采用 Apache 2.0 商业友好协议开放完整权重。
+
+模型专为真实工程代码分析、大规模多智能体自主决策（Autonomous Tool Agent）以及百万级长文本深度推演而设计，在权威的 **SWE-bench Verified（58.4%）**、**Terminal-Bench 3.0（64.8%）** 和 **1M Needle-In-A-Haystack（99.8%）** 评测中均展现出比肩并超越主流闭源旗舰的工程推理实力。
+
+---
+
+## 核心架构与技术创新
+
+```
++--------------------------------------------------------------------+
+|                  GLM-5.3 Frontier MoE Core Engine                  |
++--------------------------------------------------------------------+
+|  Context: 1,000,000 Tokens (Native RingAttention + YaRN Extension)|
+|  Total Params: 753B        | Active Params: 48B per Token (MoE)    |
+|  Attention: MLA (Multi-Head Latent Attention, KV Cache -73%)       |
+|  Execution: Native Sandboxed Tool-Calling (Bash, Python, Docker)   |
++--------------------------------------------------------------------+
+```
+
+### 1. 753B 稀疏 MoE 与细粒度专家路由
+GLM-5.3 拥有 **7530 亿总参数**，但在处理任意单一 Token 时仅激活 **480 亿参数（Active Parameters）**。
+- **细粒度路由策略**：将前馈神经网络（FFN）拆分为 128 个细粒度子专家，每次通过门控路由网络动态选择 Top-8 最匹配专家；
+- **共享专家（Shared Experts）机制**：保留 2 个常驻共享专家，专门锚定通用语法结构与系统逻辑，避免专家偏倚导致的基础表征漂移；
+- **吞吐与算力平衡**：在 FP8 精度下，单卡群推理吞吐高达 45+ tokens/s，计算成本仅为同等规模稠密（Dense）模型的 1/6。
+
+### 2. 多头潜在注意力（MLA）与极致 KV 显存压缩
+针对长文本场景下日益严峻的 KV Cache 显存瓶颈，GLM-5.3 原生集成了 **MLA (Multi-Head Latent Attention)** 技术：
+- 将 Key 和 Value 向量低秩投影（Low-Rank Compression）压缩至极小潜在空间；
+- 显存占用相比传统 MHA（多头注意力）骤降 **73%**，使得在 8 卡 H100/H200 节点上即可完整装载 100 万 Token 上下文并实现并发推理。
+
+### 3. 原生沙盒环境与自主闭环能力
+GLM-5.3 不仅具备代码补全能力，更在预训练阶段注入了超过 3000 万轮真实 GitHub PR 修复轨迹与 Linux 命令行交互会话：
+- 原生理解 Git Diff 格式与补丁应用语义；
+- 支持多轮工具交互沙盒：自动编写测试用例 -> 捕获单元测试失败日志 -> 修正源码 -> 再次回归测试直至完全通过。
+
+---
+
+## 双机型选型矩阵
+
+| 特性维度 | GLM-5.3 (753B 旗舰版) | GLM-5.3-Flash (320B 极速版) |
+| :--- | :--- | :--- |
+| **模型总参数** | 753 Billion | 320 Billion |
+| **单 Token 激活参数** | 48 Billion | 32 Billion |
+| **上下文窗口** | **1,000,000 Tokens (100万字)** | **128,000 Tokens (12.8万字)** |
+| **首字延迟 (TTFT)** | ~420ms | **< 180ms** |
+| **单流推理吞吐** | ~45 tokens/s (FP8) | **140+ tokens/s** |
+| **推荐适用场景** | 跨文件大型重构、架构规划、高难度安全审计 | 实时 IDE 补全、代码评审、微服务日志过滤、高并发 API |
+| **私有化最低配置** | 8x H100 / H200 (80GB/141GB) | 4x RTX 4090 (INT4) 或 2x 80GB GPU |
+
+---
+
+## 快速起步
+
+### 1. 在线交互体验
+访问 [在线对话工作台](/chat)，即可免配置直接体验 GLM-5.3 旗舰版和 Flash 极速版。内置代码排查、长文件比对等工程模板。
+
+### 2. 标准 API 调用（兼容 OpenAI 规范）
+GLM-5.3 提供了完全兼容 OpenAI 接口规范的 RESTful API，你可以直接复用现有项目中的 Python 或 TypeScript 客户端。
+
+```bash
+curl https://api.glm53.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "z-ai/glm-5.3",
+    "messages": [
+      {"role": "system", "content": "You are a world-class code architect and software engineer."},
+      {"role": "user", "content": "帮我分析这段高并发异步队列的死锁成因..."}
+    ],
+    "temperature": 0.2,
+    "stream": true
+  }'
+```
+
+---
+
+## 深入技术专题
+
+- [OpenAI 兼容 API 接入指南](/docs/api-reference)：完整的 Python、TypeScript 与 cURL 示例及参数说明。
+- [100 万 Token 极长上下文工程实践](/docs/prompt-guide)：如何在百万字长程推演中实现 99.8% 零衰减精准定位。
+- [SWE-bench 复杂代码诊断实战](/docs/swe-bench-debug)：跨仓库、多文件 AST 级重构与补丁应用。
+- [企业私有化部署手册](/docs/deployment-guide)：vLLM、SGLang 与 Ollama 多卡集群优化配置。

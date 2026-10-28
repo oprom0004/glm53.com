@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { publicWanRoutes, siteConfig } from '@/config/site';
+import { publicGlmRoutes, siteConfig } from '@/config/site';
 
 export function buildSitemapEntries(
   siteUrl = siteConfig.url
@@ -12,13 +12,13 @@ export function buildSitemapEntries(
   };
   const now = new Date();
 
-  return publicWanRoutes.flatMap((path) =>
+  return publicGlmRoutes.flatMap((path) =>
     (['en', 'zh'] as const).map((locale) => ({
       url: absolute(path, locale),
       lastModified: now,
       changeFrequency:
         path === '/' ? ('weekly' as const) : ('monthly' as const),
-      priority: path === '/' ? 1 : path === '/pricing' ? 0.9 : 0.8,
+      priority: path === '/' ? 1 : path === '/chat' ? 0.9 : 0.8,
       alternates: {
         languages: {
           en: absolute(path, 'en'),

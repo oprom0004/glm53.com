@@ -27,10 +27,10 @@ export default async function LandingPage({
       <GlmHeader />
       <main className="flex-1">
         <GlmHero />
-        <GlmModels />
-        <GlmArchitecture />
         <GlmWorkflows />
         <GlmBenchmarks />
+        <GlmModels />
+        <GlmArchitecture />
         <GlmHardwareCalculator />
         <GlmPricing />
         <GlmFaq />

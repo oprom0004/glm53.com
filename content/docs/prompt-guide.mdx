@@ -1,0 +1,98 @@
+---
+title: "1M Token Context Engineering Playbook"
+description: "Best practices for structuring million-token contexts to achieve 99.8% lossless retrieval and deterministic code refactoring."
+---
+
+# 1M Token Context Engineering Playbook
+
+Traditional LLMs suffer severe performance degradation ("Lost in the Middle") when ingesting contexts beyond 100,000 tokens.
+
+By combining **native 1,000,000 token YaRN RoPE extension** with **Multi-Head Latent Attention (MLA)**, **GLM-5.3** maintains an astonishing **99.8% multi-hop retrieval accuracy** across the entire 1M token window.
+
+This playbook outlines structural engineering principles to maximize reasoning determinism when ingesting entire software repositories.
+
+---
+
+## The Inverted Funnel Prompt Structure
+
+When feeding massive codebases or hundreds of pages of system specifications into GLM-5.3, format your payload according to the 4-layer Inverted Funnel:
+
+```
++-------------------------------------------------------------+
+| Layer 1: System Invariants & Role Directive                 |
++-------------------------------------------------------------+
+| Layer 2: Global Architecture Map / Index                    |
++-------------------------------------------------------------+
+| Layer 3: Massive Raw Context (Full Repos / Logs / Specs)    |
++-------------------------------------------------------------+
+| Layer 4: Concrete Task Target & Output Contract             |
++-------------------------------------------------------------+
+```
+
+---
+
+### Layer 1: System Invariants & Role Directive
+Anchor the persona and impose strict guardrails against hallucinated method signatures:
+
+```markdown
+You are a Principal Software Architect. You are auditing this entire multi-package repository.
+Requirements:
+1. Always cite exact file paths and line numbers.
+2. Comply strictly with existing project type systems.
+3. Emit all patches in standard `git diff` format.
+```
+
+### Layer 2: Global Architecture Map
+Before loading raw file contents, supply a 200–500 line structural topological index. This activates the MoE routing gates with high-level architectural priors:
+
+```markdown
+<repository_structure>
+├── core/
+│   ├── engine.py       # Main event loop and job queue
+│   └── memory.py       # Shared cross-node GPU tensor memory
+├── network/
+│   ├── rpc.py          # gRPC synchronization protocol
+│   └── buffer.py       # Lock-free ring buffer
+└── tests/
+    └── test_deadlock.py # Stress test suite
+</repository_structure>
+```
+
+### Layer 3: Massive Raw Context
+Isolate distinct files using standard XML boundaries with full explicit paths:
+
+```xml
+<file path="core/engine.py">
+# File content...
+</file>
+
+<file path="network/buffer.py">
+# File content...
+</file>
+```
+
+### Layer 4: Concrete Task Target & Output Contract
+**Crucial Rule**: Always position the concrete instruction at the **very bottom** of the prompt, never at the top!
+
+The autoregressive decoder's initial generation tokens attend most immediately to instructions in the final positions, pulling relevant vectors back through the 1M KV cache:
+
+```markdown
+<instruction>
+Analyze `network/buffer.py` under single-producer multi-consumer (SPMC) concurrent load.
+Identify whether missing memory fences introduce ABA race conditions.
+Provide concrete proof and a minimal unified diff patch.
+</instruction>
+```
+
+---
+
+## 4 Rules to Eliminate Hallucinations
+
+1. **Enforce Chain-of-Thought (CoT) Preceding Code**:
+   Require the model to output a `<thinking>` block before emitting the patch. This forces full reasoning expert routing.
+2. **Provide an Explicit "Unknown" Escape Hatch**:
+   Instruct: *"If a third-party dependency interface is absent from the 1M context, state 'Interface not provided in context' rather than assuming signatures."*
+3. **Map-Reduce for High-Throughput Auditing**:
+   Use GLM-5.3-Flash to summarize isolated sub-modules first, then pass the consolidated digest to GLM-5.3 Flagship for final cross-module synthesis.
+4. **Standard Unified Diff Contracts**:
+   Require valid `diff --git a/... b/...` output for direct ingestion by headless CI/CD runners or sandboxed test executors.

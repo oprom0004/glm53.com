@@ -35,6 +35,7 @@ import {
   TooltipTrigger,
 } from '@/shared/components/ui/tooltip';
 import { useChatContext } from '@/shared/contexts/chat';
+import { cn } from '@/shared/lib/utils';
 import { ChatModel } from '@/shared/types/chat';
 
 export function ChatInput({
@@ -42,6 +43,8 @@ export function ChatInput({
   status,
   error,
   onInputChange,
+  className,
+  textareaClassName,
 }: {
   handleSubmit: (
     message: PromptInputMessage,
@@ -50,6 +53,8 @@ export function ChatInput({
   status?: UseChatHelpers<UIMessage>['status'];
   error?: string | null;
   onInputChange?: (value: string) => void;
+  className?: string;
+  textareaClassName?: string;
 }) {
   const t = useTranslations('ai.chat.generator');
 
@@ -106,7 +111,7 @@ export function ChatInput({
             // Allow parent to control error display/state. Do not clear input.
           }
         }}
-        className="mt-4"
+        className={cn("mt-4", className)}
         globalDrop
         multiple
       >
@@ -117,7 +122,10 @@ export function ChatInput({
       </PromptInputHeader> */}
         <PromptInputBody>
           <PromptInputTextarea
-            className="overflow-hidden p-4 ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+            className={cn(
+              "min-h-[110px] overflow-hidden p-4 text-sm sm:text-base ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 leading-relaxed",
+              textareaClassName
+            )}
             placeholder={t('input_placeholder')}
             onChange={(e) => {
               const value = e.target.value;

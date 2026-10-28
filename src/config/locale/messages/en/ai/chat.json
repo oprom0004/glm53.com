@@ -7,7 +7,7 @@
           "src": "/logo.png",
           "alt": "GLM-5.3 AI"
         },
-        "url": "/chat"
+        "url": "/"
       },
       "show_trigger": false
     },
@@ -59,26 +59,8 @@
             "target": "_blank"
           },
           {
-            "title": "GitHub",
-            "url": "https://github.com/your-app-name",
-            "icon": "Github",
-            "target": "_blank"
-          },
-          {
-            "title": "Twitter",
-            "url": "https://twitter.com/your-app-name",
-            "icon": "RiTwitterXFill",
-            "target": "_blank"
-          },
-          {
-            "title": "Discord",
-            "url": "https://discord.gg/your-app-name",
-            "icon": "RiDiscordFill",
-            "target": "_blank"
-          },
-          {
             "title": "Email",
-            "url": "mailto:support@your-domain.com",
+            "url": "mailto:support@glm53.com",
             "icon": "Mail",
             "target": "_blank"
           }
@@ -90,7 +72,7 @@
     "variant": "sidebar"
   },
   "library": {
-    "title": "Library",
+    "title": "Recent chats",
     "icon": "History",
     "url": "/chat/history",
     "more": "More",
@@ -101,7 +83,8 @@
     }
   },
   "generator": {
-    "title": "GLM-5.3 Intelligent Studio",
+    "title": "GLM-5.3",
+    "subtitle": "753B MoE Frontier Open Intelligence · 1M Context Window",
     "input_placeholder": "Ask GLM-5.3 to write code, debug errors, analyze 1M-token docs, or plan architectures..."
   },
   "history": {
