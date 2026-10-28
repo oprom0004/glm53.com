@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
+import Script from 'next/script';
 import NextTopLoader from 'nextjs-toploader';
 
 import { routing } from '@/core/i18n/config';
@@ -113,6 +114,17 @@ export default async function LocaleLayout({
         <link rel="icon" href={envConfigs.app_favicon} />
         <link rel="alternate icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Umami Analytics */}
+        <Script
+          defer
+          src="https://umamimy.vercel.app/script.js"
+          data-website-id={
+            process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ||
+            '435908a2-2733-4ff0-949a-36b492d1c490'
+          }
+          strategy="afterInteractive"
+        />
 
         {adsMetaTags}
         {adsHeadScripts}
