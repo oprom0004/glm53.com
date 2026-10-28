@@ -18,7 +18,14 @@ export function buildSitemapEntries(
       lastModified: now,
       changeFrequency:
         path === '/' ? ('weekly' as const) : ('monthly' as const),
-      priority: path === '/' ? 1 : path === '/chat' ? 0.9 : 0.8,
+      priority:
+        path === '/'
+          ? 1
+          : path === '/chat'
+            ? 0.9
+            : path.startsWith('/docs')
+              ? 0.85
+              : 0.8,
       alternates: {
         languages: {
           en: absolute(path, 'en'),

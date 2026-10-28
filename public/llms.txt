@@ -1,0 +1,42 @@
+# GLM-5.3 Frontier Open-Source MoE Language Model
+
+> GLM-5.3 is a 753B parameter open-weights Mixture-of-Experts (MoE) foundation model with 48B active parameters, a 1,000,000-token native context window, and world-leading software engineering reasoning (58.4% on SWE-bench Verified). Licensed under Apache 2.0.
+
+## Overview & Architecture
+- **Model Topology**: 753B total sparse MoE parameters, 48B active parameters routed across Top-8 fine-grained experts with 2 permanent shared experts.
+- **Context Window**: 1,000,000 Tokens (1M) supported natively via YaRN Dynamic RoPE extension and Multi-Head Latent Attention (MLA), reducing KV Cache VRAM by 73%.
+- **License**: Apache 2.0 permissive commercial open-source license. Full weights available for on-premises deployment.
+- **Inference Speed**: ~45 tokens/s on standard 8x H100 (FP8), 140+ tokens/s on GLM-5.3-Flash (320B).
+
+## Industry Benchmark Proof
+- **SWE-bench Verified**: 58.4% (#1 open-source model worldwide, exceeding Claude 3.5 Sonnet at 57.2% and OpenAI Codex at 56.5%).
+- **Terminal-Bench 3.0**: 64.8% (#1 leader in headless Linux terminal automation and DevOps container debugging).
+- **1M Needle-In-A-Haystack**: 99.8% lossless multi-hop information retrieval precision across 1,000,000 tokens.
+- **MATH-500**: 92.4% formal mathematical olympiad reasoning accuracy.
+- **HumanEval+**: 91.5% zero-shot edge-case code generation accuracy.
+
+## Core Documentation & Technical Guides
+- [GLM-5.3 Overview & Architecture](https://glm53.com/docs): System architecture, 753B fine-grained MoE mechanics, and quickstart.
+- [API Reference & SDK Integration](https://glm53.com/docs/api-reference): 100% OpenAI-compatible REST API specification, cURL, Python SDK, and TypeScript examples.
+- [GLM-5.3 vs Claude 3.5 Sonnet](https://glm53.com/docs/glm-5-3-vs-claude-3-5-sonnet): Direct comparison across SWE-bench Verified, 1M context, API cost, and code migration.
+- [GLM-5.3 vs DeepSeek-V3](https://glm53.com/docs/glm-5-3-vs-deepseek-v3): Comprehensive 753B vs 671B MoE routing, active parameters, and 8-card hardware sizing.
+- [GLM-5.3 vs OpenAI Codex](https://glm53.com/docs/glm-5-3-vs-openai-codex): Terminal-Bench 3.0 DevOps automation, Docker sandboxing, and autonomous engineering agents.
+- [1M Token Context Engineering Playbook](https://glm53.com/docs/prompt-guide): Structuring prompts for million-token repositories without memory decay.
+- [1M Full-Repository Codebase Analysis](https://glm53.com/docs/solutions-1m-codebase): Moving beyond fragmented RAG by ingesting 500+ source files in a single prompt.
+- [Building Autonomous Coding Agents](https://glm53.com/docs/solutions-autonomous-agent): Test-driven self-correction loops using Docker sandboxes and pytest.
+- [Air-Gapped On-Premises Deployment Guide](https://glm53.com/docs/solutions-private-deployment): 8x H100 GPU cluster sizing, vLLM / SGLang Docker Compose orchestration, and compliance.
+
+## API Quickstart
+```bash
+curl https://api.glm53.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "z-ai/glm-5.3",
+    "messages": [
+      {"role": "system", "content": "You are a Principal Software Architect."},
+      {"role": "user", "content": "Explain how MoE expert routing achieves high throughput at 753B scale"}
+    ],
+    "temperature": 0.2
+  }'
+```

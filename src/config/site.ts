@@ -34,6 +34,16 @@ export const publicGlmRoutes = [
   '/pricing',
   '/docs',
   '/blog',
+  '/docs/api-reference',
+  '/docs/prompt-guide',
+  '/docs/swe-bench-debug',
+  '/docs/deployment-guide',
+  '/docs/glm-5-3-vs-claude-3-5-sonnet',
+  '/docs/glm-5-3-vs-deepseek-v3',
+  '/docs/glm-5-3-vs-openai-codex',
+  '/docs/solutions-1m-codebase',
+  '/docs/solutions-autonomous-agent',
+  '/docs/solutions-private-deployment',
 ] as const;
 
 export const publicWanRoutes = publicGlmRoutes;

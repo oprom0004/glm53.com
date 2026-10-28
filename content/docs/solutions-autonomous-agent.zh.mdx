@@ -1,0 +1,139 @@
+---
+title: "企业级自主编程 Agent 架构实战：基于 GLM-5.3 的自动化单元测试与闭环修复"
+description: "深入解析如何构建基于 GLM-5.3 的测试驱动型自主编程 Agent（Self-Correction Agent），利用 Docker 沙盒与 pytest 实现全自动 Issue 定位与回归修复。"
+---
+
+# 企业级自主编程 Agent 架构实战：基于 GLM-5.3 的自动化单元测试与闭环修复
+
+**核心结案结论**：单轮代码生成的正确率通常不足 35%，但在引入**测试驱动型自主修复闭环（Test-Driven Self-Correction Loop）**后，**GLM-5.3 在 SWE-bench Verified 榜单上将复杂 Issue 解决率大幅拉升至 58.4%（全球开源第一）**。通过将 GLM-5.3 的工具调用能力（Tool Calling）与隔离的 Docker 沙盒无缝对接，Agent 能够自主重现 Bug、提取报错 Traceback、反复修补源码并执行单测回归，直至通过原工程的所有回归测试。
+
+---
+
+## 一、自主编程 Agent 闭环控制流架构
+
+```
+                     ┌─────────────────────────────┐
+                     │  1. 用户输入 Issue 或 错误日志 │
+                     └──────────────┬──────────────┘
+                                    ▼
+                     ┌─────────────────────────────┐
+                     │ 2. GLM-5.3 读取全库 AST 拓扑 │ ◄── (100万 Token 装载源码)
+                     └──────────────┬──────────────┘
+                                    ▼
+                     ┌─────────────────────────────┐
+                     │ 3. 编写最小可复现单元测试    │
+                     └──────────────┬──────────────┘
+                                    ▼
+      ┌─────────────►┌─────────────────────────────┐
+      │              │ 4. Docker 沙盒执行 pytest    │
+      │              └──────────────┬──────────────┘
+      │                             ▼
+      │                      [测试是否通过?]
+      │                     /              \
+[测试失败: 捕获 Traceback] /                \ [测试通过: 绿灯]
+      │                   ▼                  ▼
+┌─────┴────────────────────────┐     ┌─────────────────────────────┐
+│ 5. GLM-5.3 分析错误并修改补丁 │     │ 6. 执行全量回归并输出 PR 补丁 │
+└──────────────────────────────┘     └─────────────────────────────┘
+```
+
+---
+
+## 二、生产级 Python Agent 控制器源码
+
+以下为可直接运行的自主修复 Agent 核心控制循环：
+
+```python
+import os
+import json
+import docker
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.glm53.com/v1",
+    api_key=os.environ.get("GLM_API_KEY")
+)
+docker_client = docker.from_env()
+
+def run_in_sandbox(container_name: str, cmd: str) -> str:
+    """在隔离的 Docker 容器中执行命令并返回标准输出与错误流"""
+    container = docker_client.containers.get(container_name)
+    exec_res = container.exec_run(cmd, workdir="/workspace")
+    return exec_res.output.decode("utf-8", errors="ignore")
+
+def autonomous_engineer_loop(repo_container: str, issue_description: str, max_turns: int = 6):
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "你是一位资深自主软件工程师。你有权限在沙盒中运行 Bash、查看代码和运行 pytest。"
+                "你的目标是：1. 编写单测重现 Bug；2. 修改源码修复 Bug；3. 运行 pytest 直至全部通过。"
+                "最终输出标准 unified git diff 补丁。"
+            )
+        },
+        {"role": "user", "content": f"请解决以下生产缺陷：\n{issue_description}"}
+    ]
+
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "run_command",
+                "description": "在代码沙盒容器中执行终端命令（如 pytest, cat, git diff）",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"cmd": {"type": "string", "description": "要执行的 Shell 指令"}},
+                    "required": ["cmd"]
+                }
+            }
+        }
+    ]
+
+    for turn in range(max_turns):
+        print(f"\n>>> [第 {turn + 1} 轮推理推演]...")
+        response = client.chat.completions.create(
+            model="z-ai/glm-5.3",
+            messages=messages,
+            tools=tools,
+            temperature=0.1
+        )
+        msg = response.choices[0].message
+        messages.append(msg)
+
+        if not msg.tool_calls:
+            print("\n>>> Agent 给出最终解决方案：\n", msg.content)
+            break
+
+        for tool_call in msg.tool_calls:
+            fn_name = tool_call.function.name
+            args = json.loads(tool_call.function.arguments)
+            if fn_name == "run_command":
+                cmd = args["cmd"]
+                print(f"    [沙盒执行]: {cmd}")
+                output = run_in_sandbox(repo_container, cmd)
+                messages.append({
+                    "role": "tool",
+                    "tool_call_id": tool_call.id,
+                    "content": output[:8000] # 截取前 8000 字符防止溢出
+                })
+
+if __name__ == "__main__":
+    # 示例调用
+    autonomous_engineer_loop(
+        repo_container="test_sandbox",
+        issue_description="在高并发时，ConnectionPool.acquire() 会抛出 ConnectionClosedError，请排查并在 pool.py 中修复。"
+    )
+```
+
+---
+
+## 三、Docker 安全沙盒隔离规范
+
+在企业环境部署自主 Agent 时，必须实施以下三层防御屏障：
+
+1. **容器无特权模式（Non-Root & Unprivileged）**：
+   禁止使用 `--privileged` 启动沙盒容器，以非 root 用户 `developer` 运行测试进程；
+2. **只读挂载与临时覆盖层（OverlayFS）**：
+   代码主仓库以只读（Read-Only）模式挂载，所有编译产生的临时文件与修改均写入内存临时挂载卷（tmpfs），便于秒级回滚与销毁；
+3. **网络断网模式（Internal Bridge）**：
+   在单测执行阶段使用 `--network none` 断开外网连接，彻底防止模型编写恶意脚本反向渗透外部网络。

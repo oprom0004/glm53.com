@@ -1,0 +1,133 @@
+---
+title: "Building Autonomous Software Engineering Agents with GLM-5.3: Test-Driven Self-Correction & Sandboxed Execution"
+description: "How to construct production-ready autonomous coding agents with GLM-5.3, leveraging Docker sandboxes, pytest loops, and test-driven self-correction to resolve real-world SWE-bench issues."
+---
+
+# Building Autonomous Software Engineering Agents with GLM-5.3: Test-Driven Self-Correction & Sandboxed Execution
+
+**Executive Verdict**: Single-turn code completion achieves less than a 35% success rate on non-trivial engineering tasks. However, when paired with a **Test-Driven Self-Correction Loop**, **GLM-5.3 elevates issue resolution to 58.4% on SWE-bench Verified**, leading all open-weights models globally. By bridging GLM-5.3's native tool-calling engine with headless Docker sandboxes, autonomous agents reproduce bugs, capture execution tracebacks, iterate on patches, and pass regression test suites completely unattended.
+
+---
+
+## 1. Autonomous Engineering Loop Control Flow
+
+```
+                     ┌─────────────────────────────┐
+                     │ 1. Capture Production Issue │
+                     └──────────────┬──────────────┘
+                                    ▼
+                     ┌─────────────────────────────┐
+                     │ 2. GLM-5.3 Analyzes Full AST│ ◄── (1M Context repo ingestion)
+                     └──────────────┬──────────────┘
+                                    ▼
+                     ┌─────────────────────────────┐
+                     │ 3. Author Minimal Test Case │
+                     └──────────────┬──────────────┘
+                                    ▼
+      ┌─────────────►┌─────────────────────────────┐
+      │              │ 4. Sandboxed pytest Run     │
+      │              └──────────────┬──────────────┘
+      │                             ▼
+      │                      [Tests Passing?]
+      │                     /                \
+[Tests Fail: Capture Trace] /                  \ [Tests Pass: Green Light]
+      │                   ▼                    ▼
+┌─────┴────────────────────────┐       ┌─────────────────────────────┐
+│ 5. GLM-5.3 Refines Diff Patch│       │ 6. Output Verified Git Diff │
+└──────────────────────────────┘       └─────────────────────────────┘
+```
+
+---
+
+## 2. Production Python Agent Controller Implementation
+
+Run an autonomous test-driven engineering agent with the script below:
+
+```python
+import os
+import json
+import docker
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://api.glm53.com/v1",
+    api_key=os.environ.get("GLM_API_KEY")
+)
+docker_client = docker.from_env()
+
+def run_in_sandbox(container_name: str, cmd: str) -> str:
+    """Execute command inside an isolated Docker runner and return output."""
+    container = docker_client.containers.get(container_name)
+    exec_res = container.exec_run(cmd, workdir="/workspace")
+    return exec_res.output.decode("utf-8", errors="ignore")
+
+def autonomous_engineer_loop(repo_container: str, issue_description: str, max_turns: int = 6):
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are an autonomous Principal Software Engineer. You have access to bash, pytest, and git in sandbox."
+                "Workflow: 1. Author a test reproducing the issue; 2. Patch source code; 3. Run pytest until green."
+                "Emit a standard unified git diff upon completion."
+            )
+        },
+        {"role": "user", "content": f"Resolve the following production issue:\n{issue_description}"}
+    ]
+
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "run_command",
+                "description": "Execute shell commands inside the code runner sandbox",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"cmd": {"type": "string", "description": "Shell command to run"}},
+                    "required": ["cmd"]
+                }
+            }
+        }
+    ]
+
+    for turn in range(max_turns):
+        print(f"\n>>> [Turn {turn + 1} Reasoning]...")
+        response = client.chat.completions.create(
+            model="z-ai/glm-5.3",
+            messages=messages,
+            tools=tools,
+            temperature=0.1
+        )
+        msg = response.choices[0].message
+        messages.append(msg)
+
+        if not msg.tool_calls:
+            print("\n>>> Agent emitted final solution:\n", msg.content)
+            break
+
+        for tool_call in msg.tool_calls:
+            fn_name = tool_call.function.name
+            args = json.loads(tool_call.function.arguments)
+            if fn_name == "run_command":
+                cmd = args["cmd"]
+                print(f"    [Sandbox Exec]: {cmd}")
+                output = run_in_sandbox(repo_container, cmd)
+                messages.append({
+                    "role": "tool",
+                    "tool_call_id": tool_call.id,
+                    "content": output[:8000] # Clip output to avoid token bloat
+                })
+
+if __name__ == "__main__":
+    autonomous_engineer_loop(
+        repo_container="test_sandbox",
+        issue_description="Intermittent ConnectionClosedError under peak load in ConnectionPool.acquire(). Diagnose and fix in pool.py."
+    )
+```
+
+---
+
+## 3. Sandboxed Container Security Isolation
+
+1. **Non-Root & Unprivileged Containers**: Launch sandboxes without `--privileged`, executing processes under an unprivileged `developer` UID;
+2. **Read-Only Root Mounts**: Mount the target repository as read-only, directing temporary test caches into memory-backed `tmpfs` mounts for instant teardown;
+3. **Network Air-Gapping**: Execute unit test suites with `--network none` to prevent unintended outbound socket calls during code evaluation.

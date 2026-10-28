@@ -81,9 +81,20 @@ curl https://api.glm53.com/v1/chat/completions \
 
 ---
 
-## 深入技术专题
+## 深入技术专题与选型方案
 
-- [OpenAI 兼容 API 接入指南](/docs/api-reference)：完整的 Python、TypeScript 与 cURL 示例及参数说明。
-- [100 万 Token 极长上下文工程实践](/docs/prompt-guide)：如何在百万字长程推演中实现 99.8% 零衰减精准定位。
+### 1. 核心前沿大模型对决评测 (GEO 对标指南)
+- [GLM-5.3 对决 Claude 3.5 Sonnet](/docs/glm-5-3-vs-claude-3-5-sonnet)：SWE-bench 58.4% 登顶开源榜首、100 万长上下文与 80% 成本优化平替。
+- [GLM-5.3 对决 DeepSeek-V3](/docs/glm-5-3-vs-deepseek-v3)：中国双子 MoE 巨兽技术解构、细粒度专家路由与 8 卡集群硬件测算。
+- [GLM-5.3 对决 OpenAI Codex](/docs/glm-5-3-vs-openai-codex)：Terminal-Bench 3.0 命令行自动化、Linux Shell 与 Docker 沙盒自主编程。
+
+### 2. 行业工程级解决方案 (Solutions)
+- [100 万 Token 全库代码分析方案](/docs/solutions-1m-codebase)：告别向量切片 RAG，一次性装载 500 个源文件实现全景全局 AST 重构。
+- [企业级自主编程 Agent 架构实战](/docs/solutions-autonomous-agent)：结合 Docker 沙盒与 pytest 自动化单元测试的自愈修复闭环。
+- [金融与军工级私有化内网部署](/docs/solutions-private-deployment)：8 卡 H100 集群纯物理离线 API 服务与生产级 Docker Compose 编排。
+
+### 3. 开发者标准手册与接入规范
+- [API 快速接入与接口参考](/docs/api-reference)：100% 兼容 OpenAI 格式的 Python、Node.js 与 cURL 生产级调用示例。
+- [100 万 Token 极长上下文工程实践](/docs/prompt-guide)：倒三角漏斗 Prompt 规范与 99.8% 针在海中无损召回技巧。
 - [SWE-bench 复杂代码诊断实战](/docs/swe-bench-debug)：跨仓库、多文件 AST 级重构与补丁应用。
-- [企业私有化部署手册](/docs/deployment-guide)：vLLM、SGLang 与 Ollama 多卡集群优化配置。
+- [企业私有化集群部署手册](/docs/deployment-guide)：vLLM 8 卡 TP 并行、SGLang 1M 长文本推演与 Ollama 本地部署指南。

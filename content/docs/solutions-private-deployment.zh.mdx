@@ -1,0 +1,103 @@
+---
+title: "金融与军工级私有化内网部署：8 卡 H100 集群与纯离线 API 服务落地指南"
+description: "专为金融、军工、高端制造等强数据安全监管企业打造的 GLM-5.3 物理离线私有化集群部署方案，提供 8 卡 H100 硬件 BOM 清单与 docker-compose 生产编排。"
+---
+
+# 金融与军工级私有化内网部署：8 卡 H100 集群与纯离线 API 服务落地指南
+
+**核心结案结论**：对于涉及银行交易流水、军工机密图纸、核心知识产权及医疗患者敏感记录的行业企业，将源代码或业务提示词上传至公网商业 API 属于重大合规违规行为。**GLM-5.3 凭借全量 Apache 2.0 商业开源许可，支持在完全物理断网（Air-Gapped）的私有局域网集群中独立运行**。单台标准的 8x NVIDIA H100 / H200 服务器即可完整承载 753B MoE 旗舰版的高并发推理，为企业打造零数据外泄的自主专属 AI 基础设施。
+
+---
+
+## 一、私有化集群硬件选型 BOM 清单
+
+| 硬件子系统 | 工业级推荐配置 | 数量 | 技术规格与选型原因 |
+| :--- | :--- | :--- | :--- |
+| **GPU 计算加速卡** | **NVIDIA H100 (80GB SXM5) 或 H200 (141GB)** | 8 卡 | 满足 753B 权重（约 750GB FP8）与 1M 上下文 KV Cache 显存 |
+| **GPU 互联带宽** | **NVLink 4.0 (900 GB/s 双向)** | 原生背板 | 消除 Tensor Parallelism (TP=8) 时的卡间通信瓶颈 |
+| **服务器主板与 CPU** | 双路 Intel Xeon Platinum 8480+ 或 AMD EPYC 9654 | 2 颗 | 提供 128 核以上高频计算，加速模型预处理 |
+| **系统 Host 内存** | **1.5TB DDR5 4800MHz ECC (Registered)** | 24 条 | 充足内存用于系统级权重加载与长文本二级缓存卸载 |
+| **高速系统存储** | **4x 3.84TB NVMe PCIe 5.0 SSD (RAID 10)** | 4 块 | 满足模型权重 10 秒级极速加载与写盘审计 |
+| **物理机房供电与散热** | **10.2 kW 独立机柜供电 · 冷通道封闭水冷或强力风冷** | 1 柜 | 8 卡 SXM5 满负荷 TDP 约为 5600W~7000W |
+
+---
+
+## 二、生产级 Docker Compose 纯离线编排
+
+以下配置可直接置于内网服务器上运行，整合了 vLLM 高并发推理引擎、Prometheus 性能监控与 Nginx API 鉴权网关：
+
+```yaml
+version: '3.8'
+
+services:
+  # 1. GLM-5.3 vLLM 核心推理引擎
+  glm-engine:
+    image: vllm/vllm-openai:v0.6.3
+    container_name: glm53_inference_core
+    restart: always
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 8
+              capabilities: [gpu]
+    environment:
+      - CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+      - VLLM_WORKER_MULTIPROC_METHOD=spawn
+    volumes:
+      - /data/models/zhipuai/glm-5.3:/model_weights:ro
+    command: >
+      --model /model_weights
+      --tensor-parallel-size 8
+      --quantization fp8
+      --max-model-len 1000000
+      --gpu-memory-utilization 0.95
+      --trust-remote-code
+      --port 8000
+      --enable-chunked-prefill
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. 企业内部 API 鉴权与负载均衡反向代理
+  api-gateway:
+    image: nginx:alpine
+    container_name: glm53_api_gateway
+    restart: always
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      glm-engine:
+        condition: service_healthy
+
+  # 3. 集群吞吐与显存监控 (Prometheus)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: glm53_prometheus
+    restart: always
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+```
+
+---
+
+## 三、网络安全与数据合规保障清单
+
+1. **完全物理断网隔离（Air-Gapped Network）**：
+   机房网口仅接入企业专有内网 VLAN，物理拔除或防火墙封锁所有出向（Outbound）公网访问，杜绝任何外部未授权回传；
+2. **企业 RBAC 权限与密钥分权**：
+   在 Nginx 网关层挂载企业自建 LDAP / Active Directory，针对研发、测试、安全等不同部门分发专属 API Key，并实施每秒并发（Rate Limit）隔离；
+3. **敏感词过滤与审计留痕**：
+   在网关请求前置钩子中接入轻量级 DLP（Data Loss Prevention）敏感信息检测，所有交互日志经脱敏后加密落盘并保存不少于 180 天以满足安全审计要求。

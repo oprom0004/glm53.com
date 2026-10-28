@@ -10,5 +10,5 @@ test('sitemap includes localized public GLM routes and excludes private routes',
     assert.ok(urls.includes(`https://glm53.example${path === '/' ? '' : path}`));
     assert.ok(urls.includes(`https://glm53.example/zh${path === '/' ? '' : path}`));
   }
-  assert.doesNotMatch(urls.join('\n'), /admin|settings|api|auth-callback/);
+  assert.doesNotMatch(urls.join('\n'), /\/(?:admin|settings|api\/|auth-callback)/);
 });

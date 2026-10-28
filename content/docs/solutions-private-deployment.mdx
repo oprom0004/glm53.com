@@ -1,0 +1,100 @@
+---
+title: "Air-Gapped Enterprise Private Deployment: 8x H100 Cluster Sizing, vLLM / SGLang Orchestration & Security Compliance"
+description: "A complete production guide for deploying GLM-5.3 in fully air-gapped corporate data centers, covering 8x H100 hardware BOM sizing, docker-compose orchestration, and regulatory compliance."
+---
+
+# Air-Gapped Enterprise Private Deployment: 8x H100 Cluster Sizing, vLLM / SGLang Orchestration & Security Compliance
+
+**Executive Verdict**: In highly regulated sectors such as banking, defense, healthcare, and enterprise software IP, uploading proprietary codebases or sensitive prompts to public third-party commercial APIs represents a severe regulatory and operational violation. **Under the permissive Apache 2.0 license, GLM-5.3 can be hosted entirely on-premises inside fully air-gapped data centers**. A single standard 8x NVIDIA H100/H200 node completely hosts the 753B MoE Flagship model with zero outbound network egress.
+
+---
+
+## 1. Enterprise Hardware Bill of Materials (BOM)
+
+| Subsystem | Industrial Sizing Specification | Qty | Technical Rationale |
+| :--- | :--- | :--- | :--- |
+| **GPU Accelerators** | **NVIDIA H100 (80GB SXM5) or H200 (141GB)** | 8x | Houses 750GB FP8 weights + 1M KV cache headroom |
+| **GPU Interconnect** | **NVLink 4.0 (900 GB/s bidirectional)** | Integrated | Eliminates TP=8 all-reduce intra-node bottlenecks |
+| **Dual CPU Sockets** | Dual Intel Xeon Platinum 8480+ / AMD EPYC 9654 | 2x | 128+ high-clock cores to accelerate prompt pre-processing |
+| **System Host RAM** | **1.5TB DDR5 4800MHz ECC (Registered)** | 24x | High-capacity buffer for cold-start and memory offloading |
+| **High-Speed Storage** | **4x 3.84TB NVMe PCIe 5.0 SSD (RAID 10)** | 4x | Sub-15s model weight loading from cold storage |
+| **Rack Power & Cooling** | **10.2 kW Dedicated Rack · Liquid / Forced Air** | 1 Rack | 8x SXM5 GPUs dissipate ~5600W–7000W under 100% load |
+
+---
+
+## 2. Production Docker Compose Air-Gapped Stack
+
+Deploy the following `docker-compose.yml` to spin up a fully isolated, production-ready cluster with vLLM, an Nginx reverse proxy, and Prometheus metrics:
+
+```yaml
+version: '3.8'
+
+services:
+  # 1. GLM-5.3 High-Throughput vLLM Core
+  glm-engine:
+    image: vllm/vllm-openai:v0.6.3
+    container_name: glm53_inference_core
+    restart: always
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 8
+              capabilities: [gpu]
+    environment:
+      - CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+      - VLLM_WORKER_MULTIPROC_METHOD=spawn
+    volumes:
+      - /data/models/zhipuai/glm-5.3:/model_weights:ro
+    command: >
+      --model /model_weights
+      --tensor-parallel-size 8
+      --quantization fp8
+      --max-model-len 1000000
+      --gpu-memory-utilization 0.95
+      --trust-remote-code
+      --port 8000
+      --enable-chunked-prefill
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Reverse Proxy & RBAC Gateway
+  api-gateway:
+    image: nginx:alpine
+    container_name: glm53_api_gateway
+    restart: always
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      glm-engine:
+        condition: service_healthy
+
+  # 3. Prometheus Telemetry
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: glm53_prometheus
+    restart: always
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+```
+
+---
+
+## 3. Security Hardening & Regulatory Checklist
+
+1. **Physical Air-Gapping**: Assign server interfaces strictly to isolated corporate VLANs. All outbound public internet routing must be blocked at physical firewall boundaries;
+2. **Enterprise RBAC & Key Isolation**: Authenticate via corporate LDAP / Active Directory at the gateway, enforcing departmental concurrency quotas and access controls;
+3. **Data Loss Prevention (DLP) & Audit Trails**: Pre-screen payloads for internal API secrets or PII, archiving encrypted query logs for a minimum of 180 days to meet compliance audits.
